@@ -4,10 +4,10 @@ Welcome to the course website.
 
 ## Course Materials
 
-- [Course Syllabus (PDF)](syllabus.pdf)
+- [Course Syllabus (PDF)](Syllabus.MonetaryTheory.Fall2025.pdf)
 
 ## Important Information
 
 - Instructor: Prof. Bigio
-- Term: 2025
+- Term: Fall 2025
 
