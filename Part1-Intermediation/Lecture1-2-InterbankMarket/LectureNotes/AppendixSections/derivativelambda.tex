@@ -1,0 +1,55 @@
+\begin{proof}
+Recall that for the Leontief matching function:
+\[
+\chi^{\pm} = (r^{w}-r^{m})\cdot q^{\pm}(\bar{\theta}) \quad \text{where} \quad q^{\pm}(\bar{\theta}) = \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta^{\mp\eta}}{\bar{\theta}-1}
+\]
+
+The parameter $\bar{\lambda}$ affects $\chi^{\pm}$ only through $\bar{\theta}$, where:
+- For $\theta > 1$: $\bar{\theta} = 1 + (\theta-1)e^{\bar{\lambda}} > \theta$, so $\frac{\partial\bar{\theta}}{\partial\bar{\lambda}} > 0$
+- For $\theta < 1$: $\bar{\theta} = \theta/[\theta + (1-\theta)e^{\bar{\lambda}}] < \theta$, so $\frac{\partial\bar{\theta}}{\partial\bar{\lambda}} < 0$
+
+\textbf{Step 1: Derivatives with respect to $\bar{\theta}$}
+
+Taking derivatives:
+\[
+q^{\pm}_{\bar{\theta}}(\bar{\theta}) = q^{\pm}(\bar{\theta})\left(\frac{\eta\bar{\theta}^{\eta-1}\theta^{\mp\eta} + (1-\eta)\bar{\theta}^{\eta}\theta^{\mp\eta} - 1}{(\bar{\theta} - \bar{\theta}^{\eta}\theta^{\mp\eta})(\bar{\theta}-1)}\right)
+\]
+
+The sign of $q^{\pm}_{\bar{\theta}}$ depends on whether:
+\[
+\bar{\theta}^{\eta}\theta^{\mp\eta}[(1-\eta) + \eta\bar{\theta}^{-1}] > 1
+\]
+
+\textbf{Case (i): $\theta < 1$}
+
+Here $\bar{\theta} \in (0, \theta]$. 
+
+For $q^{+}_{\bar{\theta}}$: At $\bar{\theta} = \theta$, the condition becomes $\theta = 1$, which is violated. Thus $q^{+}_{\bar{\theta}}$ changes sign, making $\chi^{+}$ non-monotonic in $\bar{\lambda}$.
+
+For $q^{-}_{\bar{\theta}}$: The condition $\theta^{-\eta}[(1-\eta)\bar{\theta} + \eta] > \bar{\theta}^{1-\eta}$ holds for all $\bar{\theta} \in (0,\theta]$ since at $\bar{\theta} = \theta$ we have $\eta(1-\theta) > 0$. Thus $q^{-}_{\bar{\theta}} > 0$.
+
+Since $\frac{\partial\bar{\theta}}{\partial\bar{\lambda}} < 0$ when $\theta < 1$:
+\[
+\frac{\partial\chi^{-}}{\partial\bar{\lambda}} = (r^{w}-r^{m}) \cdot q^{-}_{\bar{\theta}} \cdot \frac{\partial\bar{\theta}}{\partial\bar{\lambda}} < 0
+\]
+
+For the average rate: $\overline{r}^{f} = r^{m} + (1-\eta)\chi^{-} + \eta\chi^{+}$. Since $\chi^{-}$ decreases and dominates (as the short side), $\overline{r}^{f}$ decreases.
+
+\textbf{Case (ii): $\theta > 1$}
+
+By symmetry with Case (i): $\chi^{+}$ is monotonically increasing, $\chi^{-}$ is non-monotonic, and $\overline{r}^{f}$ is increasing in $\bar{\lambda}$.
+
+\textbf{Case (iii): $\theta = 1$}
+
+When $\theta = 1$, we have $\bar{\theta} = 1$ for all $\bar{\lambda}$, so $\overline{r}^{f} = r^{m} + (1-\eta)(r^{w}-r^{m})$ is constant.
+
+However, the matching probabilities change: $\Psi^{\pm} = 1 - e^{-\bar{\lambda}}$, so $\frac{\partial\Psi^{\pm}}{\partial\bar{\lambda}} = e^{-\bar{\lambda}} > 0$.
+
+Using $\chi^{+} = \Psi^{+}(\overline{r}^{f} - r^{m})$ and $\chi^{-} = (r^{w} - r^{m}) - \Psi^{-}(r^{w} - \overline{r}^{f})$:
+\[
+\frac{\partial\chi^{+}}{\partial\bar{\lambda}} = (1-\eta)(r^{w}-r^{m})e^{-\bar{\lambda}} > 0
+\]
+\[
+\frac{\partial\chi^{-}}{\partial\bar{\lambda}} = -\eta(r^{w}-r^{m})e^{-\bar{\lambda}} < 0
+\]
+\end{proof}

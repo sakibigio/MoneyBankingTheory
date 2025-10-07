@@ -1,0 +1,16 @@
+\begin{proof}
+When $\theta_0 = 1$, market tightness remains constant ($\theta_{\tau} = 1$ for all $\tau$)--- by Proposition~\ref{prop:theta.ode.props}. Thus, $\psi_{\tau}^{+} = \psi_{\tau}^{-} = \bar{\lambda}$ for all $\tau$. From Proposition~\ref{P_ContinuousRates}, the joint surplus is:
+\[
+\Sigma_{\tau} = (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[\eta\bar{\lambda} + (1-\eta)\bar{\lambda}]ds\right) = (r^{w} - r^{m})e^{-\bar{\lambda}(1-\tau)}.
+\]
+Hence, the outside options simplify to:
+\begin{align*}
+\chi_{\tau}^{+} &= (r^{w} - r^{m})\int_{\tau}^{1}(1-\eta)\bar{\lambda}e^{-\bar{\lambda}(1-y)}dy = (1-\eta)(r^{w} - r^{m})(1 - e^{-\bar{\lambda}(1-\tau)})\\
+\chi_{\tau}^{-} &= (r^{w} - r^{m})\left[1 - \int_{\tau}^{1}\eta\bar{\lambda}e^{-\bar{\lambda}(1-y)}dy\right] = (r^{w} - r^{m}) - \eta(r^{w} - r^{m})(1 - e^{-\bar{\lambda}(1-\tau)}).
+\end{align*}
+Noting that $(r^{w} - r^{m})(1 - e^{-\bar{\lambda}(1-\tau)}) = (r^{w} - r^{m}) - \Sigma_{\tau}$ we have:
+\[
+\chi_{\tau}^{+} = (1-\eta)[(r^{w} - r^{m}) - \Sigma_{\tau}], \quad \chi_{\tau}^{-} = (r^{w} - r^{m}) - \eta[(r^{w} - r^{m}) - \Sigma_{\tau}].
+\]
+Thus, the OTC rates across rounds must be constant: $r_{\tau}^{f} = r^{m} + (1-\eta)\chi_{\tau}^{-} + \eta\chi_{\tau}^{+} = r^{m} + (1-\eta)(r^{w} - r^{m})$. Since the calculations are valid for any $\tau\in\left[0,1\right]$, including zero $\tau=0$, the corollary follows from these calculations. 
+\end{proof}

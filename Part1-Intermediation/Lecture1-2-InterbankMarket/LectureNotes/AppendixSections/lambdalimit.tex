@@ -1,0 +1,36 @@
+\begin{proof}
+\textbf{Part 1: Static limit ($\bar{\lambda} \to 0$).} As $\bar{\lambda} \to 0$, both matching intensities vanish: $\psi_{\tau}^{\pm}  \to 0$. From Proposition~\ref{P_ContinuousRates}:
+\begin{align*}
+\chi^{+} &= (r^{w} - r^{m})\int_{0}^{1}(1-\eta)\psi_{y}^{+}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy \to 0\\
+\chi^{-} &= (r^{w} - r^{m})\left[1 - \int_{0}^{1}\eta\psi_{y}^{-}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy\right] \to r^{w} - r^{m}.
+\end{align*}
+Therefore, by the dilation property, all rates must equal: $\overline{r}^{f} \to r^{m} + (1-\eta)(r^{w} - r^{m})$.
+
+\textbf{Part 2: Walrasian limit ($\bar{\lambda} \to \infty$).} First, consider a balance market where $\theta = 1$. As $\bar{\lambda} \to \infty$, $\Sigma_0\to0$ as $\Psi^{\pm}\to0$. From Corollary~\ref{cor:balanced}, it follows immediately that:
+\[
+\chi^{\pm} \to (r^{w} - r^{m})(1-\eta),\quad \bar{r}^f =r^m+ (1-\eta)(r^{w} - r^{m}).
+\]
+
+When the market is unbalanced, we must be more careful. Start with $\theta > 1$. As $\bar{\lambda} \to \infty$, the short (surplus) side matches instantly while the long (deficit) side faces rationing. This property follows because $\dot{\theta}_{\tau} = \bar{\lambda}\gamma(\theta_{\tau})(\theta_{\tau} - 1) > 0$, implying that tightness explodes: $\theta_{\tau} \to \infty.$
+Thus, surplus traders match instantly: $\Psi^{+} \to 1$ whereas $\Psi^{-} = S^{+}/S^{-} \to \theta_{0}^{-1}.$
+
+Hence, using the consistency property (Proposition \ref{P_Consistency}), we have:
+\[
+\chi_0^{+} \to \bar{r}^f - r^{m}, \quad \chi_0^{-} \to (\bar{r}^f - r^{m})\theta_{0}^{-1}+(r^w-r^m)(1-\theta_{0}^{-1}).
+\]
+Recall from Proposition \ref{P_ContinuousRates} that the bargained rate at $\tau=0$ satisfies:
+\[
+r_0-r^m=(1-\eta)\chi^{-}_0+\eta\chi^{+}_0. 
+\]
+Thus, as efficiency increases to infinity:
+\[
+r^f_0-r^m\to(1-\eta)((\bar{r}^f - r^{m})\theta_{0}^{-1}+(r^w-r^m)(1-\theta_{0}^{-1}))+\eta(\bar{r}^f - r^{m}).
+\]
+We further know that as $\bar{\lambda}\to \infty$, trades occur faster, i.e., matching intensities explode. Hence, the distribution of trade concentrates toward the earliest rounds and, thus, the volume-weighted average rate converges to the first-trading round rate: $\bar{r}^f \to r^f_0$. Therefore, the limit above requires:
+\[
+(r^f_0-r^m)(1-\eta)(1-\theta_{0}^{-1})\to(r^w-r^m)(1-\eta)(1-\theta_{0}^{-1})\Leftrightarrow r^f_0\to r^w.
+\]
+By the dilation property, $r^f_\tau\to r^w,\forall \tau$. Thus, we conclude that when $\theta>1$, as $\bar{\lambda}\to\infty$, we have $\chi^{\pm} \to r^w - r^{m}$.
+
+When $\theta<1$, by the symmetry property (Proposition~\ref{prop:symmetry}),  $\chi^{\pm} = 0, \overline{r}^{f} = r^{m}.$
+\end{proof}

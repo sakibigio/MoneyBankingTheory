@@ -1,0 +1,39 @@
+%% SB: double check the rate is ok. 
+\begin{proof}
+\textbf{Step 1: Symmetry of market tightness.} From the ODE in Lemma~\ref{P_ContinuousProbabilities}:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\gamma(\theta_{\tau}^{-1}) - \gamma(\theta_{\tau})]
+\]
+Define, $\phi_{\tau} \equiv \theta_{\tau}^{-1}$, we have $\dot{\phi}_{\tau} = -\theta_{\tau}^{-2}\dot{\theta}_{\tau}$. Substituting:
+\[
+\dot{\phi}_{\tau} = -\phi_{\tau}^{2} \cdot (-\bar{\lambda}\phi_{\tau}^{-1})[\gamma(\phi_{\tau}) - \gamma(\phi_{\tau}^{-1})] = -\bar{\lambda}\phi_{\tau}[\gamma(\phi_{\tau}^{-1}) - \gamma(\phi_{\tau})].
+\]
+This is the same ODE as for $\theta$. Hence, if $\theta_\tau$ solves it with initial condition $\theta_0$, then $\theta_\tau^{-1}$ solves it with initial condition $\theta_0^{-1}$.
+
+\textbf{Step 2: Symmetry of matching intensities.} By definition:
+\[
+\psi^{+}(\theta) = \bar{\lambda}\gamma(\theta) = \bar{\lambda}\theta\gamma(\theta^{-1}) = \theta\gamma(\theta^{-1}) = \psi^{-}(\theta^{-1}).
+\]
+
+\textbf{Step 3: Symmetry of the spread.} From Proposition~\ref{P_ContinuousRates}:
+\[
+\Sigma_{\tau}(\theta, \eta) = (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[\eta\psi_{s}^{-}(\theta_s) + (1-\eta)\psi_{s}^{+}(\theta_s)]ds\right).
+\]
+
+Using $\psi^{+}(\theta) = \psi^{-}(\theta^{-1})$ and $\psi^{-}(\theta) = \psi^{+}(\theta^{-1})$:
+\begin{align}
+\Sigma_{\tau}(\theta^{-1}, 1-\eta) &= (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[(1-\eta)\psi_{s}^{-}(\theta_s^{-1}) + \eta\psi_{s}^{+}(\theta_s^{-1})]ds\right)\\
+&= (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[(1-\eta)\psi_{s}^{+}(\theta_s) + \eta\psi_{s}^{-}(\theta_s)]ds\right)\\
+&= \Sigma_{\tau}(\theta, \eta)
+\end{align}
+
+\textbf{Step 4: Symmetry of convenience yields.} From the expressions in Proposition~\ref{P_ContinuousRates}:
+\begin{align*}
+\chi_{\tau}^{+}(\theta^{-1}, 1-\eta) &= (r^{w} - r^{m})\int_{\tau}^{1}\eta\psi_{y}^{+}(\theta_y^{-1})\Sigma_{y}(\theta^{-1}, 1-\eta)dy\\
+&= (r^{w} - r^{m})\int_{\tau}^{1}\eta\psi_{y}^{-}(\theta_y)\Sigma_{y}(\theta, \eta)dy\\
+&= (r^{w} - r^{m}) - \chi_{\tau}^{-}(\theta, \eta).
+\end{align*}
+Thus, $\chi_{\tau}^{-}(\theta^{-1}, 1-\eta) = (r^{w} - r^{m}) - \chi_{\tau}^{+}(\theta, \eta)$.
+
+\textbf{Step 5: Symmetry of the OTC rate.} Using $r^{f} = r^{m} + (1-\eta)\chi^{-} + \eta\chi^{+}$ the symmetry follows from the symmetry of outside options.
+\end{proof}

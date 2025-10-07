@@ -1,0 +1,80 @@
+We proceed to derive the integral form in the proposition. 
+\begin{proof}
+\textbf{Step 1: Continuous-time limit of the recursions.} From the discrete-rounds recursion:
+\[
+\chi_{n}^{\pm} = \psi_{n+1}^{\pm}(r_{n+1}^{f} - r^{m}) + (1-\psi_{n+1}^{\pm})\chi_{n+1}^{\pm}
+\]
+we can rearrange terms to obtain: $\chi_{n+1}^{\pm} - \chi_{n}^{\pm} = \psi_{n+1}^{\pm}[\chi_{n+1}^{\pm} - (r_{n+1}^{f} - r^{m})].$
+Dividing both sides by $\Delta$, substituting the discrete round probabilities for the corresponding intensities, and the change of variables $\Delta = 1/N$ and $\tau = n/N$, we have:
+\[\frac{\chi_{\tau+\Delta}^{\pm} - \chi_{\tau}^{\pm}}{\Delta} = \frac{\psi^{\pm}_{\tau+\Delta}}{\Delta}[\chi_{\tau+\Delta}^{\pm} - (r_{\tau+\Delta}^{f} - r^{m})].
+\]
+Now, recall that:
+\[
+\lim_{\Delta \to 0}\frac{\psi^{\pm}_{\tau+\Delta}}{\Delta}=\lim_{\Delta \to 0}\frac{\lambda_N(\Delta)}{\Delta}\cdot G(S^{+}_{n},S^{-}_{n})=\bar{\lambda}G(S^{+}_{\tau},S^{-}_{\tau}).
+\]
+Thus, taking $\Delta \to 0$ we obtain an ODE for the outside options:
+\[
+\dot{\chi}_{\tau}^{\pm} = \psi_{\tau}^{\pm}[\chi_{\tau}^{\pm} - (r_{\tau}^{f} - r^{m})].
+\]
+
+\textbf{Step 2: Substituting the bargained rate.} From Proposition \ref{P_LimitingRates}, after the change of index from rounds to time
+\[
+r_{\tau}^{f} = r^{m} + (1-\eta)\chi_{\tau}^{-} + \eta\chi_{\tau}^{+}.\]
+Hence, the ODE for the outside options becomes a coupled system:
+\begin{align}
+\label{eq:appendix.ODEsystem}
+\dot{\chi}_{\tau}^{+} &= \psi_{\tau}^{+}[\chi_{\tau}^{+} - (1-\eta)\chi_{\tau}^{-} - \eta\chi_{\tau}^{+}] = -(1-\eta)\psi_{\tau}^{+}(\chi_{\tau}^{-} - \chi_{\tau}^{+})\\
+\label{eq:appendix.ODEsystem2}
+\dot{\chi}_{\tau}^{-} &= \psi_{\tau}^{-}[\chi_{\tau}^{-} - (1-\eta)\chi_{\tau}^{-} - \eta\chi_{\tau}^{+}] = \eta\psi_{\tau}^{-}(\chi_{\tau}^{-} - \chi_{\tau}^{+}).
+\end{align}
+
+\textbf{Step 3: Solving for the joint surplus.} Define $\Sigma_{\tau} \equiv \chi_{\tau}^{-} - \chi_{\tau}^{+}$ as the joint surplus. Then, the joint surplus must satisfy the following ODE:
+\[
+\dot{\Sigma}_{\tau} = \dot{\chi}_{\tau}^{-} - \dot{\chi}_{\tau}^{+} = [\eta\psi_{\tau}^{-} + (1-\eta)\psi_{\tau}^{+}]\Sigma_{\tau}.
+\]
+This is a linear ODE with backward solution:
+\[
+\Sigma_{\tau} = \Sigma_1 \exp\left(-\int_{\tau}^{1}[\eta\psi_{s}^{-} + (1-\eta)\psi_{s}^{+}]ds\right).
+\]
+Since the terminal conditions for the outside options are $\chi_{1}^{+} = 0$ and $\chi_{1}^{-} = r^{w} - r^{m}$, the terminal condition for the ODE is given by $\Sigma_1 = r^{w} - r^{m}$. Thus,
+\begin{equation}
+\label{eq:appendix.surplusintegral}
+\Sigma_{\tau} = (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[\eta\psi_{s}^{-} + (1-\eta)\psi_{s}^{+}]ds\right).
+\end{equation}
+
+\textbf{Step 4: Solving for individual components.} Substituting the integral in \eqref{eq:appendix.surplusintegral} back into the ODE system \eqref{eq:appendix.ODEsystem}-\eqref{eq:appendix.ODEsystem2}:
+\begin{equation*}
+\dot{\chi}_{\tau}^{+} = -(1-\eta)\psi_{\tau}^{+}\Sigma_{\tau}, \quad\quad
+\dot{\chi}_{\tau}^{-} = \eta\psi_{\tau}^{-}\Sigma_{\tau}.
+\end{equation*}
+
+Integrating from $\tau$ to 1 and using the terminal conditions:
+\begin{equation*}
+\chi_{\tau}^{+} - 0 = \int_{\tau}^{1}(1-\eta)\psi_{y}^{+}\Sigma_{y}dy,\quad
+\chi_{\tau}^{-} - (r^{w} - r^{m}) = -\int_{\tau}^{1}\eta\psi_{y}^{-}\Sigma_{y}dy.
+\end{equation*}
+
+Substituting \eqref{eq:appendix.surplusintegral}, the expression for $\Sigma_y$:
+\begin{align*}
+\chi_{\tau}^{+} &= (r^{w} - r^{m})\int_{\tau}^{1}(1-\eta)\psi_{y}^{+}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy\\
+\chi_{\tau}^{-} &= (r^{w} - r^{m})\left[1 - \int_{\tau}^{1}\eta\psi_{y}^{-}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy\right].
+\end{align*}
+The convenience-yield coefficients are defined as the $\tau=0$ values of the integrals above: $\chi^{\pm} = \chi_{0}^{\pm}$, and the OTC rate is $r_{\tau}^{f} = r^{m} + (1-\eta)\chi_{\tau}^{-} + \eta\chi_{\tau}^{+}$.
+\end{proof}
+
+To verify that our solution is consistent with the discrete case, we trace the relationship between matching intensities and probabilities in continuous time. The matching intensities $\psi_{\tau}^{\pm}$ represent the instantaneous matching rate per unit time. These are intensities, but cannot be interpreted directly as PDFs. The probability of not matching from time 0 to $\tau$ is therefore:
+\[
+1-F^{\pm}(\tau) = \exp\left(-\int_0^{\tau} \psi_s^{\pm} ds\right),
+\]
+where the CDF of matching by time $\tau$ is $F^{\pm}(\tau) \equiv 1 - \exp\left(-\int_0^{\tau} \psi_s^{\pm} ds\right)$. Hence, the PDF (probability density of matching at time $\tau$) is:
+\[
+f^{\pm}(\tau) = \frac{dF^{\pm}}{d\tau} = \psi_{\tau}^{\pm} \exp\left(-\int_0^{\tau} \psi_s^{\pm} ds\right) = \psi_{\tau}^{\pm}(1 - F^{\pm}(\tau)).
+\]
+This confirms the hazard rate relationship: $\psi_{\tau}^{\pm} = f^{\pm}(\tau)/(1-F^{\pm}(\tau))$.
+The volume-weighted average rate is $\overline{r}^{f} = \int_0^1 \varkappa_{\tau}^{\pm} r_{\tau}^{f} d\tau$ where the weights $\varkappa_{\tau}^{\pm} = f^{\pm}(\tau)/\Psi^{\pm}$ represent the fraction of total volume traded at time $\tau$.
+
+\textbf{Verification:} Integrating the ODE $\dot{\chi}_{\tau}^{-} = \psi_{\tau}^{-}[\chi_{\tau}^{-} - (r_{\tau}^{f} - r^{m})]$ multiplied by $(1-F^{-}(\tau))$ and using integration by parts:
+\[
+\Psi^{-}(\overline{r}^{f} - r^{m}) = \chi_{0}^{-} - (1-\Psi^{-})(r^{w} - r^{m})
+\]
+which confirms $\chi_{0}^{-} = \Psi^{-}(\overline{r}^{f} - r^{m}) + (1-\Psi^{-})(r^{w} - r^{m}) = \chi^{-}$. Similarly for $\chi_{0}^{+} = \chi^{+}$. This is the same consistency condition as in the discrete rounds. 

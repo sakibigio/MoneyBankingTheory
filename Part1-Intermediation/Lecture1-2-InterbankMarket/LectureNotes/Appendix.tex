@@ -1,0 +1,2048 @@
+
+% \section{Proofs of Proposition \protect\ref{P_LimitingRates} and Proposition
+% \protect\ref{P_Consistency}}
+
+% \global\long\def\theequation{A.\arabic{equation}}
+% \setcounter{equation}{0}
+% \global\long\def\thedefn{A.\arabic{definition}}
+% \setcounter{definition}{0}
+
+% \small
+
+% { The proof of both propositions is presented in sequence.
+% We begin with an auxiliary Lemma.}{ Market tightness follows a differential equation as
+% described by the lemma below. With the market tightness, we obtain
+% the matching probabilities at each round: }
+
+% \begin{lemma}\label{lem:C_Continuities}
+
+% { Let $\theta_{0}$ be the initial market tightness. Then,
+% the ratio $\left\{ \theta_{n}\right\} $ features the following law
+% of motion: 
+% \[
+% \theta_{n}=\theta_{n-1}\frac{\left(1-\lambda\left(N\right)G\left(1/\theta_{n-1},1\right)\right)}{\left(1-\lambda\left(N\right)G\left(1,\theta_{n-1}\right)\right)}\,\qquad\forall n\in\{1,2,\dots,N\}.
+% \]
+% and the matching probabilities can be expressed in terms of the ratio
+% via:
+% \[
+% \psi_{n}^{+}=\lambda\left(N\right)G\left(1,\theta_{n-1}\right)\text{ and }\psi_{n}^{-}=\lambda\left(N\right)G\left(1/\theta_{n-1},1\right).
+% \]
+% }
+
+% \end{lemma}
+
+% { The proof is simple. By definition and homogeneity:
+% \[
+% \theta_{n}=\frac{S_{n}^{-}}{S_{n}^{+}}=\frac{S_{n-1}^{-}-g_{n}}{S_{n-1}^{+}-g_{n}}=\theta_{n-1}\frac{\left(1-\lambda\left(N\right)G\left(1/\theta_{n-1},1\right)\right)}{\left(1-\lambda\left(N\right)G\left(1,\theta_{n-1}\right)\right)},\qquad\forall n\in\{1,2,\dots,N\}.
+% \]
+% where the second equality follow from the definition of $g_{n}$ and
+% uses its homogeneity property. Hence, the Lemma. }
+
+% { The lemma shows how we can track matching probabilities
+% in terms of the initial market tightness. It also shows that the these
+% probabilities are scale invariant. We use this observations in what
+% follows. }
+
+% \paragraph*{Auxiliary Calculations}
+
+% { Next, we describe the limit of the bargaining problem
+% as $\Delta\rightarrow0$. We begin with some observations: 
+% \begin{align*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\chi^{+}\Delta\right)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =-\chi^{+}\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\chi^{+}\Delta\right)-V\left(\mathcal{E}^{j}\right)}{-\chi^{+}\Delta}\right\} \\
+%  & =-\chi^{+}V^{\prime}\left(\mathcal{E}^{j}\right);\\
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(n;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =\lim_{\Delta\rightarrow0}\left\{ \frac{\psi_{n+1}^{+}J_{M}^{+}(n+1;\Delta)+\left(1-\psi_{n+1}^{+}\right)J_{U}^{+}(n+1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ \frac{\psi_{n+1}^{+}\left(J_{M}^{+}(n+1;\Delta)-V\left(\mathcal{E}^{j}\right)\right)+\left(1-\psi_{n+1}^{+}\right)\left(J_{U}^{+}(n+1;\Delta)-V\left(\mathcal{E}^{j}\right)\right)}{\Delta}\right\} \\
+%  & =\psi_{n+1}^{+}\left(i_{n+1}-r^{m}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{j}\right)+\left(1-\psi_{n+1}^{+}\right)\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(n+1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} ;\\
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{M}^{+}(n;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}+\left(r_{n}(\Delta)-r^{m}-\chi^{+}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ r_{n}(\Delta)-r^{m}-\chi^{+}\right\} \lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}+\left(r_{n}-r^{m}-\chi^{+}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{\left(r_{n}(\Delta)-r^{m}-\chi^{+}\right)\Delta}\right\} \\
+%  & =\left(r_{n}-r^{m}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{j}\right).
+% \end{align*}
+% Similarly with the same steps we show that, 
+% \begin{align*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{M}^{-}(n;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =-\left(r_{n}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right);\\
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(n;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =-\psi_{n+1}^{-}\left(i_{n+1}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)+\left(1-\psi_{n+1}^{-}\right)\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(n+1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} ;\\
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =-\left(r^{w}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right).
+% \end{align*}
+% Now, let's consider the interbank rate at this limit. Consider the
+% bargaining problem given by (\ref{eq:BargainProb}): 
+% \begin{align*}
+% r_{n}^{f}(\Delta)=\argmax_{r_{n}} & \left\{ \left[\mathcal{S}_{n}^{-}(\Delta)\right]^{\eta}\left[\mathcal{S}_{n}^{+}(\Delta)\right]^{1-\eta}\right\} \\
+% \text{s.t. } & \mathcal{S}_{n}^{-}(\Delta)=V\left(\mathcal{E}^{j}-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-J_{U}^{-}(n;\Delta)\\
+%  & \mathcal{S}_{n}^{+}(\Delta)=V\left(\mathcal{E}^{k}+\left(r_{n}(\Delta)-r^{m}-\chi^{+}\right)\Delta\right)-J_{U}^{+}(n;\Delta)
+% \end{align*}
+% The solution to the }OTC market{{} rate doesn't change
+% if we multiply the right-hand side of (\ref{eq:BargainProb}) by $\Delta$.
+% Thus, the limiting rate for round $n$ satisfies:
+% \begin{align}
+% r_{n}^{f}&=\lim_{\Delta\rightarrow0}\left\{ r_{n}^{f}(\Delta)\right\} =\lim_{\Delta\rightarrow0}\left\{ \argmax_{r_{n}}\left\{ \frac{\left[\mathcal{S}_{n}^{-}(\Delta)\right]^{\eta}\left[\mathcal{S}_{n}^{+}(\Delta)\right]^{1-\eta}}{\Delta}\right\} \right\} 
+% \\ &  =\argmax_{r_{n}}\left\{ \left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{n}^{-}(\Delta)}{\Delta}\right\} \right]^{\eta}\left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{n}^{+}(\Delta)}{\Delta}\right\} \right]^{1-\eta}\right\} , \notag
+% \end{align}
+% where 
+% \begin{eqnarray*}
+% \mathcal{S}_{n}^{-}(\Delta) & = & V\left(\mathcal{E}^{j}-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-J_{U}^{-}(n;\Delta)\\
+% \qquad\text{and}\qquad\mathcal{S}_{n}^{+}(\Delta) & = & V\left(\mathcal{E}^{k}+\left(r_{n}(\Delta)-r^{m}-\chi^{+}\right)\Delta\right)-J_{U}^{+}(n;\Delta).
+% \end{eqnarray*}
+% Since, the solution belongs to a compact space, namely $i\in\left[r^{m},r^{w}\right]$,
+% this problem satisfies the conditions for the Maximum Theorem, so
+% the continuity of the solution is guaranteed. This means that we can
+% take limits as $\Delta$ converges to zero. Next, we by backward induction:
+% first obtaining a solution at round $N$, at round $N-1$ and so forth.
+% We do this in three steps: }
+
+% \paragraph*{{ Step 1: Round $N$-th of Matching Process}}
+
+% { Let us start in the last period of the matching process,
+% the $N$-th round. In this case, the outside option limit identities
+% of an atomistic bank in a deficit position $j$ and an atomistic bank
+% in a surplus position $k$ are 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} =-\left(r^{w}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\qquad\text{and}\qquad\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N;\Delta)-V\left(\mathcal{E}^{k}\right)}{\Delta}\right\} =-\chi^{+}V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% Thus, the limit surpluses can be described as, 
+% \begin{align*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N}^{-}(\Delta)}{\Delta}\right\}  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-J_{U}^{-}(N;\Delta)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & -\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ -\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\right\} \lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{-\left(r_{n}(\Delta)-r^{m}-\chi^{-}\right)\Delta}\right\} ...\\
+%  & -\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =-\left(r_{n}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)+\left(r^{w}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+%  & =\left(r^{w}-r_{n}\right)V^{\prime}\left(\mathcal{E}^{j}\right);
+% \end{align*}
+% and similarly, 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N}^{+}(\Delta)}{\Delta}\right\} =\left(r_{n}-r^{m}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% Therefore, the bargaining problem for an infinitesimal size transaction
+% in the $N$-th matching round can be described as 
+% \begin{align*}
+% r_{N}^{f} & =\argmax_{r_{n}}\left\{ \left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N}^{-}(\Delta)}{\Delta}\right\} \right]^{\eta}\left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N}^{+}(\Delta)}{\Delta}\right\} \right]^{1-\eta}\right\} \\
+%  & =\argmax_{r_{n}}\left\{ \left[\left(r^{w}-r_{n}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\right]^{\eta}\left[\left(r_{n}-r^{m}\right)V^{\prime}\left(\mathcal{E}^{k}\right)\right]^{1-\eta}\right\} \\
+%  & =\argmax_{r_{n}}\left\{ \left[V^{\prime}\left(\mathcal{E}^{j}\right)\right]^{\eta}\left[V^{\prime}\left(\mathcal{E}^{k}\right)\right]^{1-\eta}\left[r^{w}-r_{n}\right]^{\eta}\left[r_{n}-r^{m}\right]^{1-\eta}\right\} \\
+%  & =\argmax_{r_{n}}\left\{ \left[r^{w}-r_{n}\right]^{\eta}\left[r_{n}-r^{m}\right]^{1-\eta}\right\} .
+% \end{align*}
+% Taking the first order conditions, we get 
+% \[
+% \eta\left(\frac{r_{N}^{f}-r^{m}}{r^{w}-r_{N}^{f}}\right)^{1-\eta}=(1-\eta)\left(\frac{r^{w}-r_{N}^{f}}{r_{N}^{f}-r^{m}}\right)^{\eta}.
+% \]
+% Thus, we get to the optimal interest rate 
+% \[
+% r_{N}^{f}=r^{m}+(1-\eta)\left(r^{w}-r^{m}\right).
+% \]
+% Finally, define $\chi_{N}^{+}\equiv0$ and $\chi_{N}^{-}\equiv r^{w}-r^{m}.$
+% From here, we conclude that, 
+% \[
+% r_{N}^{f}=r^{m}+(1-\eta)\chi_{N}^{-}+\eta\chi_{N}^{+}.
+% \]
+% }
+
+% \paragraph{{ Step 2: \ Round $\{N-1\}$-th of Matching Process}}
+
+% { Let now obtain a similar equations for the $\{N-1\}$-th
+% round. Following the same steps as for the N-th round we have: 
+% \begin{align*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & =-\psi_{N}^{-}\left(r_{N}^{f}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)+\left(1-\psi_{N}^{-}\right)\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =-\psi_{N}^{-}\left(r_{N}^{f}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)-\left(1-\psi_{N}^{-}\right)\left(r^{w}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+%  & =-\left(\psi_{N}^{-}\left(r_{N}^{f}-r^{m}-\chi^{-}\right)+\left(1-\psi_{N}^{-}\right)\left(r^{w}-r^{m}-\chi^{-}\right)\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+%  & =-\left(\psi_{N}^{-}\left(r_{N}^{f}-r^{m}\right)+\left(1-\psi_{N}^{-}\right)\left(r^{w}-r^{m}\right)-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+%  & =-\left(\psi_{N}^{-}\left(r_{N}^{f}-r^{m}\right)+\left(1-\psi_{N}^{-}\right)\chi_{N}^{-}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right),
+% \end{align*}
+% and through similar steps: 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N-1;\Delta)-V\left(\mathcal{E}^{k}\right)}{\Delta}\right\} =\left(\psi_{N}^{+}\left(r_{N}^{f}-r^{m}\right)+\left(1-\psi_{N}^{+}\right)\chi_{N}^{+}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% Define $\chi_{N-1}^{-}\equiv\psi_{N}^{-}\left(r_{N}^{f}-r^{m}\right)+\left(1-\psi_{N}^{-}\right)\chi_{N}^{-}$
+% and $\chi_{N-1}^{+}\equiv\psi_{N}^{+}\left(r_{N}^{f}-r^{m}\right)+\left(1-\psi_{N}^{+}\right)\chi_{N}^{+}$
+% so 
+% \begin{eqnarray*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & = & -\left(\chi_{N-1}^{-}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+% \qquad\text{and}\qquad\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N-1;\Delta)-V\left(\mathcal{E}^{k}\right)}{\Delta}\right\}  & = & \left(\chi_{N-1}^{+}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \end{eqnarray*}
+% Thus, the limit surpluses can be described as, 
+% \begin{align*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-1}^{-}(\Delta)}{\Delta}\right\}  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(i_{N-1}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-J_{U}^{-}(N-1;\Delta)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(i_{N-1}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & -\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =\lim_{\Delta\rightarrow0}\left\{ -\left(i_{N-1}(\Delta)-r^{m}-\chi^{-}\right)\right\} \lim_{\Delta\rightarrow0}\left\{ \frac{V\left(\mathcal{E}^{j}-\left(i_{N-1}(\Delta)-r^{m}-\chi^{-}\right)\Delta\right)-V\left(\mathcal{E}^{j}\right)}{-\left(i_{N-1}(\Delta)-r^{m}-\chi^{-}\right)\Delta}\right\} \\
+%  & -\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-1;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} \\
+%  & =-\left(i_{N-1}-r^{m}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)+\left(\chi_{N-1}^{-}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+%  & =\left(\chi_{N-1}^{-}-\left(i_{N-1}-r^{m}\right)\right)V^{\prime}\left(\mathcal{E}^{j}\right);
+% \end{align*}
+% and, thus, 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-1}^{+}(\Delta)}{\Delta}\right\} =\left(\left(i_{N-1}-r^{m}\right)-\chi_{N-1}^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% }
+
+% { Therefore, the bargaining problem for an infinitesimal
+% size transaction in the $\{N-1\}$-th matching round can be described
+% as 
+% \begin{align*}
+% i_{N-1}^{f} & =\argmax_{i_{N-1}}\left\{ \left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-1}^{-}(\Delta)}{\Delta}\right\} \right]^{\eta}\left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-1}^{+}(\Delta)}{\Delta}\right\} \right]^{1-\eta}\right\} \\
+%  & =\argmax_{i_{N-1}}\left\{ \left[\left(\chi_{N-1}^{-}-\left(i_{N-1}-r^{m}\right)\right)V^{\prime}\left(\mathcal{E}^{j}\right)\right]^{\eta}\left[\left(\left(i_{N-1}-r^{m}\right)-\chi_{N-1}^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right)\right]^{1-\eta}\right\} \\
+%  & =\argmax_{i_{N-1}}\left\{ \left[V^{\prime}\left(\mathcal{E}^{j}\right)\right]^{\eta}\left[V^{\prime}\left(\mathcal{E}^{k}\right)\right]^{1-\eta}\left[\chi_{N-1}^{-}-\left(i_{N-1}-r^{m}\right)\right]^{\eta}\left[\left(i_{N-1}-r^{m}\right)-\chi_{N-1}^{+}\right]^{1-\eta}\right\} \\
+%  & =\argmax_{i_{N-1}}\left\{ \left[\chi_{N-1}^{-}-\left(i_{N-1}-r^{m}\right)\right]^{\eta}\left[\left(i_{N-1}-r^{m}\right)-\chi_{N-1}^{+}\right]^{1-\eta}\right\} .
+% \end{align*}
+% Taking the first-order conditions, we get 
+% \[
+% \eta\left(\frac{i_{N-1}-r^{m}-\chi_{N-1}^{+}}{\chi_{N-1}^{-}-i_{N-1}-r^{m}}\right)^{1-\eta}=(1-\eta)\left(\frac{\chi_{N-1}^{-}-i_{N-1}-r^{m}}{i_{N-1}-r^{m}-\chi_{N-1}^{+}}\right)^{\eta}.
+% \]
+% Finally, the solution to the interest rate is:
+% \[
+% i_{N-1}^{f}=r^{m}+(1-\eta)\chi_{N-1}^{-}+\eta\chi_{N-1}^{+}.
+% \]
+% }
+
+% \paragraph*{{ Step 3: \ Round $\{N-2\}$-th of Matching Process}}
+
+% { Let's now study the matching process, at the $\{N-2\}$-th
+% round. In this case, the outside option limit identities of an atomistic
+% bank in a deficit position $j$ and an atomistic bank in a surplus
+% position $k$ are 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-2;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\} =-\left(\psi_{N-1}^{-}\left(i_{N-1}^{f}-r^{m}\right)+\left(1-\psi_{N-1}^{-}\right)\chi_{N-1}^{-}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right),
+% \]
+% and 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N-2;\Delta)-V\left(\mathcal{E}^{k}\right)}{\Delta}\right\} =\left(\psi_{N-1}^{+}\left(i_{N-1}^{f}-r^{m}\right)+\left(1-\psi_{N-1}^{+}\right)\chi_{N-1}^{+}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% Define $\chi_{N-2}^{-}\equiv\psi_{N-1}^{-}\left(i_{N-1}^{f}-r^{m}\right)+\left(1-\psi_{N-1}^{-}\right)\chi_{N-1}^{-}$
+% and $\chi_{N-2}^{+}\equiv\psi_{N-1}^{+}\left(i_{N-1}^{f}-r^{m}\right)+\left(1-\psi_{N-1}^{-}\right)\chi_{N-1}^{+}$
+% so 
+% \begin{eqnarray*}
+% \lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{-}(N-2;\Delta)-V\left(\mathcal{E}^{j}\right)}{\Delta}\right\}  & = & -\left(\chi_{N-2}^{-}-\chi^{-}\right)V^{\prime}\left(\mathcal{E}^{j}\right)\\
+% \qquad\text{and}\qquad\lim_{\Delta\rightarrow0}\left\{ \frac{J_{U}^{+}(N-2;\Delta)-V\left(\mathcal{E}^{k}\right)}{\Delta}\right\}  & = & \left(\chi_{N-2}^{+}-\chi^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \end{eqnarray*}
+% Thus, the limit surpluses can be described as, 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-2}^{-}(\Delta)}{\Delta}\right\} =\left(\chi_{N-2}^{-}-\left(i_{N-2}-r^{m}\right)\right)V^{\prime}\left(\mathcal{E}^{j}\right);
+% \]
+% and 
+% \[
+% \lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-2}^{+}(\Delta)}{\Delta}\right\} =\left(\left(i_{N-2}-r^{m}\right)-\chi_{N-2}^{+}\right)V^{\prime}\left(\mathcal{E}^{k}\right).
+% \]
+% Therefore, the bargaining problem in round $\{N-2\}$-th is, 
+% \begin{align*}
+% i_{N-2}^{f} & =\argmax_{i_{N-2}}\left\{ \left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-2}^{-}(\Delta)}{\Delta}\right\} \right]^{\eta}\left[\lim_{\Delta\rightarrow0}\left\{ \frac{\mathcal{S}_{N-2}^{+}(\Delta)}{\Delta}\right\} \right]^{1-\eta}\right\} \\
+%  & =\argmax_{i_{N-2}}\left\{ \left[\chi_{N-2}^{-}-\left(i_{N-2}-r^{m}\right)\right]^{\eta}\left[\left(i_{N-2}-r^{m}\right)-\chi_{N-2}^{+}\right]^{1-\eta}\right\} .
+% \end{align*}
+% Taking the first-order conditions, we obtain:
+% \[
+% i_{N-2}^{f}=r^{m}+(1-\eta)\chi_{N-2}^{-}+\eta\chi_{N-2}^{+}.
+% \]
+% }
+
+% \paragraph{{ Step 4: Round $n$-th of Matching Process}}
+
+% { We continue by induction, to obtain: 
+% \begin{equation}
+% \chi_{n}^{-}=\psi_{n+1}^{-}\left(i_{n+1}^{f}-r^{m}\right)+\left(1-\psi_{n+1}^{-}\right)\chi_{n+1}^{-}\qquad\text{and}\qquad\chi_{n}^{+}=\psi_{n+1}^{+}\left(i_{n+1}^{f}-r^{m}\right)+\left(1-\psi_{n+1}^{+}\right)\chi_{n+1}^{+}.\label{E_recursion}
+% \end{equation}
+% Furthermore, the optimal interbank interest rates that solve the bargaining
+% problem at the $n$-th matching round is 
+% \[
+% r_{n}^{f}=r^{m}+(1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}.
+% \]
+% This, and the previous recursions are the expressions in Proposition
+% \ref{P_LimitingRates}. Next, we verify the consistency of the solution. }
+
+% \paragraph{{ Proof of Proposition \ref{P_Consistency}.}}
+
+% { The probability of matching in one of the $N$ matching
+% rounds for individual surplus and deficit traders are: 
+% \[
+% \Psi^{+}=\sum_{n=1}^{N}\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]=1-\left[\prod_{m=1}^{N}\left(1-\psi_{m}^{+}\right)\right]\qquad\text{and}\qquad\Psi^{-}=\sum_{n=1}^{N}\psi_{n}^{-}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{-}\right)\right]=1-\left[\prod_{m=1}^{N}\left(1-\psi_{m}^{-}\right)\right],
+% \]
+% where $\psi_{0}^{+}=\psi_{0}^{-}=0$. Define the weights $\{\varkappa_{n}\}_{n=1}^{N}$
+% as the distribution of matching in round $n$ conditional on matching,
+% \[
+% \varkappa_{n}^{+}\equiv\frac{\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]}{\Psi^{+}}\qquad\text{and}\qquad\varkappa_{n}^{-}\equiv\frac{\psi_{n}^{-}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{-}\right)\right]}{\Psi^{-}}\text{.}
+% \]
+% The numerator corresponds to the unconditional probability of a match
+% at round $n$ and the denominator is the probability of matching at
+% all. By the law of large numbers, this is proportional to the volume
+% at that round. Clearly the weights sum to one. Next, we show that
+% conditional distributions are the same for deficits and surpluses:
+% \begin{eqnarray*}
+% \varkappa_{n}^{+} & \equiv & \frac{\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]}{\Psi^{+}}=\frac{\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\lambda\left(N\right)G\left(1/\theta_{m},1\right)\right)\right]}{\Psi^{+}}\\
+%  & = & \frac{\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\frac{\theta_{m=1}}{\theta_{m}}\left(1-\lambda\left(N\right)G\left(1,\theta_{m}\right)\right)\right]}{\Psi^{+}}=\frac{\theta_{n-1}^{-1}\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\lambda\left(N\right)G\left(1,\theta_{m}\right)\right)\right]}{\theta_{0}^{-}\Psi^{+}}\\
+%  & = & \frac{\psi_{n}^{-}\left[\prod_{m=1}^{n-1}\left(1-\psi_{n}^{-}\right)\right]}{\Psi^{-}}=\varkappa_{n}^{-}.
+% \end{eqnarray*}
+% where we used \ref{lem:C_Continuities} and the definition of $\psi_{n}^{+}$
+% and $\psi_{n}^{-}$. }
+
+% { Thus, the average interbank-interest rate is the weighted
+% average of the interbank interest rates of each round, 
+% \begin{align*}
+% \overline{r}^{f} & =\sum_{n=1}^{N}\varkappa_{n}^{+}r_{n}^{f}\\
+%  & =\sum_{n=1}^{N}\varkappa_{n}^{+}\left(r^{m}+(1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}\right)\\
+%  & =\left[\sum_{n=1}^{N}\varkappa_{n}^{+}\right]r^{m}+\left[\sum_{n=1}^{N}\varkappa_{n}^{+}\left((1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}\right)\right]\\
+%  & =r^{m}+\left[\frac{\sum_{n=1}^{N}\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]\left((1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}\right)}{\Psi^{+}}\right].
+% \end{align*}
+% Therefore, 
+% \begin{eqnarray*}
+% \Psi^{+}\left(\overline{r}^{f}-r^{m}\right) & = & \sum_{n=1}^{N}\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]\left((1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}\right)\\
+%  & = & \sum_{n=1}^{N}\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]\left(r_{n}^{f}-r^{m}\right)\\
+%  & = & \chi_{0}^{+}.
+% \end{eqnarray*}
+% where the last line follows from solving $\chi_{0}^{+}$ \ in (\ref{E_recursion})
+% forward. This verifies that $\chi_{0}^{+}=\chi^{+}$. }
+
+% { Similarly, if we follow the same steps we have that:
+% \begin{eqnarray*}
+% \overline{r}^{f} & = & \sum_{n=1}^{N}\varkappa_{n}^{-}r_{n}^{f}\\
+%  & = & r^{m}+\left[\frac{\sum_{n=1}^{N}\psi_{n}^{-}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{-}\right)\right]\left((1-\eta)\chi_{n}^{-}+\eta\chi_{n}^{+}\right)}{\Psi^{-}}\right].
+% \end{eqnarray*}
+% And then solving forward we arrive at: 
+% \[
+% \chi_{0}^{-}=\Psi^{-}\left(\overline{r}^{f}-r^{m}\right)+\left(1-\Psi^{-}\right)\left(r^{w}-r^{m}\right).
+% \]
+% which verifies that $\chi_{0}^{-}=\chi^{-}$. Given that $\varkappa_{n}^{+}=\varkappa_{n}^{-}$,
+% $\overline{r}^{f}$ is the same in both calculations. This concludes
+% the proof of Proposition \ref{P_Consistency}. }
+% \newpage{}
+
+\section{Proofs for the Infinite-Rounds Limit}
+
+\global\long\def\theequation{B.\arabic{equation}}
+\setcounter{equation}{0}
+\global\long\def\thedefn{B.\arabic{definition}}
+
+\setcounter{definition}{0}
+
+% \subsection{Proof of Lemma \protect\ref{P_ContinuousProbabilities}}
+
+% { Here we solve for the limit as $N\rightarrow\infty$.
+% First, let us define a matching round size step subscript as $\Delta\equiv\frac{1}{N}$.
+% Let us abuse in notation and given that we drop the time subscript,
+% call $\tau$ the matching round subscript in the domain $\left[0,1\right]$.
+% Thus, realise that by definition, 
+% \begin{align*}
+% S_{n+1}^{+}-S_{n}^{+} & =-\lambda(N)G\left(S_{n}^{+},S_{n}^{-}\right)\qquad\Leftrightarrow\qquad S_{\tau+\Delta}^{+}-S_{\tau}^{+}=-\lambda\left(\frac{1}{\Delta}\right)G\left(S_{\tau}^{+},S_{\tau}^{-}\right)\\
+% S_{n+1}^{-}-S_{n}^{+} & =-\lambda(N)G\left(S_{n}^{+},S_{n}^{-}\right)\qquad\Leftrightarrow\qquad S_{\tau+\Delta}^{-}-S_{\tau}^{-}=-\lambda\left(\frac{1}{\Delta}\right)G\left(S_{\tau}^{+},S_{\tau}^{-}\right);
+% \end{align*}
+% where $\tau\equiv\frac{n}{N}$ for $n\in\{0,1,2,\dots,N-1\}$. Next,
+% observe that: }
+
+% {
+% \begin{align*}
+% \dot{S_{\tau}^{+}} & =\lim_{\Delta\rightarrow0}\left\{ \frac{S_{\tau+\Delta}^{+}-S_{\tau}^{+}}{\Delta}\right\} =\lim_{\Delta\rightarrow0}\left\{ \frac{-\lambda\left(\frac{1}{\Delta}\right)G\left(S_{\tau}^{+},S_{\tau}^{-}\right)}{\Delta}\right\} =-\left[\lim_{\Delta\rightarrow0}\left\{ \frac{\lambda\left(\frac{1}{\Delta}\right)}{\Delta}\right\} \right]G\left(S_{\tau}^{+},S_{\tau}^{-}\right)\\
+%  & =-\left[\lim_{N\rightarrow\infty}\left\{ N\lambda\left(N\right)\right\} \right]G\left(S_{\tau}^{+},S_{\tau}^{-}\right)=-\bar{\lambda}G\left(S_{\tau}^{+},S_{\tau}^{-}\right),
+% \end{align*}
+% and similarly: 
+% \[
+% \dot{S_{\tau}^{-}}=-\bar{\lambda}G\left(S_{\tau}^{+},S_{\tau}^{-}\right).
+% \]
+% Therefore: 
+% \[
+% \frac{\dot{S_{\tau}^{+}}}{S_{\tau}^{+}}=\frac{-\bar{\lambda}G\left(S_{\tau}^{+},S_{\tau}^{-}\right)}{S_{\tau}^{+}}=-\bar{\lambda}G\left(1,\theta_{\tau}\right)\qquad\text{and}\qquad\frac{\dot{S_{\tau}^{-}}}{S_{\tau}^{-}}=\frac{-\bar{\lambda}G\left(S_{\tau}^{+},S_{\tau}^{-}\right)}{S_{\tau}^{-}}=-\bar{\lambda}G\left(\frac{1}{\theta_{\tau}},1\right).
+% \]
+% Now, since $\theta_{\tau}=\frac{S_{\tau}^{-}}{S_{\tau}^{+}}$, 
+% \[
+% \ln\left(\theta_{\tau}\right)=\ln\left(\frac{S_{\tau}^{-}}{S_{\tau}^{+}}\right)=\ln\left(S_{\tau}^{-}\right)-\ln\left(S_{\tau}^{+}\right).
+% \]
+% Differentiating with respect of $\tau$, then 
+% \[
+% \frac{\dot{\theta_{\tau}}}{\theta_{\tau}}=\frac{\dot{S_{\tau}^{-}}}{S_{\tau}^{-}}-\frac{\dot{S_{\tau}^{+}}}{S_{\tau}^{+}}=\bar{\lambda}G\left(1,\theta_{\tau}\right)-\bar{\lambda}G\left(\frac{1}{\theta_{\tau}},1\right).
+% \]
+% Hence, 
+% \[
+% \dot{\theta_{\tau}}=\bar{\lambda}\theta_{\tau}\left(G\left(1,\theta_{\tau}\right)-G\left(\frac{1}{\theta_{\tau}},1\right)\right).
+% \]
+% Matching probabilities converge to:
+% \[
+% \psi_{\tau}^{+}=\bar{\lambda}G\left(1,\theta_{\tau}\right)\qquad\text{and}\qquad\psi_{\tau}^{-}=\bar{\lambda}G\left(\frac{1}{\theta_{\tau}},1\right)=\frac{\psi_{\tau}^{+}}{\theta_{\tau}}.
+% \]
+% This concludes the proof of this proposition. }
+% \subsection{Proof of Proposition \protect\ref{P_ContinuousRates}}
+
+% { Now, consider the discrete round recursion for the value
+% of $\chi_{n}^{-}$ 
+% \begin{eqnarray*}
+% \chi_{n}^{-} & = & \psi_{n+1}^{-}\left(i_{n+1}^{f}-r^{m}\right)+\left(1-\psi_{n+1}^{-}\right)\chi_{n+1}^{-}\rightarrow\\
+% \chi_{\tau}^{-} & = & \psi_{\tau+\Delta}^{-}\left(i_{\tau+\Delta}^{f}-r^{m}\right)+\left(1-\psi_{\tau+\Delta}^{-}\right)\chi_{\tau+\Delta}^{-}\rightarrow\\
+% \chi_{\tau+\Delta}^{-}-\chi_{\tau}^{-} & = & -\psi_{\tau+\Delta}^{-}\left(i_{\tau+\Delta}^{f}-r^{m}\right)+\psi_{\tau+\Delta}^{-}\chi_{\tau+\Delta}^{-}.
+% \end{eqnarray*}
+% Divide both sides by $\Delta$, and take the limit $\Delta\rightarrow0,$
+% to obtain the law of motion for $\chi_{\tau}^{-}$ 
+% \begin{equation}
+% \dot{\chi}_{\tau}^{-}=\psi_{\tau}^{-}\chi_{\tau}^{-}-\psi_{\tau}^{-}\left(i_{\tau}^{f}-r^{m}\right).\label{eq:Recursion1}
+% \end{equation}
+% Similarly, we follow the same operations to obtain the law of motion
+% for $\chi_{\tau}^{+}:$ 
+% \begin{equation}
+% \dot{\chi}_{\tau}^{+}=\psi_{\tau}^{+}\chi_{\tau}^{+}-\psi_{\tau}^{+}\left(i_{\tau}^{f}-r^{m}\right).\label{eq:Recursion2}
+% \end{equation}
+% The terminal conditions in both cases are $\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)$
+% \ and $\chi_{\tau}^{+}=0$ . Acknowledge that the average interbank
+% interest rate in continuous time can be computed as 
+% \[
+% r_{\tau}^{f}=r^{m}+(1-\eta)\chi_{\tau}^{-}+\eta\chi_{\tau}^{+}.
+% \]
+% Thus, substituting we get 
+% \[
+% \dot{\chi}_{\tau}^{+}=-(1-\eta)\psi_{\tau}^{+}\left(\chi_{\tau}^{-}-\chi_{\tau}^{+}\right)\qquad\text{and}\qquad\dot{\chi}_{\tau}^{-}=\eta\psi_{\tau}^{-}\left(\chi_{\tau}^{-}-\chi_{\tau}^{+}\right).
+% \]
+% Doing a change of variable, $z_{\tau}=\chi_{\tau}^{-}-\chi_{\tau}^{+}$.
+% Thus, 
+% \[
+% \dot{z}_{\tau}=\left[\eta\psi_{\tau}^{-}+(1-\eta)\psi_{\tau}^{+}\right]z_{\tau}.
+% \]
+% Define, 
+% \[
+% \Psi_{\tau}^{+}\equiv\int_{\tau}^{1}\psi_{s}^{+}ds\qquad\text{and}\qquad\Psi_{\tau}^{-}\equiv\int_{\tau}^{1}\psi_{s}^{-}ds.
+% \]
+% Using the boundary condition $z_{1}=r^{w}-r^{m}$ 
+% \[
+% \ln\left(\frac{z_{\tau}}{z_{1}}\right)=-\int_{\tau}^{1}\eta\psi_{s}^{-}+(1-\eta)\psi_{s}^{+}ds=-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right].
+% \]
+% Therefore, 
+% \[
+% \chi_{\tau}^{-}-\chi_{\tau}^{+}=\left(r^{w}-r^{m}\right)e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}
+% \]
+% Substituting the solution to $z_{\tau\text{ }}$into (\ref{eq:Recursion1})~and
+% (\ref{eq:Recursion2}) we obtain: 
+% \[
+% \dot{\chi}_{\tau}^{+}=-(1-\eta)\psi_{\tau}^{+}\left(r^{w}-r^{m}\right)e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}\qquad\text{and}\qquad\dot{\chi}_{\tau}^{-}=\eta\psi_{\tau}^{-}\left(r^{w}-r^{m}\right)e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}.
+% \]
+% }
+
+% { Define the residual bargained probability of match as:
+% \begin{equation}
+% \mathbb{P}_{\tau}^{+}\equiv\int_{\tau}^{1}\psi_{s}^{+}e^{-\left[\eta\Psi_{s}^{-}+(1-\eta)\Psi_{s}^{+}\right]}ds\qquad\text{and}\qquad\mathbb{P}_{\tau}^{-}\equiv\int_{\tau}^{1}\psi_{s}^{-}e^{-\left[\eta\Psi_{s}^{-}+(1-\eta)\Psi_{s}^{+}\right]}ds.\label{eq:bargained.prob}
+% \end{equation}
+% Hence, solving the ordinary differential equations and applying the
+% boundary conditions we get 
+% \begin{equation}
+% \chi_{\tau}^{+}=(1-\eta)\left(r^{w}-r^{m}\right)\mathbb{P}_{\tau}^{+}\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(1-\eta\mathbb{P}_{\tau}^{-}\right).\label{eq:general.cont}
+% \end{equation}
+% This, in fact, is the closed form solution presented in Proposition
+% \ref{P_ContinuousRates}.}
+
+% \subsection{Auxiliary Definitions for Proposition \protect\ref{P_ContinuousRates}}
+
+% { Define the probability of matching at round n for both
+% sides of the market: 
+% \[
+% f^{+}(n)=\psi_{n}^{+}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{+}\right)\right]\qquad\text{and}\qquad f^{-}(n)=\psi_{n}^{-}\left[\prod_{m=1}^{n-1}\left(1-\psi_{m}^{-}\right)\right],\qquad\forall n\in\{1,2,\dots,N\}.
+% \]
+% Then, observe that:
+% \begin{align*}
+% f^{+}(1) & =\psi_{1}^{+},\text{ }f^{+}(2)=\psi_{2}^{+}\left(1-\psi_{1}^{+}\right),f^{+}(3)=\psi_{3}^{+}\left(1-\psi_{2}^{+}\right)\left(1-\psi_{1}^{+}\right),...\\
+% f^{+}(N) & =\psi_{N}^{+}\left[\prod_{m=1}^{N-1}\left(1-\psi_{m}^{+}\right)\right];
+% \end{align*}
+% \qquad{}}
+
+% { Thus, we can write:
+% \[
+% f^{+}(n)=\psi_{n}^{+}\left(1-F^{+}(n-1)\right)\qquad\text{and}\qquad f^{-}(n)=\psi_{n}^{-}\left(1-F^{-}(n-1)\right),\qquad\forall n\in\{1,2,\dots,N\}.
+% \]
+% When as the number of rounds tends to infinity and we transform the
+% support from $n$ to $\tau$, we arrive to 
+% \begin{align*}
+% \psi_{\tau}^{+} & =\lim_{N\rightarrow\infty}\left\{ \frac{f^{+}\left(\frac{n}{N}\right)}{1-F^{+}\left(\frac{n-1}{N}\right)}\right\} =\lim_{\Delta\rightarrow0}\left\{ \frac{f^{+}(\tau)}{1-F^{+}(\tau-\Delta)}\right\} =\frac{f^{+}(\tau)}{1-F^{+}(\tau)}\qquad\text{and}\\
+% \psi_{\tau}^{-} & =\lim_{N\rightarrow\infty}\left\{ \frac{f^{-}\left(\frac{n}{N}\right)}{1-F^{-}\left(\frac{n-1}{N}\right)}\right\} =\lim_{\Delta\rightarrow0}\left\{ \frac{f^{-}(\tau)}{1-F^{-}(\tau-\Delta)}\right\} =\frac{f^{-}(\tau)}{1-F^{-}(\tau)},\qquad\forall\tau\in\lbrack0,1].
+% \end{align*}
+% Therefore, the cumulative distribution function conditional there
+% is a match satisfies the following ordinary differential equation
+% \[
+% \dot{F}^{+}(\tau)=\psi_{\tau}^{+}\left(1-F^{+}(\tau)\right)\qquad\text{and}\qquad\dot{F}^{-}(\tau)=\psi_{\tau}^{-}\left(1-F^{-}(\tau)\right).
+% \]
+% Thus, solving the differential equation we arrive to 
+% \[
+% F^{+}(\tau)=1-e^{-\int_{0}^{\tau}\psi_{s}^{+}ds}=1-e^{-\bar{\lambda}\int_{0}^{\tau}G\left(1,\theta_{s}\right)ds}\qquad\text{and}\qquad F^{-}(\tau)=1-e^{-\bar{\lambda}\int_{0}^{\tau}G\left(1/\theta_{s},1\right)ds},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Moreover, 
+% \[
+% f^{+}(\tau)=\bar{\lambda}G\left(1,\theta_{\tau}\right)e^{-\bar{\lambda}\int_{0}^{\tau}G\left(1,\theta_{s}\right)ds}\qquad\text{and}\qquad f^{-}(\tau)=\bar{\lambda}G\left(\frac{1}{\theta_{\tau}},1\right)e^{-\bar{\lambda}\int_{0}^{\tau}G\left(1/\theta_{s},1\right)ds},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Hence, by construction, the probability of having a match for the
+% atomistic }investors{{} in surplus and deficit position
+% will be 
+% \[
+% \Psi^{+}=F^{+}(1)=1-e^{-\bar{\lambda}\int_{0}^{1}G\left(1,\theta_{s}\right)ds}\qquad\text{and}\qquad\Psi^{-}=F^{-}(1)=1-e^{-\bar{\lambda}\int_{0}^{1}G\left(\frac{1}{\theta_{s}},1\right)ds}.
+% \]
+% Define the weights $\{\varkappa_{\tau}^{+},\varkappa_{\tau}^{-}\}_{\tau\in\lbrack0,1]}$
+% as the probability weight of having a match in the interbank round
+% process given there is a match in the settlement stage, 
+% \[
+% \varkappa_{\tau}^{+}\equiv\frac{f^{+}(\tau)}{F^{+}(1)}\qquad\text{and}\qquad\varkappa_{\tau}^{-}\equiv\frac{f^{-}(\tau)}{F^{-}(1)},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% }
+% \subsection{Consistency of Solution }
+
+
+% { The final step of the proof is to verify that for the
+% continuous-time limit, it also holds that , $\chi_{0}^{-}$ is indeed
+% $\chi^{-}$. For that, let: 
+% \[
+% \left(1-F^{-}(\tau)\right)\dot{\chi}_{\tau}^{-}=\left(1-F^{-}(\tau)\right)\psi_{\tau}^{-}\chi_{\tau}^{-}-\left(1-F^{-}(\tau)\right)\psi_{\tau}^{-}\left(r_{\tau}^{f}-r^{m}\right),
+% \]
+% where $F^{-}(\tau)$ is cdf of the time distribution of matches. Rearranging
+% terms yields: 
+% \[
+% \Psi^{-}\varkappa_{\tau}^{-}\left(r_{\tau}^{f}-r^{m}\right)=\left(1-F^{-}(\tau)\right)\left[\psi_{\tau}^{-}\chi_{\tau}^{-}-\dot{\chi}_{\tau}^{-}\right].
+% \]
+% Integrating both sides over the rounds support, 
+% \[
+% \int_{0}^{1}\Psi^{-}\varkappa_{\tau}^{-}\left(r_{\tau}^{f}-r^{m}\right)d\tau=\int_{0}^{1}\left(1-F^{-}(\tau)\right)\left[\psi_{\tau}^{-}\chi_{\tau}^{-}-\dot{\chi}_{\tau}^{-}\right]d\tau.
+% \]
+% The left-hand side yields, 
+% \[
+% \int_{0}^{1}\Psi^{-}\varkappa_{\tau}^{-}\left(r_{\tau}^{f}-r^{m}\right)d\tau=\Psi^{-}\left[\int_{0}^{1}\varkappa_{\tau}^{-}\left(r_{\tau}^{f}-r^{m}\right)dt\right]=\Psi^{-}\left(\overline{r}^{f}-r^{m}\right).
+% \]
+% The right-hand side yields 
+% \begin{align*}
+% \int_{0}^{1}\left(1-F^{-}(\tau)\right)\left[\psi_{\tau}^{-}\chi_{\tau}^{-}-\dot{\chi}_{\tau}^{-}\right]d\tau & =\int_{0}^{1}\left(1-F^{-}(\tau)\right)\psi_{\tau}^{-}\chi_{\tau}^{-}-\left(1-F^{-}(\tau)\right)\dot{\chi}_{\tau}^{-}d\tau\\
+%  & =\int_{0}^{1}f^{-}(\tau)\chi_{\tau}^{-}-\left(1-F^{-}(\tau)\right)\dot{\chi}_{\tau}^{-}d\tau\\
+%  & =-\int_{0}^{1}\frac{d}{d\tau}\left(\left(1-F^{-}(\tau)\right)\chi_{\tau}^{-}\right)d\tau\\
+%  & =-\left[\left(1-F^{-}(\tau)\right)\chi_{\tau}^{-}\right]_{0}^{1}\\
+%  & =\left(1-F^{-}(0)\right)\chi_{0}^{-}-\left(1-F^{-}(1)\right)\chi_{1}^{-}\\
+%  & =\chi_{0}^{-}-\left(1-\Psi^{-}\right)\left(r^{w}-r^{m}\right).
+% \end{align*}
+% Finally, joining these two expressions, the average interbank interest
+% rate is: 
+% \[
+% \overline{r}^{f}=r^{m}+\left(\frac{\chi_{0}^{-}-\left(1-\Psi^{-}\right)\left(r^{w}-r^{m}\right)}{\Psi^{-}}\right).
+% \]
+% This verifies that $\chi_{0}^{-}$ \ is indeed $\chi^{-}$. Similar
+% steps prove that $\chi_{0}^{+}$ \ is indeed $\chi^{+}.$ }
+
+% \subsection{Proof of Proposition \ref{prop:analytic.solution}}
+
+% { Assume a Leontief matching function so that $G\left(a,b\right)=\min\{a,b\}$.
+% By Proposition \ref{P_ContinuousProbabilities}, you obtain:
+% \[
+% \frac{\dot{\theta}_{\tau}}{\theta_{\tau}}=\psi_{\tau}^{+}-\psi_{\tau}^{-}=\psi_{\tau}^{+}-\frac{\psi_{\tau}^{+}}{\theta_{\tau}}=\left(\frac{\theta_{\tau}-1}{\theta_{\tau}}\right)\psi_{\tau}^{+}.
+% \]
+% Thus, 
+% \[
+% \dot{\theta}_{\tau}=\left(\theta_{\tau}-1\right)\psi_{\tau}^{+}=\left(\theta_{\tau}-1\right)\bar{\lambda}G\left(1,\theta_{\tau}\right)=\left(\theta_{\tau}-1\right)\bar{\lambda}\min\left\{ 1,\theta_{\tau}\right\} .
+% \]
+% }
+
+% { Thus, we have that: 
+% \begin{align*}
+% \theta_{0}>1\quad & \Rightarrow\quad\theta_{\tau}>1\qquad\forall\tau\in\lbrack0,1],\\
+% \theta_{0}=1\quad & \Rightarrow\quad\theta_{\tau}=1\qquad\forall\tau\in\lbrack0,1],\\
+% \theta_{0}<1\quad & \Rightarrow\quad\theta_{\tau}<1\qquad\forall\tau\in\lbrack0,1].
+% \end{align*}
+% There are three possible cases that determine the solutions to the
+% ODE's (\ref{eq:Recursion1}) and (\ref{eq:Recursion2}): }
+
+% \paragraph*{Case $\theta_{0}=1.$}
+
+% { In this case, we have that 
+% \[
+% \dot{\theta}_{\tau}=0\quad\Rightarrow\quad\theta_{\tau}=1,\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Thus, 
+% \[
+% \psi_{\tau}^{+}=\bar{\lambda}\quad\text{and}\quad\psi_{\tau}^{-}=\bar{\lambda},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Also, 
+% \[
+% \Psi_{t}^{+}=\int_{t}^{1}\psi_{\tau}^{+}d\tau=\int_{t}^{1}\bar{\lambda}d\tau=\bar{\lambda}(1-t)\quad\text{and}\quad\Psi_{t}^{-}=\int_{t}^{1}\psi_{\tau}^{-}d\tau=\int_{t}^{1}\bar{\lambda}d\tau=\bar{\lambda}(1-t);\qquad\forall t\in\lbrack0,1].
+% \]
+% Then: 
+% \begin{align*}
+% \mathbb{P}_{t}^{+} & =\int_{t}^{1}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}d\tau=\left[e^{-\bar{\lambda}(1-\tau)}\right]_{t}^{1}=1-e^{-\bar{\lambda}(1-t)}\text{ and }\\
+% \mathbb{P}_{t}^{-} & =\int_{t}^{1}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}d\tau=\left[e^{-\bar{\lambda}(1-\tau)}\right]_{t}^{1}=1-e^{-\bar{\lambda}(1-t)}.
+% \end{align*}
+% }
+
+% { Therefore, the solution to the average payments are:
+% \[
+% \chi_{\tau}^{+}=(1-\eta)\left(r^{w}-r^{m}\right)\left(1-e^{-\bar{\lambda}(1-\tau)}\right)\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(1-\eta\left(1-e^{-\bar{\lambda}(1-\tau)}\right)\right)
+% \]
+% This allows us to arrive to the interbank-reserves interest rate spread:
+% \[
+% r_{\tau}^{f}-r^{m}=(1-\eta)\left(r^{w}-r^{m}\right).
+% \]
+% This implies that $\overline{r}^{f}=r^{m}+(1-\eta)\left(r^{w}-r^{m}\right)$
+% as in the statement of the Proposition. For $\eta\rightarrow0$, we
+% arrive to the intuitive result of $\overline{r}^{f}$ $=r^{w}$ and
+% for $\eta\rightarrow1$, $\overline{r}^{f}$ $=r^{m}.$ }
+
+% \paragraph*{Case $\theta_{0}>1.$}
+
+% { In this case, we have that $\theta_{\tau}>1$ for every
+% $\tau$ $\in\lbrack0,1]$. Thus, it follows that the law of motion
+% for tightness is 
+% \[
+% \dot{\theta}_{\tau}=\bar{\lambda}\left(\theta_{\tau}-1\right)\quad\Rightarrow\quad\theta_{\tau}=1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% \[
+% \psi_{\tau}^{+}=\bar{\lambda}\quad\text{and}\quad\psi_{\tau}^{-}=\frac{\bar{\lambda}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Applying this results: 
+% \begin{align*}
+% \Psi_{t}^{+} & =\int_{t}^{1}\psi_{\tau}^{+}d\tau=\int_{t}^{1}\bar{\lambda}d\tau=\bar{\lambda}(1-t)\\
+% \Psi_{t}^{-} & =\int_{t}^{1}\psi_{\tau}^{-}d\tau=\int_{t}^{1}\frac{\bar{\lambda}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}}d\tau=\left[\bar{\lambda}\tau-\ln\left(1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}\right)\right]_{t}^{1}=\bar{\lambda}(1-t)-\ln\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda t}}}\right).
+% \end{align*}
+% Following, 
+% \begin{align*}
+% \mathbb{P}_{t}^{+} & =\int_{t}^{1}\psi_{\tau}^{+}e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}d\tau=\int_{t}^{1}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)+\eta\ln\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)}d\tau\\
+%  & =\int_{t}^{1}\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)^{\eta}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}d\tau=\left[\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}{(1-\eta)\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)^{\eta}\right]_{t}^{1}\\
+%  & =\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{(1-\eta)\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)-\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda t}}}{(1-\eta)\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda t}}}\right)^{\eta}\\
+%  & =\frac{\theta_{1}\left(1-\left(\frac{\theta_{\tau}}{\theta_{1}}\right)^{1-\eta}\right)}{(1-\eta)\left(\theta_{1}-1\right)}=\left(\frac{1}{1-\eta}\right)\left(\frac{\theta_{1}-\theta_{\tau}^{1-\eta}\theta_{1}^{\eta}}{\theta_{1}-1}\right)=\left(\frac{1}{1-\eta}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right).\\
+% \\\mathbb{P}_{t}^{-} & =\int_{t}^{1}\psi_{\tau}^{-}e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}d\tau=\int_{t}^{1}\left(\frac{\bar{\lambda}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}}\right)e^{-\bar{\lambda}(1-\tau)+\eta\ln\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)}d\tau\\
+%  & =\int_{t}^{1}\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)^{\eta}\left(\frac{\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}}\right)d\tau=\left[\left(\frac{-1}{\eta\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda\tau}}}\right)^{\eta}\right]_{t}^{1}\\
+%  & =\left(\frac{1}{\eta\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}}}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda t}}}\right)^{\eta}-\left(\frac{1}{\eta\left(\theta_{0}-1\right)e^{\bar{\lambda}}}\right)\\
+%  & =\frac{\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}-1}{\eta\left(\theta_{1}-1\right)}
+% \end{align*}
+% Therefore, using (\ref{eq:general.cont}), we have that:
+% \[
+% \chi_{\tau}^{+}=(1-\eta)\left(r^{w}-r^{m}\right)\mathbb{P}_{\tau}^{+}\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(1-\eta\mathbb{P}_{\tau}^{-}\right),
+% \]
+% which implies:
+% \[
+% \chi_{\tau}^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-\theta_{\tau}}{\theta_{1}-1}\right)\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}\right).
+% \]
+% From here, substitute for $\tau=0$ and obtain $\left\{ \chi_{0}^{+},\chi_{0}^{-}\right\} $. }
+
+% { Recall that the interbank rates satisfy:
+% \[
+% r_{n}^{f}\equiv r^{m}+\left(1-\eta\right)\chi_{n+1}^{-}+\eta\chi_{n+1}^{+}.
+% \]
+% Now from here we obtain the interbank-reserves interest rate spread,
+% \begin{eqnarray*}
+% r_{\tau}^{f}-r^{m} & =\\
+%  & = & \left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}-\eta\left(\frac{\theta_{\tau}-1}{\theta_{1}-1}\right)\right).
+% \end{eqnarray*}
+% The matching probabilities are: 
+% \[
+% \psi_{\tau}^{+}=1-e^{-\bar{\lambda}}\qquad\text{and}\qquad\psi^{-}=1-e^{-\bar{\lambda}\int_{0}^{1}\frac{1}{\theta_{\tau}}d\tau}=1-e^{-\bar{\lambda}\int_{0}^{1}\frac{1}{1+\left(\theta_{0}-1\right)e^{\bar{\lambda}\tau}}d\tau}=1-\left(\frac{(\theta_{0}-1)e^{\bar{\lambda}}+1}{\theta_{0}}\right)e^{-\bar{\lambda}}=\frac{1-e^{-\bar{\lambda}}}{\theta_{0}}.
+% \]
+% Finally, let us compute the average interbank interest rate 
+% \begin{align*}
+% \overline{r}^{f} & =r^{m}+\left(\frac{\chi_{0}^{-}-\left(1-\psi^{-}\right)\left(r^{w}-r^{m}\right)}{\psi^{-}}\right)\\
+%  & =r^{m}+\left(\frac{\chi_{0}^{-}}{\psi^{-}}\right)-\left(\frac{1-\psi^{-}}{\psi^{-}}\right)\left(r^{w}-r^{m}\right)\\
+%  & =r^{m}+\left(\frac{1}{\psi^{-}}\right)\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\left(\frac{\theta_{0}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}\right)\left(r^{w}-r^{m}\right)+\left(1-\left(\frac{1}{\psi^{-}}\right)\right)\left(r^{w}-r^{m}\right)\\
+%  & =r^{w}+\left(\frac{r^{w}-r^{m}}{\psi^{-}}\right)\left[\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\left(\frac{\theta_{0}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}\right)-1\right]\\
+%  & =r^{w}-\left(\frac{r^{w}-r^{m}}{\psi^{-}}\right)\left(\frac{\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}-1}{\theta_{1}-1}\right)\\
+%  & =r^{w}-\left(r^{w}-r^{m}\right)\left(\frac{\theta_{0}}{\theta_{0}-1}\right)\left(\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}-1\right)\left(\frac{1}{e^{\bar{\lambda}}-1}\right).
+% \end{align*}
+% Which is the formula in the expression.Notice that, if $\eta\rightarrow0$,
+% we arrive to the intuitive result of $\overline{r}^{f}=r^{w}$ and
+% $\eta\rightarrow1,$ substitute for $\theta_{1}$ in terms of $\theta_{0}$
+% \ and this shows that at this limit $\overline{r}^{f}=r^{m}$ .}
+
+% \paragraph*{Case $\theta_{0}<1.$}
+
+% { In this case, we have that $\theta_{\tau}<1$ for every
+% $\tau\in\lbrack0,1]$ and thus: 
+% \[
+% \dot{\theta}_{\tau}=\bar{\lambda}\left(\theta_{\tau}-1\right)\theta_{\tau}\quad\Rightarrow\quad\theta_{\tau}=\frac{1}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% \[
+% \psi_{\tau}^{+}=\frac{\bar{\lambda}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}t}}\quad\text{and}\quad\psi_{\tau}^{-}=\bar{\lambda},\qquad\forall\tau\in\lbrack0,1].
+% \]
+% Then, 
+% \begin{align*}
+% \Psi_{t}^{+} & =\int_{t}^{1}\psi_{\tau}^{+}d\tau=\int_{t}^{1}\frac{\bar{\lambda}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}}d\tau=\left[\bar{\lambda}\tau-\ln\left(1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}\right)\right]_{t}^{1}=\bar{\lambda}(1-t)-\ln\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda t}}}\right)\\
+% \Psi_{t}^{-} & =\int_{t}^{1}\psi_{\tau}^{-}d\tau=\int_{t}^{1}\bar{\lambda}d\tau=\bar{\lambda}(1-t).
+% \end{align*}
+% Following, 
+% \begin{eqnarray*}
+% \mathbb{P}_{t}^{+} & = & \int_{t}^{1}\psi_{\tau}^{+}e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}d\tau=\int_{t}^{1}\left(\frac{\bar{\lambda}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}}\right)e^{-\bar{\lambda}(1-\tau)+(1-\eta)\ln\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda\tau}}}\right)}d\tau\\
+%  & = & \int_{t}^{1}\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda\tau}}}\right)^{1-\eta}\left(\frac{\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}}\right)d\tau=\left[\left(\frac{-1}{(1-\eta)\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda\tau}}}\right)^{1-\eta}\right]_{t}^{1}\\
+%  & = & \left(\frac{1}{(1-\eta)\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}t}}\right)^{1-\eta}-\left(\frac{1}{(1-\eta)\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)\\
+%  & = & \left(\frac{1}{1-\eta}\right)\left(\frac{\theta_{1}}{1-\theta_{1}}\right)\left(\left(\frac{\theta_{t}}{\theta_{1}}\right)^{1-\eta}-1\right)\\
+%  & = & \left(\frac{1}{1-\eta}\right)\left(\frac{\theta_{t}^{1-\eta}\theta_{1}^{\eta}-\theta_{1}}{1-\theta_{1}}\right).
+% \end{eqnarray*}
+% and
+% \begin{eqnarray*}
+% \mathbb{P}_{t}^{-} & = & \int_{t}^{1}\psi_{\tau}^{-}e^{-\left[\eta\Psi_{\tau}^{-}+(1-\eta)\Psi_{\tau}^{+}\right]}d\tau=\int_{t}^{1}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)+(1-\eta)\ln\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda\tau}}}\right)}d\tau\\
+%  & = & \int_{t}^{1}\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda\tau}}}\right)^{1-\eta}\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}d\tau\\
+%  & = & \left[\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{\eta\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)^{\eta}\right]_{t}^{1}\\
+%  & = & \left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{\eta\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)-\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}{\eta\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)\left(\frac{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}t}}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}}\right)^{\eta}\\
+%  & = & \left(\frac{1}{\eta}\right)\left(\frac{1-\left(\frac{\theta_{1}}{\theta_{t}}\right)^{\eta}}{1-\theta_{1}}\right).
+% \end{eqnarray*}
+% }
+
+% { Therefore, 
+% \[
+% \chi_{\tau}^{+}=(1-\eta)\left(r^{w}-r^{m}\right)\mathbb{P}_{\tau}^{+}\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(1-\eta\mathbb{P}_{\tau}^{-}\right).
+% \]
+% Thus:
+% \[
+% \chi_{\tau}^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{\tau}^{1-\eta}\theta_{1}^{\eta}-\theta_{1}}{1-\theta_{1}}\right)=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{1}^{1-\eta}\theta_{\tau}^{\eta}-\theta_{\tau}}{\theta_{1}-1}\right)
+% \]
+% and
+% \[
+% \chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(1-\left(\frac{1-\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}}{1-\theta_{1}}\right)\right)=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{1}^{1-\eta}\theta_{\tau}^{\eta}-1}{\theta_{1}-1}\right).
+% \]
+% Hence, in summary we obtain:
+% \[
+% \chi_{\tau}^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{1}^{1-\eta}\theta_{\tau}^{\eta}-\theta_{\tau}}{\theta_{1}-1}\right)\qquad\text{and}\qquad\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}\right).
+% \]
+% If we substitute for $t=0$, we arrive to the expressions for $\left\{ \chi_{0}^{+},\chi_{0}^{-}\right\} $
+% employed in the proposition. }
+
+% { Recall that the interbank rates satisfy:
+% \[
+% r_{n}^{f}\equiv r^{m}+\left(1-\eta\right)\chi_{n+1}^{-}+\eta\chi_{n+1}^{+}.
+% \]
+% Now from here we obtain the interbank-reserves interest rate spread,
+% \begin{eqnarray*}
+% r_{\tau}^{f}-r^{m} & =\\
+%  & = & \left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}-\eta\left(\frac{\theta_{\tau}-1}{\theta_{1}-1}\right)\right).
+% \end{eqnarray*}
+% Now the probability of finding a match during the interbank matching
+% process can be computed as, 
+% \[
+% \psi_{\tau}^{+}=1-e^{-\bar{\lambda}\int_{0}^{1}\theta_{\tau}d\tau}=1-e^{-\bar{\lambda}\int_{0}^{1}\frac{1}{1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}\tau}}d\tau}=1-\theta_{0}e^{-\bar{\lambda}}\left(1+\left(\frac{1-\theta_{0}}{\theta_{0}}\right)e^{\bar{\lambda}}\right)=\theta_{0}\left(1-e^{-\bar{\lambda}}\right)
+% \]
+% and 
+% \[
+% \psi^{-}=1-e^{-\bar{\lambda}}.
+% \]
+% }
+
+% { From here, we compute the average interbank interest
+% rate:
+% \begin{align*}
+% \overline{r}^{f} & =r^{m}+\left(\frac{\chi_{0}^{-}-\left(1-\psi^{-}\right)\left(r^{w}-r^{m}\right)}{\psi^{-}}\right)\\
+%  & =r^{m}+\left(\frac{\chi_{0}^{-}}{\psi^{-}}\right)-\left(\frac{1-\psi^{-}}{\psi^{-}}\right)\left(r^{w}-r^{m}\right)\\
+%  & =r^{m}+\left(\frac{1}{\psi^{-}}\right)\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\left(\frac{1-\theta_{0}^{\eta}\theta_{1}^{1-\eta}}{1-\theta_{1}}\right)\left(r^{w}-r^{m}\right)+\left(1-\left(\frac{1}{\psi^{-}}\right)\right)\left(r^{w}-r^{m}\right)\\
+%  & =r^{w}+\left(\frac{r^{w}-r^{m}}{\psi^{-}}\right)\left[\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\left(\frac{1-\theta_{0}^{\eta}\theta_{1}^{1-\eta}}{1-\theta_{1}}\right)-1\right]\\
+%  & =r^{w}-\left(\frac{r^{w}-r^{m}}{\psi^{-}}\right)\left(\frac{1-\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}}{1-\theta_{1}}\right)\\
+%  & =r^{w}-\left(1-\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\right)\left(\left(\frac{\theta_{0}}{\theta_{0}-1}\right)+e^{\bar{\lambda}}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =r^{w}-\left(1-\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\right)\left(\left(\frac{\theta_{0}}{1-\theta_{0}}\right)+e^{\bar{\lambda}}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =r^{w}-\left(1-\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\right)\left(\left(\frac{\theta_{0}+e^{\bar{\lambda}}\left(1-\theta_{0}\right)}{1-\theta_{0}}\right)\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right).
+% \end{align*}
+% Notice that, if $\eta\rightarrow0$, we arrive to the intuitive result
+% of $\overline{r}^{f}=r^{w}$. Similarly, we obtain that $\eta\rightarrow1,$
+% leads to $\overline{r}^{f}=r^{m}.$ }
+
+% { Then, we have the relationship: 
+% \[
+% \left(\theta_{1}\right)^{-1}\theta_{0}=\theta_{0}+\left(1-\theta_{0}\right)e^{\bar{\lambda}}
+% \]
+% in which case:
+% \begin{eqnarray*}
+% \overline{r}^{f} & = & r^{w}-\left(1-\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}\right)\left(\left(\frac{\theta_{0}+\left(\left(\theta_{1}\right)^{-1}-1\right)\theta_{0}}{1-\theta_{0}}\right)\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & = & r^{w}-\left(\left(\frac{\theta_{1}}{\theta_{0}}\right)^{\eta}-1\right)\left(\frac{1}{\theta_{1}}\frac{\theta_{0}}{\theta_{0}-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right).
+% \end{eqnarray*}
+% }
+
+\paragraph{Alternative representation.}
+
+{ The statement in the proposition uses the following
+alternative representation.
+\[
+\chi_{\tau}^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-\theta_{\tau}}{\theta_{1}-1}\right)=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}-\theta_{1}^{\eta}\theta_{\tau}^{1-\eta}}{\theta_{1}-1}\right)
+\]
+and
+\[
+\chi_{\tau}^{-}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\theta_{1}^{1-\eta}-1}{\theta_{1}-1}\right)=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}-\theta_{1}^{\eta}\theta_{\tau}^{-\eta}}{\theta_{1}-1}\right).
+\]
+Then, using that:
+\[
+r_{n}^{f}-r^{m}\equiv\left(1-\eta\right)\chi_{n+1}^{-}+\eta\chi_{n+1}^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\theta_{1}-\eta\theta_{1}^{\eta}\theta_{\tau}^{1-\eta}-\left(1-\eta\right)\theta_{1}^{\eta}\theta_{\tau}^{-\eta}}{\theta_{1}-1}\right).
+\]
+Thus, letting $\phi_{\tau}$ denote the endogenous bargaining power
+of the corresponding round, we obtain:
+\[
+\phi_{\tau}=1-\left(\frac{\theta_{1}-\eta\theta_{1}^{\eta}\theta_{\tau}^{1-\eta}-\left(1-\eta\right)\theta_{1}^{\eta}\theta_{\tau}^{-\eta}}{\theta_{1}-1}\right)=\left(\frac{\left(\frac{\theta_{1}}{\theta_{\tau}}\right)^{\eta}\left(\eta\theta_{\tau}+\left(1-\eta\right)\right)-1}{\theta_{1}-1}\right).
+\]
+}
+
+% \subsection{Proof of Corollary \ref{prop:bargaining}}
+
+% { The average interbank rate is:
+% \[
+% \bar{R}^{f}=R^{m}+\frac{\chi^{+}}{\Psi^{+}}.
+% \]
+% Thus, we obtain that:
+% \begin{eqnarray*}
+% \bar{R}^{f} & = & R^{m}+\frac{\left(R^{w}-R^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)}{\Psi^{+}}\\
+%  & = & \left(1-\phi\left(\theta\right)\right)R^{w}+\phi\left(\theta\right)R^{m},
+% \end{eqnarray*}
+% where}
+
+% {
+% \[
+% \phi\left(\theta\right)=1-\frac{\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)}{\Psi^{+}}=1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\left(\bar{\theta}-1\right)\Psi^{+}}.
+% \]
+% Recall that 
+% \[
+% \Psi^{+}=\begin{cases}
+% 1-e^{-\bar{\lambda}} & \text{if }\theta\geq1\\
+% \theta\left(1-e^{-\bar{\lambda}}\right) & \text{if }\theta<1
+% \end{cases},
+% \]
+% and that: 
+% \[
+% \bar{\theta}=\left\{ \begin{array}{cc}
+% 1+\left(\theta-1\right)\exp\left(\bar{\lambda}\right) & \text{if }\theta\geq1\\
+% \left(1+\left(\theta^{-1}-1\right)\exp\left(\bar{\lambda}\right)\right)^{-1} & \text{if }\theta<1
+% \end{array}\right..
+% \]
+% Thus, we have the following two cases:}
+% \begin{itemize}
+% \item {$\text{If }\theta>1$ we have that:
+% \begin{eqnarray*}
+% 1-\phi\left(\theta\right) & = & 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\left(\theta-1\right)\exp\left(\bar{\lambda}\right)\left(1-\exp\left(-\bar{\lambda}\right)\right)}\\
+%  & = & 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\left(\theta-1\right)\exp\left(\bar{\lambda}\right)+1-\theta}\\
+%  & = & 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{1+\left(\theta-1\right)\exp\left(\bar{\lambda}\right)-\theta}\\
+%  & = & 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\bar{\theta}-\theta}.
+% \end{eqnarray*}
+% Hence:
+% \[
+% \phi\left(\theta\right)=\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\bar{\theta}-\theta}.
+% \]
+% }
+% \item { This number is between zero and one since $\bar{\theta}>\theta\rightarrow\bar{\theta}>\theta^{1-\eta}\bar{\theta}^{\eta}>\theta$.}
+% \item {$\text{If }\theta<1$ we have that:
+% \begin{eqnarray*}
+% 1-\phi\left(\theta\right) & = & 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\left(\bar{\theta}-1\right)\theta\left(1-e^{-\bar{\lambda}}\right)}\\
+%  & = & 1-\frac{\theta^{-1}-\theta^{-\eta}\bar{\theta}^{\eta-1}}{\left(1-\bar{\theta}^{-1}\right)\left(1-e^{-\bar{\lambda}}\right)}\\
+%  & = & 1-\frac{\theta^{-1}-\theta^{-\eta}\left(1+\left(\theta^{-1}-1\right)\exp\left(\bar{\lambda}\right)\right)^{\left(1-\eta\right)}}{\left(\theta^{-1}-1\right)\left(\exp\left(\bar{\lambda}\right)-1\right)}\\
+%  & = & 1-\frac{\theta^{-1}-\theta^{-\eta}\left(\bar{\theta}^{-1}\right)^{\left(1-\eta\right)}}{\bar{\theta}^{-1}-\theta^{-1}}.
+% \end{eqnarray*}
+% Hence, we have:
+% \[
+% \phi\left(\theta\right)=1-\frac{\bar{\theta}^{-1}-\theta^{-\eta}\left(\bar{\theta}^{-1}\right)^{\left(1-\eta\right)}}{\bar{\theta}^{-1}-\theta^{-1}}.
+% \]
+% This shows the symmetry property. The bargaining power falls between
+% zero and one since $\bar{\theta}^{-1}>\theta^{-1}\rightarrow\bar{\theta}^{-1}>\theta^{-\left(1-\eta\right)}\bar{\theta}^{-\eta}>\theta^{-1}.$}
+% \end{itemize}
+
+% \subsection{Symmetry}
+
+% { So far, we have show that given $\theta$, the after-trade
+% tightness is given by: 
+% \[
+% \bar{\theta}=\theta_{1}=\left\{ \begin{array}{cc}
+% 1+\left(\theta-1\right)\exp\left(\bar{\lambda}\right) & \text{if }\theta>1\\
+% 1 & \text{if }\theta=1\\
+% \left(1+\left(\theta^{-1}-1\right)\exp\left(\bar{\lambda}\right)\right)^{-1} & \text{if }\theta<1
+% \end{array}\right..
+% \]
+% Trading probabilities are given by:
+% \[
+% \Psi^{+}=\begin{cases}
+% 1-e^{-\bar{\lambda}} & \text{if }\theta\geq1\\
+% \theta\left(1-e^{-\bar{\lambda}}\right) & \text{if }\theta<1
+% \end{cases},\qquad\Psi^{-}=\begin{cases}
+% \left(1-e^{-\bar{\lambda}}\right)\theta^{-1} & \text{if }\theta>1\\
+% 1-e^{-\bar{\lambda}} & \text{if }\theta\leq1
+% \end{cases}.
+% \]
+% Thus, the slopes of the liquidity-yield function are given by:
+% \[
+% \chi^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\text{ and }\chi^{-}=\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right).
+% \]
+% Next, we simplify the solution. }
+
+% \paragraph*{Case $\theta<1$.}
+
+% { In this case:
+% \[
+% \bar{\theta}=\left(1+\left(\theta^{-1}-1\right)\exp\left(\lambda\right)\right)^{-1}.
+% \]
+% The following calculations are useful. Observe that, 
+% \[
+% \frac{\bar{\theta}}{\theta}=\frac{\theta}{\theta\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}=\frac{1}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}
+% \]
+% And from here, that,}
+
+% {
+% \[
+% 1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}=1-\left(\frac{1}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}\right)^{\eta}
+% \]
+% and,}
+
+% {
+% \[
+% 1-\bar{\theta}=1-\frac{1}{\left(1+\left(\theta^{-1}-1\right)\exp\left(\lambda\right)\right)}=\frac{\left(1-\theta\right)\exp\left(\lambda\right)}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}.
+% \]
+% Thus, the ``Cobb-Douglas'' term, satisfies:
+% \[
+% \theta^{\eta}\bar{\theta}{}^{1-\eta}=\frac{\theta^{\eta}\left(1+\left(\theta^{-1}-1\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(1+\left(\theta^{-1}-1\right)\exp\left(\lambda\right)\right)}=\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(1+\left(\theta^{-1}-1\right)\exp\left(\lambda\right)\right)}=\theta\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}.
+% \]
+% }
+
+% { Now, define:
+% \[
+% h^{+}\equiv\theta-\theta^{\eta}\bar{\theta}{}^{1-\eta}=\theta\left(1-\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}\right)
+% \]
+% and
+% \[
+% h^{-}\equiv1-\theta^{\eta}\bar{\theta}{}^{1-\eta}=\left(1-\theta\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}\right).
+% \]
+% }
+
+% { With these definitions, we obtain the following expression
+% for the slopes of the liquidity yield:
+% \[
+% \chi^{+}=\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}h^{+}\left(\frac{1}{1-\bar{\theta}}\right)=\left(r^{w}-r^{m}\right)\left(\frac{1}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}\right)^{\eta}\frac{\theta\left(1-\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}\right)}{\frac{\left(1-\theta\right)\exp\left(\lambda\right)}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}}
+% \]
+% and}
+
+% {
+% \[
+% \chi^{-}=\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}h^{-}\left(\frac{1}{1-\bar{\theta}}\right)=\left(r^{w}-r^{m}\right)\left(\frac{1}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}\right)^{\eta}\frac{\left(1-\theta\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)^{\eta}}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right)}\right)}{\frac{\left(1-\theta\right)\exp\left(\lambda\right)}{\theta+\left(1-\theta\right)\exp\left(\lambda\right)}}.
+% \]
+% }
+
+% { Define:}
+
+% {
+% \[
+% \rho\equiv\left(1-\theta\right)\exp\left(\lambda\right)
+% \]
+% Then}
+
+% {
+% \begin{align*}
+% \chi^{+} & =\left(r^{w}-r^{m}\right)\left(\frac{1}{\theta+\rho}\right)^{\eta}\frac{\theta\left(1-\frac{\left(\theta+\rho\right)^{\eta}}{\theta+\rho}\right)}{\frac{\rho}{\theta+\rho}}=\left(r^{w}-r^{m}\right)\frac{\theta}{\rho}\left(\theta+\rho\right)^{-\eta}\left(\left(\theta+\rho\right)-\left(\theta+\rho\right)^{\eta}\right)\\
+%  & =\left(r^{w}-r^{m}\right)\theta\frac{\left(\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-1\right)}{\left(1-\theta\right)\exp\left(\lambda\right)},
+% \end{align*}
+% and}
+
+% {
+% \begin{align*}
+% \chi^{-} & =\left(r^{w}-r^{m}\right)\left(\frac{1}{\theta+\rho}\right)^{\eta}\frac{\left(1-\frac{\left(\theta+\rho\right)^{\eta}}{\theta+\rho}\right)}{\frac{\rho}{\theta+\rho}}=\left(r^{w}-r^{m}\right)\left(\frac{1}{\theta+\rho}\right)^{\eta}\frac{1}{\rho}\left(\theta+\rho\right)^{-\eta}\left(\left(\theta+\rho\right)-\theta\left(\theta+\rho\right)^{\eta}\right)\\
+%  & =\left(r^{w}-r^{m}\right)\frac{\left(\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-\theta\right)}{\left(1-\theta\right)\exp\left(\lambda\right)}.
+% \end{align*}
+% }
+
+% { Therefore, in summary:}
+
+% {
+% \[
+% \chi^{-}=\left(r^{w}-r^{m}\right)\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-\theta}{\left(1-\theta\right)\exp\left(\lambda\right)},
+% \]
+% and
+% \[
+% \chi^{+}=\left(r^{w}-r^{m}\right)\frac{\theta\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-\theta}{\left(1-\theta\right)\exp\left(\lambda\right)}.
+% \]
+% The resulting average OTC market rate is determined by the average
+% of Nash bargaining over the positions and is given by:
+% \begin{equation}
+% \overline{r}^{f}\left(\theta,r^{m},r^{w}\right)\equiv r^{m}+\left(r^{w}-r^{m}\right)\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-1}{1-\exp\left(\lambda\right)}\label{eq:interbankaux1-1}
+% \end{equation}
+% }
+
+% \paragraph*{Case $\theta>1$.}
+
+% { In this case:
+% \[
+% \bar{\theta}=1+\left(\theta-1\right)\exp\left(\bar{\lambda}\right).
+% \]
+% The following calculations are useful. Observe that, 
+% \[
+% \frac{\bar{\theta}}{\theta}=\frac{1+\left(\theta-1\right)\exp\left(\bar{\lambda}\right)}{\theta}=\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right).
+% \]
+% And from here, that,}
+
+% {
+% \[
+% 1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}=1-\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{\eta}
+% \]
+% and,}
+
+% {
+% \[
+% 1-\bar{\theta}=1-\theta^{-1}-\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)=\left(1-\theta^{-1}\right)\left(1-\exp\left(\lambda\right)\right).
+% \]
+% Thus, :
+% \[
+% \theta^{\eta}\bar{\theta}{}^{1-\eta}=\theta\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{1-\eta}.
+% \]
+% }
+
+% { Now, define:
+% \[
+% h^{+}\equiv\theta-\theta^{\eta}\bar{\theta}{}^{1-\eta}=\theta\left(1-\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{1-\eta}\right)
+% \]
+% and
+% \[
+% h^{-}\equiv1-\theta^{\eta}\bar{\theta}{}^{1-\eta}=\left(1-\theta\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{1-\eta}\right).
+% \]
+% }
+
+% { With these definitions, we obtain the following expression
+% for the slopes of the liquidity yield:
+% \begin{eqnarray*}
+% \chi^{+} & = & \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\frac{h^{+}}{1-\bar{\theta}}\\
+%  & = & \left(r^{w}-r^{m}\right)\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{\eta}\frac{\left(\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{1-\eta}-1\right)}{\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)}\\
+%  & = & \frac{\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right)-\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}}{\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)}.
+% \end{eqnarray*}
+% Likewise, we obtain that:
+% \begin{eqnarray*}
+% \chi^{-} & = & \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\frac{h^{-}}{1-\bar{\theta}}\\
+%  & = & \left(r^{w}-r^{m}\right)\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{\eta}\frac{\left(\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)\right)^{1-\eta}-\theta^{-1}\right)}{\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)}\\
+%  & = & \frac{\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right)-\theta^{-1}\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}}{\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)}.
+% \end{eqnarray*}
+% Next, we prove the symmetry:}
+
+% {
+% \[
+% \chi^{-}\left(\theta,\eta\right)=\Delta-\chi^{+}\left(\theta^{-1},1-\eta\right)
+% \]
+% Using the previous formulas:
+% \begin{eqnarray*}
+% \chi^{-}\left(\theta,\eta\right) & = & \left(r^{w}-r^{m}\right)\left(1-\frac{\theta^{-1}\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}-\theta^{-1}}{\left(1-\theta^{-1}\right)\exp\left(\lambda\right)}\right)\\
+%  & = & \left(r^{w}-r^{m}\right)\frac{\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right)-\theta^{-1}\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}}{\left(1-\theta^{-1}\right)\exp\left(\lambda\right)}.
+% \end{eqnarray*}
+% }
+
+% { Likewise, we have that:
+% \[
+% \chi^{+}\left(\theta,\eta\right)=\Delta-\chi^{-}\left(\theta^{-1},1-\eta\right)
+% \]
+% Using the previous formulas,
+% \begin{eqnarray*}
+% \chi^{+}\left(\theta,\eta\right) & = & \left(r^{w}-r^{m}\right)\left(1-\frac{\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}-\theta^{-1}}{\left(1-\theta^{-1}\right)\exp\left(\lambda\right)}\right)\\
+%  & = & \left(r^{w}-r^{m}\right)\left(\frac{\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right)-\left(\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\lambda\right)\right){}^{\eta}}{\left(1-\theta^{-1}\right)\exp\left(\lambda\right)}\right).
+% \end{eqnarray*}
+% }
+
+% \paragraph*{Summary. {[}TBA{]}}
+
+\subsection{Volume Distribution}
+
+{ Fix a partiucular date $t$ and let $S$ be the shorter
+side of the market, that is $S=\min\left\{ S^{-},S^{+}\right\} $.
+Since $\theta>1$ implies that $\theta_{\tau}>1$ at all trading sessions,
+we know that the shorter side of the market remains the shorter side
+at all trading sessions. Hence, the continuous-time limit of equation
+(\ref{eq:flows}) yields a law of motion for the shorter side:
+\[
+\dot{S}=-\lambda S.
+\]
+Thus, we have that:
+\[
+S_{\tau}=S_{0}\exp\left[-\lambda\tau\right].
+\]
+As a result, we know that the total volume of trade is:
+\[
+V=S_{0}-S_{1}=S_{0}(1-\exp\left[-\lambda\right]).
+\]
+}
+
+{ Moreover, the transactions per instant of time are:
+\[
+g_{\tau}=\lambda G\left[S_{\tau}^{+},S_{\tau}^{-}\right]=\lambda S_{\tau}\min\left[\frac{S_{\tau}^{+}}{\min\left\{ S^{-},S^{+}\right\} },\frac{S_{\tau}^{-}}{\min\left\{ S^{-},S^{+}\right\} }\right]=\lambda S_{\tau}.
+\]
+Hence, the volume distribution in the interbank market is:
+\[
+v_{\tau}=\frac{g_{\tau}}{V}=\frac{\lambda\exp\left[-\lambda*\tau\right]}{1-\exp\left(\lambda\right)}.
+\]
+}
+
+{ The volume of discount-window loans is given by:
+\[
+W=S^{-}-V=\begin{cases}
+S^{+}\left(\exp\left[-\lambda\right]+\left(\theta-1\right)\right) & \text{if }\theta>1\\
+\\S^{-}\exp\left[-\lambda\right] & \text{if }\theta\leq1.
+\end{cases}
+\]
+Thus, the volume of discount loans to overall interbank loans is given
+by:
+\[
+\frac{W}{V}=\frac{\exp\left[-\lambda\right]+\left(\theta-1\right)\mathbb{I}_{\left[\theta>1\right]}}{1-\exp\left[-\lambda\right]}.
+\]
+}
+
+\subsection{Dispersion}
+
+{ We can produce different metrics of dispersion in the
+interbank market. }
+\begin{itemize}
+\item { For $\theta=1$
+\[
+r_{\tau}^{f}=r^{m}+(1-\eta)\left(r^{w}-r^{m}\right).
+\]
+}
+\item { For $\theta>1$
+\[
+r_{\tau}^{f}=r^{m}+\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\theta_{\tau}^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}-\eta\left(\frac{\theta_{\tau}-1}{\bar{\theta}-1}\right)\right).
+\]
+}
+\item { For $\theta<1$
+\[
+r_{\tau}^{f}=r^{m}+\left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{1-\theta_{\tau}^{\eta}\bar{\theta}^{1-\eta}}{1-\bar{\theta}}-\eta\left(\frac{1-\theta_{\tau}}{1-\bar{\theta}}\right)\right).
+\]
+}
+\end{itemize}
+{ Clearly, for $\tau=1$ we have that:
+\[
+r_{1}^{f}=r^{m}+(1-\eta)\left(r^{w}-r^{m}\right).
+\]
+}
+
+{ Next, we have that:}
+\begin{itemize}
+\item { For $\theta=1$
+\[
+r_{1}^{f}-r_{\tau}^{f}=0.
+\]
+Hence, the max-min and the standard deviation of interbank rates is
+constant. }
+\item { For $\theta>0$, we have that:
+\begin{eqnarray*}
+r_{1}^{f}-r_{\tau}^{f} & = & \left(r^{w}-r^{m}\right)\left[(1-\eta)+\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\left(1-\eta\right)-\left(\theta_{\tau}^{\eta}\bar{\theta}^{1-\eta}-\eta\theta_{\tau}\right)}{\bar{\theta}-1}\right)\right]\\
+ & = & \left(r^{w}-r^{m}\right)\left[(1-\eta)+\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\left(1-\eta\right)-\theta_{\tau}\left(\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right]
+\end{eqnarray*}
+}
+\item { For $\theta<0$, we have that:
+\begin{eqnarray*}
+r_{1}^{f}-r_{\tau}^{f} & = & \left(r^{w}-r^{m}\right)\left[(1-\eta)+\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\left(1-\eta\right)-\left(\theta_{\tau}^{\eta}\bar{\theta}^{1-\eta}-\eta\theta_{\tau}\right)}{\bar{\theta}-1}\right)\right]\\
+ & = & \left(r^{w}-r^{m}\right)\left[(1-\eta)+\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{\eta}\left(\frac{\left(1-\eta\right)-\theta_{\tau}\left(\left(\frac{\bar{\theta}}{\theta_{\tau}}\right)^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right].
+\end{eqnarray*}
+}
+\end{itemize}
+{ Clearly, for $\tau=1$ we have that:}
+\begin{itemize}
+\item { For $\theta>1$
+\[
+\rho\equiv\frac{\bar{\theta}}{\theta}=\theta^{-1}+\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)>1.
+\]
+The derivatives of this ratio are:
+\[
+\rho_{\theta}=-\frac{\exp\left(\bar{\lambda}\right)-1}{\theta^{2}}<1
+\]
+and
+\[
+\rho_{\lambda}=\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)>0.
+\]
+}
+\item { For $\theta<1$
+\[
+\frac{\bar{\theta}}{\theta}=\left(\theta+\left(1-\theta\right)\exp\left(\bar{\lambda}\right)\right)^{-1}<1.
+\]
+The derivatives of this ratio are:
+\[
+\rho_{\theta}=-\frac{\exp\left(\bar{\lambda}\right)-1}{\left(\theta+\left(1-\theta\right)\exp\left(\bar{\lambda}\right)\right)^{2}}<1
+\]
+and
+\[
+\rho_{\lambda}=\frac{\left(1-\theta^{-1}\right)\exp\left(\bar{\lambda}\right)}{\left(\theta+\left(1-\theta\right)\exp\left(\bar{\lambda}\right)\right)^{2}}>0.
+\]
+}
+\item { Then, we have that:
+\begin{eqnarray*}
+r_{1}^{f}-r_{\tau}^{f} & = & \left(r^{w}-r^{m}\right)\left[(1-\eta)+\rho^{\eta}\left(\frac{\left(1-\eta\right)-\theta_{\tau}\left(\rho^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right]
+\end{eqnarray*}
+Then, taking total derivatives with respect to $\lambda$ and $\theta$
+we obtain:}{\scriptsize
+\[
+\eta\frac{d\rho}{\rho}\left[\rho^{\eta}\left(\frac{\left(1-\eta\right)-\theta_{\tau}\left(\rho^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right]-\frac{d\theta_{\tau}}{\theta_{\tau}}\left[\rho^{\eta}\left(\frac{\theta_{\tau}\left(\rho^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right]-(1-\eta)\frac{d\rho}{\rho}\left[\rho^{\eta}\left(\frac{\theta_{\tau}\rho^{1-\eta}}{\bar{\theta}-1}\right)\right]-\frac{d\left(\bar{\theta}-1\right)}{\left(\bar{\theta}-1\right)}\left[\rho^{\eta}\frac{\left(1-\eta\right)-\theta_{\tau}\left(\rho^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right].
+\]
+}{ Grouping terms:
+\[
+\left[\eta\frac{d\rho}{\rho}-\frac{d\left(\bar{\theta}-1\right)}{\left(\bar{\theta}-1\right)}\right]\left[\rho^{\eta}\left(\frac{\left(1-\eta\right)-\theta_{\tau}\left(\rho^{1-\eta}-\eta\right)}{\bar{\theta}-1}\right)\right]-\frac{d\theta_{\tau}\left(\rho-\eta\rho^{\eta}\right)+d\rho(1-\eta)\theta_{\tau}}{\bar{\theta}-1}.
+\]
+For $\theta>1$, The term $\frac{d\rho}{\rho}<0$. In turn, $d\bar{\theta}-1>0$
+\[
+\]
+}
+\end{itemize}
+\newpage{}
+
+\section{Proof of Derivatives with respect to $\theta$}
+
+\global\long\def\theequation{C.\arabic{equation}}
+\setcounter{equation}{0}
+\global\long\def\thedefn{C.\arabic{definition}}
+\setcounter{definition}{0}
+
+
+\paragraph*{Case $\theta<1$.}
+
+{ Trading probabilities are given by:
+\[
+\Psi^{+}=\begin{cases}
+1-e^{-\bar{\lambda}} & \text{if }\theta\geq1\\
+\theta\left(1-e^{-\bar{\lambda}}\right) & \text{if }\theta<1
+\end{cases},\qquad\Psi^{-}=\begin{cases}
+\left(1-e^{-\bar{\lambda}}\right)\theta^{-1} & \text{if }\theta>1\\
+1-e^{-\bar{\lambda}} & \text{if }\theta\leq1
+\end{cases}.
+\]
+Next, we explore the derivatives of the liquidity yield, varying the
+market tightness. In the special case where $\theta<1$. We have the
+following:}
+
+{
+\[
+\overline{R}_{\theta}^{f}\equiv\left(R^{w}-R^{m}\right)\frac{\left(1-\eta\right)}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{\eta}}\in\left[0,\left(1-\eta\right)\right].
+\]
+The second derivative in turn satisfies:}
+
+{
+\[
+\overline{R}_{\theta\theta}^{f}>\left(R^{w}-R^{m}\right)\frac{\eta\left(1-\eta\right)\left(\exp\left(\lambda\right)-1\right)}{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1+\eta}}>0.
+\]
+Thus, the $\overline{R}^{f}$ is convex in $\theta$ when $\theta<1$.}
+
+{ Using (\ref{eq:Chi.Function}), we obtain:
+\[
+\chi_{\theta}^{+}=\left(1-e^{-\bar{\lambda}}\right)\left(\overline{R}^{f}-R^{m}\right)+\theta\left(1-e^{-\bar{\lambda}}\right)\overline{R}_{\theta}^{f}\geq0
+\]
+and taking a second derivative shows that:
+\[
+\chi_{\theta\theta}^{+}=2\left(1-e^{-\bar{\lambda}}\right)\left(\overline{R}_{\theta}^{f}\right)+\theta\left(1-e^{-\bar{\lambda}}\right)\overline{R}_{\theta\theta}^{f}\geq0,
+\]
+which shows that the function is convex as well. }
+
+{ Likewise, using (\ref{eq:Chi.Function}), we have that:
+\[
+\chi_{\theta}^{-}=\left(1-e^{-\bar{\lambda}}\right)\overline{R}_{\theta}^{f}\geq0,
+\]
+and furthermore:
+\[
+\chi_{\theta\theta}^{-}=\left(1-e^{-\bar{\lambda}}\right)\overline{R}_{\theta\theta}^{f}\geq0.
+\]
+}
+
+{ In turn, the spread $\Sigma\equiv\chi^{-}-\chi^{+}$
+satisfies:
+\[
+\Sigma\equiv\left(\Psi^{-}-\Psi^{+}\right)\left(\overline{R}^{f}-R^{m}\right)+\left(1-\Psi^{-}\right)\left(R^{w}-R^{m}\right)
+\]
+}
+
+{
+\[
+=\left(R^{w}-R^{m}\right)\left[\frac{\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{1-\eta}-\theta}{\exp\left(\lambda\right)}\right].
+\]
+Thus, 
+\[
+\Sigma_{\theta}=-\left[\frac{\left(1-\eta\right)\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{-\eta}\left(\exp\left(\lambda\right)-1\right)+1}{\exp\left(\lambda\right)}\right]<0,
+\]
+although:
+\[
+\Sigma_{\theta\theta}=-\left[\frac{\eta\left(1-\eta\right)\left(\theta+\left(1-\theta\right)\exp\left(\lambda\right)\right){}^{-\left(\eta+1\right)}\left(\exp\left(\lambda\right)-1\right)^{2}}{\exp\left(\lambda\right)}\right]<0.
+\]
+Thus, the spread falls and is concave as $\theta<1$. The result for
+$\theta>1$ follows by symmetry.}
+
+\newpage{}
+
+\section{Proof of Derivatives with respect to $\bar{\lambda}$}
+
+
+\global\long\def\theequation{C.\arabic{equation}}
+\setcounter{equation}{0}
+\global\long\def\thedefn{D.\arabic{definition}}
+\setcounter{definition}{0}
+
+
+
+% { Recall that:
+% \begin{eqnarray*}
+% \chi^{+} & = & \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}}{\bar{\theta}-1}\right)\in\left[0,r^{w}-r^{m}\right]\\
+% \text{ and }\chi^{-} & = & \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}}{\bar{\theta}-1}\right)\in\left[0,r^{w}-r^{m}\right].
+% \end{eqnarray*}
+% The parameter $\bar{\lambda}$ only enters in $\bar{\theta}$. Thus,
+% we first obtain the derivatives with respect to $\bar{\theta}$. For
+% that, define 
+% \[
+% q^{+}\left(\bar{\theta}\right)\equiv\left(\frac{\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}}{\bar{\theta}-1}\right)\in\left[0,1\right]
+% \]
+% and
+% \[
+% q^{-}\left(\bar{\theta}\right)\equiv\left(\frac{\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}}{\bar{\theta}-1}\right)\in\left[0,1\right].
+% \]
+% }
+
+% { We have that:
+% \begin{eqnarray*}
+% q_{\bar{\theta}}^{+}\left(\bar{\theta}\right) & = & q^{+}\left(\bar{\theta}\right)\left(\frac{1-\eta\bar{\theta}^{\eta-1}\theta^{1-\eta}}{\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}}-\frac{1}{\bar{\theta}-1}\right)\\
+%  & = & q^{+}\left(\bar{\theta}\right)\left(\frac{\bar{\theta}-\eta\bar{\theta}^{\eta}\theta^{1-\eta}-1+\eta\bar{\theta}^{\eta-1}\theta^{1-\eta}-\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}\right)}{\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}\right)\left(\bar{\theta}-1\right)}\right)\\
+%  & = & q^{+}\left(\bar{\theta}\right)\left(\frac{\eta\bar{\theta}^{\eta-1}\theta^{1-\eta}+\left(1-\eta\right)\bar{\theta}^{\eta}\theta^{1-\eta}-1}{\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{1-\eta}\right)\left(\bar{\theta}-1\right)}\right).
+% \end{eqnarray*}
+% The denominator is always positive. Hence the sign inherits the sign
+% of the numerator. The numerator satisfies:
+% \begin{eqnarray*}
+% \eta\bar{\theta}^{\eta-1}\theta^{1-\eta}+\left(1-\eta\right)\bar{\theta}^{\eta}\theta^{1-\eta}-1 & = & \bar{\theta}^{\eta}\theta^{1-\eta}\left(1-\eta\left(1-\bar{\theta}^{-1}\right)\right)-1.
+% \end{eqnarray*}
+% Thus, the numerator is positive if:
+% \[
+% \theta^{1-\eta}\left(\left(1-\eta\right)\bar{\theta}+\eta\right)>\bar{\theta}^{1-\eta}.
+% \]
+% }
+
+% { Likewise:
+% \begin{eqnarray*}
+% q_{\bar{\theta}}^{-}\left(\bar{\theta}\right) & = & q^{-}\left(\bar{\theta}\right)\left(\frac{1-\eta\bar{\theta}^{\eta-1}\theta^{-\eta}}{\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}}-\frac{1}{\bar{\theta}-1}\right)\\
+%  & = & q^{-}\left(\bar{\theta}\right)\left(\frac{\bar{\theta}-\eta\bar{\theta}^{\eta}\theta^{-\eta}-1+\eta\bar{\theta}^{\eta-1}\theta^{-\eta}-\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}\right)}{\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}\right)\left(\bar{\theta}-1\right)}\right)\\
+%  & = & q^{-}\left(\bar{\theta}\right)\left(\frac{\eta\bar{\theta}^{\eta-1}\theta^{-\eta}+\left(1-\eta\right)\bar{\theta}^{\eta}\theta^{-\eta}-1}{\left(\bar{\theta}-\bar{\theta}^{\eta}\theta^{-\eta}\right)\left(\bar{\theta}-1\right)}\right).
+% \end{eqnarray*}
+% The numerator satisfies:
+% \begin{eqnarray*}
+% \eta\bar{\theta}^{\eta-1}\theta^{-\eta}+\left(1-\eta\right)\bar{\theta}^{\eta}\theta^{-\eta}-1 & = & \bar{\theta}^{\eta}\theta^{-\eta}\left(1-\eta\left(1-\bar{\theta}^{-1}\right)\right)-1.
+% \end{eqnarray*}
+% The denominator is always positive. Hence the sign inherits the sign
+% of the numerator. The numerator is positive if:
+% \[
+% \theta^{-\eta}\left(\left(1-\eta\right)\bar{\theta}+\eta\right)>\bar{\theta}^{1-\eta}.
+% \]
+% We must inspect the validity of the following conditions:}
+% \begin{itemize}
+% \item {$\theta^{1-\eta}\left(\left(1-\eta\right)\bar{\theta}+\eta\right)-\bar{\theta}^{1-\eta}>0$}
+% \item {$\theta^{-\eta}\left(\left(1-\eta\right)\bar{\theta}+\eta\right)-\bar{\theta}^{1-\eta}>0$}
+% \end{itemize}
+% { Again, we break the analysis into cases:}
+
+% \paragraph*{Case $\theta<1$.}
+
+% { When $\theta<1$, $\bar{\theta}\in\left[0,\theta\right]$.
+% Consider the first condition. Then, at $\bar{\theta}=0$, the condition
+% is satisfied. However, it is violated at $\bar{\theta}=\theta$. By
+% continuity, the derivative changes for some $\bar{\theta}$. This
+% implies that $q_{\bar{\theta}}^{+}\left(\bar{\theta}\right)$ switches
+% sign for some $\bar{\theta}$ when $\theta<1$. Hence, $\chi_{\bar{\lambda}}^{+}$
+% is not monotone. }
+
+% { Now consider the second condition. Then, at $\bar{\theta}=0$,
+% the condition is satisfied. At $\bar{\theta}=\theta$, the condition
+% is also satisfied since: 
+% \[
+% \eta\left(1-\theta\right)>0.
+% \]
+% The derivative of the term in the left is:
+% \[
+% \left(1-\eta\right)\left(\theta^{-\eta}-\bar{\theta}^{-\eta}\right)<0,
+% \]
+% thus, the condition is satisfied for all values. This implies that
+% $q_{\bar{\theta}}^{-}\left(\bar{\theta}\right)>0$ for $\theta<1$.
+% Hence, $\chi_{\bar{\lambda}}^{-}$ is monotone. Since:
+% \[
+% \chi_{\bar{\lambda}}^{-}=q_{\bar{\theta}}^{-}\left(\bar{\theta}\right)\times\bar{\theta}_{\bar{\lambda}},
+% \]
+% we have that $\chi_{\bar{\lambda}}^{-}$ is monotone decreasing because
+% $\bar{\theta}_{\bar{\lambda}}<0$.}
+
+% \paragraph*{Case $\theta>1$. }
+
+% { When $\theta>1$, $\bar{\theta}\in\left[\theta,\infty\right]$.
+% Consider the first condition. Then, at $\bar{\theta}=\theta$, the
+% condition is satisfied. The derivative of the term in the left is:
+% \[
+% \left(1-\eta\right)\left(\theta^{1-\eta}-\bar{\theta}^{-\eta}\right)>0.
+% \]
+% Hence, the condition is always satisfied. Then, this implies that
+% $q_{\bar{\theta}}^{+}\left(\bar{\theta}\right)>0$ for $\theta>1$.
+% Hence, $\chi_{\bar{\lambda}}^{-}$ is monotone. Since:
+% \[
+% \chi_{\bar{\lambda}}^{+}=q_{\bar{\theta}}^{+}\left(\bar{\theta}\right)\times\bar{\theta}_{\bar{\lambda}},
+% \]
+% we have that $\chi_{\bar{\lambda}}^{+}$ is monotone increasing because
+% $\bar{\theta}_{\bar{\lambda}}>0$.}
+
+% { Now consider the second condition. Then, at $\bar{\theta}=\theta$,
+% the condition is violated. The derivative of the term in the left
+% is:
+% \[
+% \left(1-\eta\right)\left(\theta^{-\eta}-\bar{\theta}^{-\eta}\right)>0,
+% \]
+% thus, the condition must be satisfied for some values. By continuity,
+% the derivative changes for some $\bar{\theta}$. This implies that
+% $q_{\bar{\theta}}^{-}\left(\bar{\theta}\right)$ switches sign for
+% some $\bar{\theta}$ when $\theta>1$. Hence, $\chi_{\bar{\lambda}}^{-}$
+% is not monotone. }
+
+% \paragraph*{Case $\theta=1$. }
+
+% { In this case, $\lambda$ does not have an effect on
+% $\bar{R}^{f}=(1-\eta)R^{w}+\eta R^{m}$. However, note that:
+% \begin{equation}
+% \chi^{-}=(R^{w}-R^{m})-\Psi^{-}(R^{w}-\overline{R}^{f}),\qquad\chi^{+}=\Psi^{+}(\overline{R}^{f}-R^{m}).\label{eq:Chi.Function-1}
+% \end{equation}
+% Thus, 
+% \[
+% \chi_{\bar{\lambda}}^{-}=-\Psi_{\bar{\lambda}}^{-}(R^{w}-\overline{R}^{f})=-\eta\Psi_{\bar{\lambda}}^{-}(R^{w}-R^{m})<0,\qquad\chi_{\bar{\lambda}}^{+}=\Psi_{\bar{\lambda}}^{+}(\overline{R}^{f}-R^{m})=\left(1-\eta\right)\Psi_{\bar{\lambda}}^{+}(R^{w}-R^{m})>0.
+% \]
+% }
+
+% {}
+
+% \paragraph{Average Interest Rate.}
+
+% { We now consider the derivative of the average interest
+% rate. Recall that the endogenous bargaining power is:
+% \[
+% \phi\left(\theta\right)=\begin{cases}
+% 1-\frac{\bar{\theta}-\theta^{1-\eta}\bar{\theta}^{\eta}}{\bar{\theta}-\theta} & \text{if }\theta>1\\
+% \eta & \text{if }\theta=1\\
+% 1-\frac{\theta^{-1}-\theta^{-\eta}\bar{\theta}^{\eta-1}}{\bar{\theta}^{-1}-\theta^{-1}} & \text{if }\theta<1.
+% \end{cases}
+% \]
+% }
+
+% { For $\theta>1$, we have that: 
+% \[
+% \phi\left(\theta\right)=1-q^{+}\left(\bar{\theta}\right).
+% \]
+% Thus, in this case, we have shown above that:
+% \[
+% q_{\bar{\theta}}^{+}\left(\bar{\theta}\right)>0.
+% \]
+% This implies that
+% \[
+% \phi_{\lambda}\left(\theta\right)=-\frac{\partial}{\partial\bar{\theta}}\left[q^{+}\left(\bar{\theta}\right)\right]\cdot\frac{\partial}{\partial\lambda}\left[\bar{\theta}\right]<0.
+% \]
+% }
+
+% { For $\theta<1$, we exploit the symmetry property: 
+% \[
+% \phi\left(\theta\right)=1-\phi\left(\theta^{-1}\right)
+% \]
+% Thus, 
+% \[
+% \phi_{\lambda}\left(\theta\right)>0.
+% \]
+% \[
+% \]
+% }
+
+% \newpage{}
+
+% \section{Proof of Proposition \ref{prop:dispersion.compstats}}
+
+% \paragraph*{Derivative of the dispersion of the interbank market rate w.r.t.
+% $\theta$: }
+
+% \paragraph{Case $\theta>1$.}
+
+% \noindent{
+% \begin{align*}
+% Q_{min}^{max} & =max_{\tau}\left\{ r_{\tau}^{f}\right\} -min\left\{ r_{\tau}^{f}\right\} =r_{1}^{f}-r_{0}^{f}=-((-R^{m}+R^{w})(1-\eta))\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})\eta\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{1-\eta}\right)}{-1+\theta}\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})(1-\eta)\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{-\eta}\right)}{-1+\theta}\\
+%  & =\frac{-e^{-\lambda}(R^{w}-R^{m})\theta^{-\eta}\left(-\left((-1+\eta)\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\right)+\eta\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta+\left(-1+e^{\lambda}\eta\right)\theta^{\eta}-e^{\lambda}\eta\theta^{1+\eta}\right)}{-1+\theta}\\
+%  & =\frac{e^{-\lambda}(R^{w}-R^{m})\theta^{-\eta}\left(\left((-1+\eta)\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\right)-\eta\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta-\left(-1+e^{\lambda}\eta\right)\theta^{\eta}+e^{\lambda}\eta\theta^{1+\eta}\right)}{\theta-1}
+% \end{align*}
+% And:
+% \begin{align*}
+% \frac{\partial Q_{\min}^{\max}}{\partial\theta} & =-\frac{e^{-\lambda}(-R^{m}+R^{w})\eta\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{1-\eta}\right)}{(-1+\theta)^{2}}\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})(1-\eta)\left(e^{\lambda}+\eta\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{-1-\eta}-e^{\lambda}\eta\left(1+e^{\lambda}(-1+\theta)\right)^{-1+\eta}\theta^{-\eta}\right)}{-1+\theta}\\
+%  & -\frac{e^{-\lambda}(-R^{m}+R^{w})(1-\eta)\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{-\eta}\right)}{(-1+\theta)^{2}}\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})\eta\left(e^{\lambda}-e^{\lambda}\eta\left(1+e^{\lambda}(-1+\theta)\right)^{-1+\eta}\theta^{1-\eta}-(1-\eta)\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{-\eta}\right)}{-1+\theta}
+% \end{align*}
+% }
+
+% \noindent{ Since $\theta>1$, $\lambda\in[0,1]$, $\eta\in[0,1]$
+% and $\left(R^{w}-R^{m}\right)>0$, we have:}
+% \begin{center}
+% {$\frac{\partial Q_{\min}^{\max}}{\partial\theta}=\frac{\underbrace{e^{-\lambda}(R^{m}-R^{w})\theta^{-1-\eta}\left(1+e^{\lambda}(-1+\theta)\right)}_{<0}F(\theta,\lambda,\eta)}{\underbrace{\left(1+e^{\lambda}(-1+\theta)\right)(-1+\theta)^{2}}_{>0}}$}
+% \par\end{center}
+
+% \noindent{ Where:}
+% \begin{center}
+% {$F(\theta,\lambda,\eta)=\theta^{1+\eta}+\left(1+e^{\lambda}(-1+\theta)\right)^{\eta-1}\left(-\theta+(-1+\theta)\left(e^{\lambda}(-1+\eta)(\eta(-1+\theta)+\theta)+\eta(-1+\eta-\eta\theta)\right)\right)$ }
+% \par\end{center}
+
+% \noindent{ And it's important to mention that this function
+% $F(\theta,\lambda,\eta)$ is increasing in $\eta$, so if we take
+% the following limit $\eta\rightarrow1$:
+% \begin{align*}
+% F(\theta,\lambda,\eta)<\max F(\theta,\lambda,\eta)\thickapprox\lim_{\eta\rightarrow1}F(\theta,\lambda,\eta) & =\theta^{2}+\left(-\theta+(-1+\theta)\left(-\theta\right)\right)=\theta^{2}-\theta^{2}=0
+% \end{align*}
+% }
+
+% \noindent{ And therefore:}
+% \begin{center}
+% {\small$\frac{\partial Q_{\min}^{\max}}{\partial\theta}=\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-1-\eta}\left(1+e^{\lambda}(-1+\theta)\right)F(\theta,\lambda,\eta)}{\left(1+e^{\lambda}(-1+\theta)\right)(-1+\theta)^{2}}>0$}{\small\par}
+% \par\end{center}
+
+% \paragraph*{Case $\theta<1$.{}}
+
+% \noindent{
+% \begin{align*}
+% Q_{min}^{max} & =max_{\tau}\left\{ r_{\tau}^{f}\right\} -min\left\{ r_{\tau}^{f}\right\} =r_{0}^{f}-r_{1}^{f}=(-R^{m}+R^{w})(1-\eta)-\frac{(-R^{m}+R^{w})\eta\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{1-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}\\
+%  & -\frac{(-R^{m}+R^{w})(1-\eta)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}
+% \end{align*}
+% }
+
+% \noindent{ Where:
+% \begin{align*}
+% \frac{\partial Q_{\min}^{\max}}{\partial\theta} & =-\frac{(-R^{m}+R^{w})\eta\left(-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}\right)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{1-\eta}\right)}{\left(-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{2}\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}}\\
+%  & -\frac{(-R^{m}+R^{w})(1-\eta)\left(-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}\right)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{-\eta}\right)}{\left(-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{2}\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}}\\
+%  & -\frac{(-R^{m}+R^{w})\eta\left(-\frac{-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}}{\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}}+\eta\left(-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}\right)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{1+\eta}\theta^{1-\eta}-(1-\eta)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}\\
+%  & -\frac{(-R^{m}+R^{w})(1-\eta)\left(-\frac{-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}}{\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}}+\eta\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{-1-\eta}+\eta\left(-\frac{e^{\lambda}(1-\theta)}{\theta^{2}}-\frac{e^{\lambda}}{\theta}\right)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{1+\eta}\theta^{-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}\\
+%  & =-\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}\left(-\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}+\left(-1+e^{\lambda}\right)\eta\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}(2+\eta(-1+\theta)-\theta)(-1+\theta)+\theta^{\eta}\right)}{(-1+\theta)^{2}}
+% \end{align*}
+% }
+
+% \noindent{ Since $\theta<1$, $\lambda\in[0,1]$, $\eta\in[0,1]$
+% and $\left(R^{w}-R^{m}\right)>0$, we have:}
+% \begin{center}
+% {$\frac{\partial Q_{\min}^{\max}}{\partial\theta}=\frac{\underbrace{e^{-\lambda}(R^{w}-R^{m})\theta^{-\eta}\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}}_{>0}\left(-1+\left(-1+e^{\lambda}\right)\eta(2+\eta(-1+\theta)-\theta)(-1+\theta)+\theta^{\eta}\right)}{\underbrace{(-1+\theta)^{2}}_{>0}}$}
+% \par\end{center}
+
+% \noindent{ We need to analyze the second factor of the
+% numerator. So we can begin with:}
+% \begin{center}
+% {$0<\min(2-\eta+\theta\eta-\theta)=1<(2-\eta+\theta\eta-\theta)$}
+% \par\end{center}
+
+% {\large$ $}{\large\par}
+
+% {\large$ $}{\large\par}
+
+% \noindent{ Also we know that $\left(-1+e^{\lambda}\right)\eta>0$
+% and $-1+\theta<0$. So we have:
+% \begin{align*}
+% \left(-1+e^{\lambda}\right)\eta(2-\eta+\theta\eta-\theta)(-1+\theta) & <0\\
+% \left(-1+e^{\lambda}\right)\eta(2+\eta(-1+\theta)-\theta)(-1+\theta)+\left(\underbrace{\theta^{\eta}-1}_{<0}\right) & <\left(-1+e^{\lambda}\right)\eta(2+\eta(-1+\theta)-\theta)(-1+\theta)<0
+% \end{align*}
+% }
+
+% \noindent{ And therefore the second factor of the numerator
+% will be:}
+% \begin{center}
+% {$-1+\left(-1+e^{\lambda}\right)\eta(2+\eta(-1+\theta)-\theta)(-1+\theta)+\theta^{\eta}<0$}
+% \par\end{center}
+
+% \noindent{ Finally, we have:}
+% \begin{center}
+% {\small$\frac{\partial Q_{\min}^{\max}}{\partial\theta}=\frac{e^{-\lambda}(R^{w}-R^{m})\theta^{-\eta}\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}\left(-1+\left(-1+e^{\lambda}\right)\eta(2+\eta(-1+\theta)-\theta)(-1+\theta)+\theta^{\eta}\right)}{(-1+\theta)^{2}}<0$}{\small\par}
+% \par\end{center}
+
+% \paragraph*{Case $\theta=1$. }
+
+% { As we can see in the last two cases, if we take the
+% following limit $\theta\rightarrow1$, we have that $\frac{\partial Q_{\min}^{\max}}{\partial\theta}\rightarrow0$.
+% This is because when the market tightness disappears, we have that
+% the interbank rate is always the rate on reserves (a constant).}
+
+% \paragraph{Derivative of the dispersion of the interbank market rate w.r.t.
+% $\lambda$:}
+
+% \paragraph{Case $\theta>1$.}
+
+% \noindent{
+% \begin{align*}
+% \frac{\partial Q_{\min}^{\max}}{\partial\lambda} & =-\frac{e^{-\lambda}(-R^{m}+R^{w})\eta\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{1-\eta}\right)}{-1+\theta}\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})\eta\left(e^{\lambda}(-1+\theta)-e^{\lambda}\eta\left(1+e^{\lambda}(-1+\theta)\right)^{-1+\eta}(-1+\theta)\theta^{1-\eta}\right)}{-1+\theta}\\
+%  & -\frac{e^{-\lambda}(-R^{m}+R^{w})(1-\eta)\left(1+e^{\lambda}(-1+\theta)-\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\theta^{-\eta}\right)}{-1+\theta}\\
+%  & +\frac{e^{-\lambda}(-R^{m}+R^{w})(1-\eta)\left(e^{\lambda}(-1+\theta)-e^{\lambda}\eta\left(1+e^{\lambda}(-1+\theta)\right)^{-1+\eta}(-1+\theta)\theta^{-\eta}\right)}{-1+\theta}\\
+%  & =\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}\left(\left(1+e^{\lambda}(-1+\theta)\right)^{\eta}\left(-1+e^{\lambda}(-1+\eta)(-1+\theta)\right)\left(1+\eta(-1+\theta)\right)+\left(1+e^{\lambda}(-1+\theta)\right)\theta^{\eta}\right)}{-1+e^{\lambda}(-1+\theta)^{2}+\theta}
+% \end{align*}
+% }
+
+% \noindent{ Since $\theta>1$, $\lambda\in[0,1]$, $\eta\in[0,1]$
+% and $\left(R^{w}-R^{m}\right)>0$, we have:}
+% \begin{center}
+% {$\frac{\partial Q_{\min}^{\max}}{\partial\lambda}=\frac{\underbrace{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}\left(1+e^{\lambda}(-1+\theta)\right)}_{<0}\left(\left(1+e^{\lambda}(-1+\theta)\right)^{\eta-1}\left(-1+e^{\lambda}(-1+\eta)(-1+\theta)\right)\left(1+\eta(-1+\theta)\right)+\theta^{\eta}\right)}{\underbrace{-1+e^{\lambda}(-1+\theta)^{2}+\theta}_{>0}}$}
+% \par\end{center}
+
+% \noindent{ Where:}
+% \begin{center}
+% {$G(\theta,\lambda,\eta)=\left(1+e^{\lambda}(-1+\theta)\right)^{\eta-1}\left(-1+e^{\lambda}(-1+\eta)(-1+\theta)\right)\left(1+\eta(-1+\theta)\right)+\theta^{\eta}$}
+% \par\end{center}
+
+% \noindent{ And it's important to mention that the last
+% function is increasing in $\eta$, so if we take the following limit
+% $\eta\rightarrow1$:
+% \begin{align*}
+% G(\theta,\lambda,\eta)<\max G(\theta,\lambda,\eta)\thickapprox\lim_{\eta\rightarrow1}G(\theta,\lambda,\eta) & =\left(1+e^{\lambda}(-1+\theta)\right)^{0}\left(-1\right)\left(\theta\right)+\theta=-\theta+\theta=0
+% \end{align*}
+% }
+
+% \noindent{ And therefore:}
+% \begin{center}
+% {\small$\frac{\partial Q_{\min}^{\max}}{\partial\lambda}=\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}\left(1+e^{\lambda}(-1+\theta)\right)G(\theta,\lambda,\eta)}{-1+e^{\lambda}(-1+\theta)^{2}+\theta}>0$}{\small\par}
+% \par\end{center}
+
+% \paragraph*{Case $\theta<1$.{}}
+
+% \noindent{
+% \begin{align*}
+% \frac{\partial Q_{\min}^{\max}}{\partial\lambda} & =-\frac{(-R^{m}+R^{w})(1-\eta)\left(-\frac{e^{\lambda}(1-\theta)}{\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}\theta}+e^{\lambda}\eta\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{1+\eta}(1-\theta)\theta^{-1-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}\\
+%  & -\frac{e^{\lambda}(-R^{m}+R^{w})\eta(1-\theta)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{1-\eta}\right)}{\left(-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{2}\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}\theta}\\
+%  & -\frac{e^{\lambda}(-R^{m}+R^{w})(1-\eta)(1-\theta)\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}-\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{\eta}\theta^{-\eta}\right)}{\left(-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{2}\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}\theta}\\
+%  & -\frac{(-R^{m}+R^{w})\eta\left(-\frac{e^{\lambda}(1-\theta)}{\left(1+\frac{e^{\lambda}(1-\theta)}{\theta}\right)^{2}\theta}+e^{\lambda}\eta\left(\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}\right)^{1+\eta}(1-\theta)\theta^{-\eta}\right)}{-1+\frac{1}{1+\frac{e^{\lambda}(1-\theta)}{\theta}}}\\
+%  & =\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}\left(-\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}\left(1+\eta(-1+\theta)\right)\left(e^{\lambda}\eta(-1+\theta)-\theta\right)-\theta^{1+\eta}\right)}{-1+\theta}
+% \end{align*}
+% }
+
+% \noindent{ Since $\theta<1$, $\lambda\in[0,1]$, $\eta\in[0,1]$
+% and $\left(R^{w}-R^{m}\right)>0$, we have:}
+% \begin{center}
+% {$\frac{\partial Q_{\min}^{\max}}{\partial\lambda}=\frac{\underbrace{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}}_{<0}\left(-\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}\left(1+\eta(-1+\theta)\right)\left(e^{\lambda}\eta(-1+\theta)-\theta\right)-\theta^{1+\eta}\right)}{\underbrace{-1+\theta}_{<0}}$}
+% \par\end{center}
+
+% \noindent\begin{flushleft}
+% { Where:}
+% \par\end{flushleft}
+
+% \begin{center}
+% {$H(\theta,\lambda,\eta)=\underbrace{-\left(\frac{1}{1+e^{\lambda}\left(-1+\frac{1}{\theta}\right)}\right)^{\eta}}_{\in(-1,0)}\underbrace{\left(1+\eta(-1+\theta)\right)}_{\in(0,1)}\underbrace{\left(e^{\lambda}\eta(-1+\theta)-\theta\right)}_{<0}-\underbrace{\theta^{1+\eta}}_{\in(0,1)}$}
+% \par\end{center}
+
+% \noindent{ All the factors of the first term in the last
+% equation are decreasing w.r.t. $\eta$ and the second term is also
+% decreasing w.r.t. $\eta$. So all the terms are decreasing and bounded,
+% and therefore the limit w.r.t.$\eta$ is:}
+% \begin{center}
+% {$H(\theta,\lambda,\eta)<\min H(\theta,\lambda,\eta)\thickapprox\underset{\eta\rightarrow1}{\lim}H(\theta,\lambda,\eta)=0$}
+% \par\end{center}
+
+% \noindent{ And therefore:}
+% \begin{center}
+% {\small$\frac{\partial Q_{\min}^{\max}}{\partial\lambda}=\frac{e^{-\lambda}(R^{m}-R^{w})\theta^{-\eta}H(\theta,\lambda,\eta)}{-1+\theta}>0$}{\small\par}
+% \par\end{center}
+
+% \paragraph*{Case $\theta=1$. }
+
+% { As we can see in the last two cases, if we take the
+% following limit $\theta\rightarrow1$, we have that $\frac{\partial Q_{\min}^{\max}}{\partial\lambda}\rightarrow0$.This
+% is because when the market tightness disappears, we have that the
+% interbank rate is always the rate on reserves (a constant).}
+
+% \newpage{}
+
+% \section{Proof of Proposition \ref{prop:LimitBehavior}}
+
+% { Let us study the three possible cases, }
+
+% \paragraph*{i)}
+
+% { $\theta
+% \rightarrow 1:$}\\
+% { Because $\theta=1$, observe that 
+% \begin{align*}
+% \Psi^{+}=1-e^{-\bar{\lambda}}\qquad\text{and}\qquad\Psi^{-}=1-e^{-\bar{\lambda}}.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\theta\to1}\left\{ \chi^{+}\right\}  & =\lim_{\theta\to1}\left\{ (1-\eta)\left(r^{w}-r^{m}\right)\left(1-e^{-\bar{\lambda}}\right)\right\} =(1-\eta)\left(1-e^{-\bar{\lambda}}\right)\left(r^{w}-r^{m}\right).
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\theta\to1}\left\{ \chi^{-}\right\}  & =\lim_{\theta\to1}\left\{ \left(r^{w}-r^{m}\right)\left(1-\eta\left(1-e^{-\bar{\lambda}}\right)\right)\right\} =\left(1-\eta\left(1-e^{-\bar{\lambda}}\right)\right)\left(r^{w}-r^{m}\right).
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\theta\to1}\left\{ \overline{r}^{f}\right\}  & =\lim_{\theta\to1}\left\{ (1-\eta)r^{w}+\eta r^{m}\right\} =(1-\eta)r^{w}+\eta r^{m}.
+% \end{align*}
+% }
+
+% \paragraph*{ii)}
+
+% { $\theta
+% \rightarrow \infty:$}\\
+% { Because $\theta>1$, observe that 
+% \begin{align*}
+% \Psi^{+}=1-e^{-\bar{\lambda}}\qquad\text{and}\qquad\Psi^{-}=0.
+% \end{align*}
+% Now, before proceeding, realise that 
+% \begin{align*}
+% \lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\}  & =\lim_{\theta\to\infty}\left\{ \frac{1+(\theta-1)e^{\bar{\lambda}}}{\theta}\right\} =\lim_{\theta\to\infty}\left\{ \frac{1}{\theta}+\left(1-\frac{1}{\theta}\right)e^{\bar{\lambda}}\right\} =e^{\bar{\lambda}}.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\theta\to\infty}\left\{ \chi^{+}\right\}  & =\lim_{\theta\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\theta\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\left(\frac{\bar{\theta}}{\theta}\right)^{1-\eta}-1}{\frac{\bar{\theta}}{\theta}-\frac{1}{\theta}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\left(\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{1-\eta}-1}{\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} -\lim_{\theta\to\infty}\left\{ \frac{1}{\theta}\right\} }\right)\\
+%  & =\left(r^{w}-r^{m}\right)e^{\eta\bar{\lambda}}\left(\frac{e^{\bar{\lambda}(1-\eta)}-1}{e^{\bar{\lambda}}}\right)\\
+%  & =\left(r^{w}-r^{m}\right)\left(1-e^{-\bar{\lambda}(1-\eta)}\right).
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\theta\to\infty}\left\{ \chi^{-}\right\}  & =\lim_{\theta\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\theta\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\left(\frac{\bar{\theta}}{\theta}\right)^{1-\eta}-\frac{1}{\theta}}{\frac{\bar{\theta}}{\theta}-\frac{1}{\theta}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\left(\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{1-\eta}-\lim_{\theta\to\infty}\left\{ \frac{1}{\theta}\right\} }{\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} -\lim_{\theta\to\infty}\left\{ \frac{1}{\theta}\right\} }\right)\\
+%  & =\left(r^{w}-r^{m}\right)e^{\eta\bar{\lambda}}\left(\frac{e^{\bar{\lambda}(1-\eta)}}{e^{\bar{\lambda}}}\right)\\
+%  & =r^{w}-r^{m}.
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\theta\to\infty}\left\{ \overline{r}^{f}\right\}  & =\lim_{\theta\to\infty}\left\{ r^{w}-\left(\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}-1\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =r^{w}-\left(\left(\lim_{\theta\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}-1\right)\left(\frac{1}{1-\lim_{\theta\to\infty}\left\{ \frac{1}{\theta}\right\} }\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =r^{w}-\left(e^{\bar{\lambda}\eta}-1\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =\left(\frac{e^{\bar{\lambda}}-e^{\bar{\lambda}\eta}}{e^{\bar{\lambda}}-1}\right)r^{w}+\left(\frac{e^{\bar{\lambda}\eta}-1}{e^{\bar{\lambda}}-1}\right)r^{m}.
+% \end{align*}
+% }
+
+% \paragraph*{iii)}
+
+% { $\theta
+% \rightarrow 0:$}\\
+% { Because $\theta<1$, observe that 
+% \begin{align*}
+% \Psi^{+}=0\qquad\text{and}\qquad\Psi^{-}=1-e^{-\bar{\lambda}}.
+% \end{align*}
+% Now, before proceeding, realise that 
+% \begin{align*}
+% \lim_{\theta\to0}\left\{ \frac{\bar{\theta}}{\theta}\right\}  & =\lim_{\theta\to0}\left\{ \frac{\frac{\theta}{\theta+(1-\theta)e^{\bar{\lambda}}}}{\theta}\right\} =\lim_{\theta\to0}\left\{ \frac{1}{\theta+(1-\theta)e^{\bar{\lambda}}}\right\} =e^{-\bar{\lambda}}.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\theta\to0}\left\{ \chi^{+}\right\}  & =\lim_{\theta\to0}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\theta\to0}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\lim_{\theta\to0}\left\{ \theta^{\eta}\bar{\theta}^{1-\eta}\right\} -\lim_{\theta\to0}\left\{ \theta\right\} }{\lim_{\theta\to0}\left\{ \bar{\theta}\right\} -1}\right)\\
+%  & =0.
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\theta\to0}\left\{ \chi^{-}\right\}  & =\lim_{\theta\to0}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\theta\to0}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\lim_{\theta\to0}\left\{ \theta^{\eta}\bar{\theta}^{1-\eta}\right\} -1}{\lim_{\theta\to0}\left\{ \bar{\theta}\right\} -1}\right)\\
+%  & =\left(r^{w}-r^{m}\right)e^{-\bar{\lambda}\eta}.
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\theta\to0}\left\{ \overline{r}^{f}\right\}  & =\lim_{\theta\to0}\left\{ r^{w}-\left(\frac{1}{1-\theta}\right)\left(\frac{\theta}{\bar{\theta}}\right)\left(1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =r^{w}-\left(\frac{1}{1-\lim_{\theta\to0}\left\{ \theta\right\} }\right)\left(\lim_{\theta\to0}\left\{ \frac{\theta}{\bar{\theta}}\right\} \right)\left(1-\left(\lim_{\theta\to0}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =r^{w}-e^{\bar{\lambda}}\left(1-e^{-\bar{\lambda}\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =r^{w}-\left(e^{\bar{\lambda}}-e^{\bar{\lambda}(1-\eta)}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\\
+%  & =\left(\frac{e^{\bar{\lambda}(1-\eta)}-1}{e^{\bar{\lambda}}-1}\right)r^{w}+\left(\frac{e^{\bar{\lambda}}-e^{\bar{\lambda}(1-\eta)}}{e^{\bar{\lambda}}-1}\right)r^{m}.
+% \end{align*}
+% }\newpage{}
+
+% \section{Proof of Proposition \protect\ref{prop:LimitBehavior2}}
+
+% \subsection{Matching Efficiency}
+
+% { Let us first start with the limiting properties of the
+% matching efficiency parameter.}\\
+% { Let us study the three possible cases, }
+
+% {\underline{$\theta = 1$}:}\\
+% { Because $\theta=1$, observe that 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{+}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ 1-e^{-\bar{\lambda}}\right\} =1,\qquad\text{and}\\
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{-}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ 1-e^{-\bar{\lambda}}\right\} =1.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{+}\right\}  & =\lim_{\theta\to\infty}\left\{ (1-\eta)\left(1-e^{-\bar{\lambda}}\right)\left(r^{w}-r^{m}\right)\right\} \\
+%  & =(1-\eta)\left(1-\lim_{\bar{\lambda}\to\infty}\left\{ e^{-\bar{\lambda}}\right\} \right)\left(r^{w}-r^{m}\right)\\
+%  & =\left(r^{w}-r^{m}\right)(1-\eta).
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{-}\right\}  & =\lim_{\theta\to\infty}\left\{ \left(1-\eta\left(1-e^{-\bar{\lambda}}\right)\right)\left(r^{w}-r^{m}\right)\right\} \\
+%  & =\left(1-\eta\left(1-\lim_{\bar{\lambda}\to\infty}\left\{ e^{-\bar{\lambda}}\right\} \right)\right)\left(r^{w}-r^{m}\right)\\
+%  & =\left(r^{w}-r^{m}\right)(1-\eta).
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \overline{r}^{f}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ (1-\eta)r^{w}+\eta r^{m}\right\} =(1-\eta)r^{w}+\eta r^{m}.
+% \end{align*}
+% }
+
+% {\underline{$\theta > 1 $}:}\\
+% { Because $\theta>1$, observe that 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{+}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ 1-e^{-\bar{\lambda}}\right\} =1,\qquad\text{and}\\
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{-}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \frac{1-e^{\bar{-\lambda}}}{\theta}\right\} =\frac{1}{\theta}.
+% \end{align*}
+% Now, before proceeding, realise that 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \frac{\theta}{\bar{\theta}}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\theta}{1+(\theta-1)e^{\bar{\lambda}}}\right\} =0.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{+}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{1-\left(\frac{\theta}{\bar{\theta}}\right)^{1-\eta}}{1-\frac{1}{\bar{\theta}}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\frac{1-\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\theta}{\bar{\theta}}\right\} \right)^{1-\eta}}{1-\lim_{\bar{\lambda}\to\infty}\left\{ \frac{1}{\bar{\theta}}\right\} }\right)\\
+%  & =r^{w}-r^{m}.
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{-}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{1-\frac{1}{\theta^{\eta}\bar{\theta}^{1-\eta}}}{1-\frac{1}{\bar{\theta}}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\frac{1-\lim_{\bar{\lambda}\to\infty}\left\{ \frac{1}{\theta^{\eta}\bar{\theta}^{1-\eta}}\right\} }{1-\lim_{\bar{\lambda}\to\infty}\left\{ \frac{1}{\bar{\theta}}\right\} }\right)\\
+%  & =r^{w}-r^{m}.
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \overline{r}^{f}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ r^{w}-\left(\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}-1\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ r^{w}-\left(r^{w}-r^{m}\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{\left(\frac{1+(\theta-1)e^{\bar{\lambda}}}{\theta}\right)^{\eta}-1}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =r^{w}-\left(r^{w}-r^{m}\right)\left(\frac{\theta}{\theta-1}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\left(\frac{1+(\theta-1)e^{\bar{\lambda}}}{\theta}\right)^{\eta}-1}{e^{\bar{\lambda}}-1}\right\} \right)\\
+%  & =r^{w}-\left(r^{w}-r^{m}\right)\left(\frac{\theta}{\theta-1}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ \eta\left(\frac{\theta-1}{\theta}\right)\left(\frac{\theta}{1+(\theta-1)e^{\bar{\lambda}}}\right)^{1-\eta}\right\} \right)\\
+%  & =r^{w}.
+% \end{align*}
+% }
+
+% {\underline{$\theta < 1 $}:}\\
+% { Because $\theta>1$, observe that 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{+}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \theta\left(1-e^{-\bar{\lambda}}\right)\right\} =\theta,\qquad\text{and}\\
+% \lim_{\bar{\lambda}\to\infty}\left\{ \Psi^{-}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ 1-e^{-\bar{\lambda}}\right\} =1.
+% \end{align*}
+% Now, before proceeding, realise that 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\frac{1}{1+\left(\frac{1-\theta}{\theta}\right)e^{\bar{\lambda}}}}{\theta}\right\} =\lim_{\bar{\lambda}\to\infty}\left\{ \frac{1}{\theta+(1-\theta)e^{\bar{\lambda}}}\right\} =0.
+% \end{align*}
+% Therefore, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{+}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\left(\frac{\bar{\theta}}{\theta}\right)^{1-\eta}-1}{\frac{\bar{\theta}}{\theta}-\frac{1}{\theta}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{1-\eta}-1}{\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} -\frac{1}{\theta}}\right)\\
+%  & =0.
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \chi^{-}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\left(\frac{\bar{\theta}}{\theta}\right)^{1-\eta}-\frac{1}{\theta}}{\frac{\bar{\theta}}{\theta}-\frac{1}{\theta}}\right)\right\} \\
+%  & =\left(r^{w}-r^{m}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\left(\frac{\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{1-\eta}-\frac{1}{\theta}}{\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} -\frac{1}{\theta}}\right)\\
+%  & =0.
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\bar{\lambda}\to\infty}\left\{ \overline{r}^{f}\right\}  & =\lim_{\bar{\lambda}\to\infty}\left\{ r^{w}-\left(\frac{1}{1-\theta}\right)\left(\frac{\theta}{\bar{\theta}}\right)\left(1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =\lim_{\bar{\lambda}\to\infty}\left\{ r^{w}-\left(\frac{r^{w}-r^{m}}{1-\theta}\right)\left(1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\right)\left(\frac{\theta+(1-\theta)e^{\bar{\lambda}}}{e^{\bar{\lambda}}-1}\right)\right\} \\
+%  & =r^{w}-\left(\frac{r^{w}-r^{m}}{1-\theta}\right)\left(1-\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\bar{\theta}}{\theta}\right\} \right)^{\eta}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ \frac{\theta+(1-\theta)e^{\bar{\lambda}}}{e^{\bar{\lambda}}-1}\right\} \right)\\
+%  & =r^{w}-\left(\frac{r^{w}-r^{m}}{1-\theta}\right)\left(\lim_{\bar{\lambda}\to\infty}\left\{ 1-\theta\right\} \right)\\
+%  & =r^{m}.
+% \end{align*}
+% }
+
+% \subsection{Bargaining Power}
+
+% { Now, let us continue with the limiting properties of
+% the bargaining power parameter.}\\
+% { Let us study the two possible cases, }\\
+% {\textbf{\underline{As $\eta \to 1: $}}}{}\\
+% { Firstly, realise that 
+% \begin{align*}
+% \lim_{\eta\to1}\left\{ \chi^{+}\right\}  & =\begin{cases}
+% \lim_{\eta\to1}\left\{ (1-\eta)\left(r^{w}-r^{m}\right)\left(1-e^{-\bar{\lambda}}\right)\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to1}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\}  & \text{if }\theta\neq1
+% \end{cases}\\
+%  & =0.
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\eta\to1}\left\{ \chi^{-}\right\}  & =\begin{cases}
+% \lim_{\eta\to1}\left\{ \left(r^{w}-r^{m}\right)\left(1-\eta\left(1-e^{-\bar{\lambda}}\right)\right)\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to1}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\}  & \text{if }\theta\neq1
+% \end{cases}\\
+%  & =\begin{cases}
+% \left(r^{w}-r^{m}\right)e^{\bar{\lambda}} & \text{if }\theta=1\\
+% \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)\left(\frac{\theta-1}{\bar{\theta}-1}\right) & \text{if }\theta\neq1
+% \end{cases}\\
+%  & =\begin{cases}
+% \left(r^{w}-r^{m}\right)\left(1-\left(1-e^{\bar{\lambda}}\right)\right) & \text{if }\theta=1\\
+% \left(r^{w}-r^{m}\right)\left(1-\left(\frac{1-e^{-\bar{\lambda}}}{\theta}\right)\right) & \text{if }\theta>1\\
+% \left(r^{w}-r^{m}\right)\left(1-\left(1-e^{-\bar{\lambda}}\right)\right) & \text{if }\theta<1
+% \end{cases}\\
+%  & =\left(1-\Psi^{-}\right)\left(r^{w}-r^{m}\right).
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\eta\to1}\left\{ \overline{r}^{f}\right\}  & =\begin{cases}
+% \lim_{\eta\to1}\left\{ (1-\eta)r^{w}-\eta r^{m}\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to1}\left\{ r^{w}-\left(\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}-1\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\}  & \text{if }\theta>1\\
+% \lim_{\eta\to1}\left\{ r^{w}-\left(\frac{1}{1-\theta}\right)\left(\frac{\theta}{\bar{\theta}}\right)\left(1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\}  & \text{if }\theta<1
+% \end{cases}\\
+%  & =\begin{cases}
+% r^{m} & \text{if }\theta=1\\
+% r^{w}-\left(\frac{\bar{\theta}-\theta}{\theta}\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta>1\\
+% r^{w}-\left(\frac{1}{1-\theta}\right)\left(\frac{\theta}{\bar{\theta}}\right)\left(\frac{\theta-\bar{\theta}}{\theta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta<1
+% \end{cases}\\
+%  & =\begin{cases}
+% r^{m} & \text{if }\theta=1\\
+% r^{w}-\left(\frac{\bar{\theta}-\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta>1\\
+% r^{w}-\left(\frac{1}{\bar{\theta}}\right)\left(\frac{\theta-\bar{\theta}}{1-\theta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta<1
+% \end{cases}\\
+%  & =\begin{cases}
+% r^{m} & \text{if }\theta=1\\
+% r^{w}-\left(\frac{1+(\theta-1)e^{\bar{\lambda}}-\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta>1\\
+% r^{w}-\left(\frac{\theta}{\bar{\theta}}\right)\left(\frac{(\theta+(1-\theta)e^{\bar{\lambda}}-1)}{(1-\theta)\left(\theta+(1-\theta)e^{\bar{\lambda}}\right)}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right) & \text{if }\theta<1
+% \end{cases}\\
+%  & =r^{m}.
+% \end{align*}
+% }
+
+% \paragraph{{\underline{As $\eta \to 0: $}}\protect \\
+% }
+
+% { Firstly, realize that 
+% \begin{align*}
+% \lim_{\eta\to0}\left\{ \chi^{+}\right\}  & =\begin{cases}
+% \lim_{\eta\to0}\left\{ (1-\eta)\left(r^{w}-r^{m}\right)\left(1-e^{-\bar{\lambda}}\right)\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to0}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-\theta}{\bar{\theta}-1}\right)\right\}  & \text{if }\theta\neq1
+% \end{cases}\\
+%  & =\Psi^{+}\left(r^{w}-r^{m}\right).
+% \end{align*}
+% Also, 
+% \begin{align*}
+% \lim_{\eta\to0}\left\{ \chi^{-}\right\}  & =\begin{cases}
+% \lim_{\eta\to0}\left\{ \left(r^{w}-r^{m}\right)\left(1-\eta\left(1-e^{-\bar{\lambda}}\right)\right)\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to0}\left\{ \left(r^{w}-r^{m}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta}-1}{\bar{\theta}-1}\right)\right\}  & \text{if }\theta\neq1
+% \end{cases}\\
+%  & =r^{w}-r^{m}.
+% \end{align*}
+% Finally, 
+% \begin{align*}
+% \lim_{\eta\to0}\left\{ \overline{r}^{f}\right\}  & =\begin{cases}
+% \lim_{\eta\to0}\left\{ (1-\eta)r^{w}-\eta r^{m}\right\}  & \text{if }\theta=1\\
+% \lim_{\eta\to0}\left\{ r^{w}-\left(\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}-1\right)\left(\frac{\theta}{\theta-1}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\}  & \text{if }\theta>1\\
+% \lim_{\eta\to0}\left\{ r^{w}-\left(\frac{1}{1-\theta}\right)\left(\frac{\theta}{\bar{\theta}}\right)\left(1-\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}\right)\left(\frac{r^{w}-r^{m}}{e^{\bar{\lambda}}-1}\right)\right\}  & \text{if }\theta<1
+% \end{cases}\\
+%  & =r^{w}.
+% \end{align*}
+% } 
+
+% \newpage{}
+
+
+% \section{Solution of the Portfolio Problem}
+
+% \subsection{Pricing Conditions}
+
+% \subsubsection{Risk Aversion Case}
+
+% {\small We have the following problem:}{\small\par}
+% \begin{center}
+% {\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[\left(R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\{\bar{a}\}_{i \in\mathbb{I}}, e-\sum_{i \in\mathbb{I}} \bar{a}_{t}^{i}\right)\right)}_{\text{Liquidity Yield }}}}\right)^{1-\gamma}\right]\right)^{\frac{1}{1-\gamma}}$}{\small\par}
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. So the first order
+% condition is:}
+% \begin{align*}
+% a^{i} & :\mathbb{E}_{X,\omega}\left[\left(1-\gamma\right)\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right)\right]=0\\
+%  & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right)\right]=0
+% \end{align*}
+% \par\end{flushleft}
+
+% \begin{flushleft}
+% {\small Taking the second term of the expression that is in parentheses,
+% to the right hand side:}{\small\par}
+% \par\end{flushleft}
+
+% \begin{center}
+% $\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]=-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]$
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small If we take into account the covariance formula, we have:}{\scriptsize{}
+% }
+% \begin{align*}
+% \mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+%  & \mathbb{-COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]
+% \end{align*}
+% \begin{align*}
+% \mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+%  & -\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]
+% \end{align*}
+% \par\end{flushleft}
+
+% {\small Now, we can obtain the asset premium:}
+% \begin{align*}
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\frac{-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+%  & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}
+% \end{align*}
+
+
+% \subsubsection{Risk Neutral Case}
+
+% {\small We have the same problem as the previous case, but considering
+% $\gamma=0$:}{\small\par}
+% \begin{center}
+% {\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\{\bar{a}\}_{i \in\mathbb{I}}, e-\sum_{i \in\mathbb{I}} \bar{a}_{t}^{i}\right)\right)}_{\text{Liquidity Yield }}}}\right]\right)$}{\small\par}
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. So the first order
+% condition is:}
+% \begin{align*}
+% a^{i} & :\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]=0\\
+%  & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]+\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]=0
+% \end{align*}
+% \par\end{flushleft}
+
+% {\small So, now we have the asset premium:}{\small\par}
+% \begin{center}
+% \begin{align*}
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]
+% \end{align*}
+% \par\end{center}
+
+% \subsection{Efficiency}
+
+% \subsubsection{Risk Aversion Case}
+
+% {\small We have the same problem as the pricing conditions case, so
+% we will follow the same steps to solve it:}{\small\par}
+% \begin{center}
+% {\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[\left(R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}},e-\sum_{i\in\mathbb{I}}\bar{a}{}_{t}^{i}\right),\theta(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}})\right)}_{\text{Liquidity Yield }}}}}\right)^{1-\gamma}\right]\right)^{\frac{1}{1-\gamma}}$}{\small\par}
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. The first order condition
+% is:}
+% \begin{align*}
+% a^{i} & :\mathbb{E}_{X,\omega}\left[\left(1-\gamma\right)\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right)\right]=0\\
+%  & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right)\right]=0
+% \end{align*}
+% \par\end{flushleft}
+
+% \begin{flushleft}
+% {\small Reordering the last expression:}{\small\par}
+% \par\end{flushleft}
+
+% \begin{center}
+% $\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]=-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\left(\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right)\right]\right]$
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small And using the covariance formula:}{\scriptsize{} }{\small
+% \begin{align*}
+% \mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+%  & \mathbb{-COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]
+% \end{align*}
+% \begin{align*}
+% \mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+%  & -\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]
+% \end{align*}
+% }{\small\par}
+% \par\end{flushleft}
+
+% {\small Finally, we can obtain the asset premium:}
+% \begin{align*}
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\frac{-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+%  & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+%  & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+%  & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+%  & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\left(\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]+\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\right)\\
+%  & -\left(\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]+\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\right)
+% \end{align*}
+
+
+% \subsubsection{Risk Neutral Case}
+
+% {\small Now we are going to solve the las problem considering $\gamma=0$:}{\small\par}
+% \begin{center}
+% {\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}},e-\sum_{i\in\mathbb{I}}\bar{a}{}_{t}^{i}\right),\theta(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}})\right)}_{\text{Liquidity Yield }}}}\right]\right)$}{\small\par}
+% \par\end{center}
+
+% \begin{flushleft}
+% {\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. The first order condition
+% is:}
+% \begin{align*}
+% a^{i} & :\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]=0\\
+%  & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]+\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]=0
+% \end{align*}
+% \par\end{flushleft}
+
+% {\small And finally we have the asset premium:}{\small\par}
+% \begin{center}
+% \begin{align*}
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+% \mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]
+% \end{align*}
+% \par\end{center}

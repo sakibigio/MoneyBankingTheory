@@ -1,0 +1,38 @@
+
+Consider the continuous-time limit as $N \to \infty$. Let $\Delta = 1/N$ denote the time between rounds, and index continuous time by $\tau \in [0,1]$. We derive the ODE in the statement of the Lemma.
+
+\begin{proof}
+
+
+\textbf{Step 1: Evolution of masses.} In discrete time, the masses of surplus and deficit positions evolve as:
+\[
+S_{n+1}^{\pm} = S_n^{\pm} - \lambda_N G(S_n^{+}, S_n^{-}).
+\]
+With $\lambda_N = \bar{\lambda}/N$ and continuous time $\tau = n/N$, taking $\Delta \to 0$:
+\[
+\dot{S}_{\tau}^{\pm} = \lim_{\Delta \to 0} \frac{S_{\tau+\Delta}^{\pm} - S_{\tau}^{\pm}}{\Delta} = -\bar{\lambda}G(S_{\tau}^{+}, S_{\tau}^{-}).
+\]
+Both sides shrink at the same absolute rate since matches clear equal amounts from each side.
+
+\textbf{Step 2: Dynamics of tightness.} Define $\theta_{\tau} = S_{\tau}^{-}/S_{\tau}^{+}$. Taking logarithms and differentiating:
+\begin{align*}
+\frac{\dot{\theta}_{\tau}}{\theta_{\tau}} &= \frac{d}{d\tau}\ln(\theta_{\tau}) = \frac{d}{d\tau}[\ln(S_{\tau}^{-}) - \ln(S_{\tau}^{+})]\\
+&= \frac{\dot{S}_{\tau}^{-}}{S_{\tau}^{-}} - \frac{\dot{S}_{\tau}^{+}}{S_{\tau}^{+}}\\
+&= -\bar{\lambda}\frac{G(S_{\tau}^{+}, S_{\tau}^{-})}{S_{\tau}^{-}} + \bar{\lambda}\frac{G(S_{\tau}^{+}, S_{\tau}^{-})}{S_{\tau}^{+}}.
+\end{align*}
+Using homogeneity of degree one: $G(S^+, S^-) = S^+ G(1, \theta) = S^- G(\theta^{-1}, 1).$
+Therefore:
+\[
+\frac{\dot{\theta}_{\tau}}{\theta_{\tau}} = -\bar{\lambda}G(\theta_{\tau}^{-1}, 1) + \bar{\lambda}G(1, \theta_{\tau}).
+\]
+Using the normalized matching function, $\gamma(\theta) \equiv G(1, \theta)$, and noting that $G(\theta^{-1}, 1) = \gamma(\theta^{-1})$ by definition:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\gamma(\theta_{\tau}^{-1}) - \gamma(\theta_{\tau})]
+.\]
+
+\textbf{Step 3: Matching intensities.} The instantaneous matching rates per unit mass are the limit as $\Delta \to 0$ of $\psi_n^{\pm}/\Delta=\frac{G(S^+_n, S^-_n)}{S^{\pm}_n \Delta}.$ By the calculations above:
+\[
+\psi_{\tau}^{+} = \bar{\lambda}\gamma(\theta_{\tau}) \quad \text{and} \quad \psi_{\tau}^{-} = \bar{\lambda}\gamma(\theta_{\tau}^{-1}).
+\]
+Note that $\psi_{\tau}^{+} = \theta_{\tau}\psi_{\tau}^{-}$ follows from $\gamma(\theta) = \theta\gamma(\theta^{-1})$ (by symmetry).
+\end{proof}

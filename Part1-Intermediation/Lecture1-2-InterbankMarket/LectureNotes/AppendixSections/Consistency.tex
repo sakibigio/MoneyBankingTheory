@@ -1,0 +1,29 @@
+\begin{proof}
+The matching probabilities over $N$ rounds are:
+\[
+\Psi^{+} = 1-\prod_{n=1}^{N}(1-\psi_{n}^{+}) \quad \text{and} \quad \Psi^{-} = 1-\prod_{n=1}^{N}(1-\psi_{n}^{-}).
+\]
+These represent the probability of matching at least once during the OTC stage.
+
+\textbf{Verification of $\chi^+$ and $\chi^-$.} From Proposition~\ref{P_LimitingRates} we obtain the recursion \eqref{eq:appendix.recursion}. Solving that recursion forward, from round $0$ to round $N$:
+\begin{equation}
+\label{eq:appendix.recursion.expanded}
+\chi_{0}^{\pm} = \sum_{n=1}^{N} (r_{n}^{f} - r^{m})\psi_{n}^{\pm}\prod_{k=1}^{n-1}(1-\psi_{k}^{\pm}) + \chi_{N+1}^{\pm}\prod_{n=1}^{N}(1-\psi_{n}^{\pm}).
+\end{equation}
+where we used $\chi_{N+1}^{+} = 0$ and $\chi_{N+1}^{-} = r^{w} - r^{m}$.
+The first term is the OTC rates weighted by the unconditional matching probabilities, and the second term is the terminal value weighted by the probability of never matching ($1-\Psi^{\pm}$). 
+
+Recall that probabilities in the expansion add up to 1: apply Lemma \ref{lem:appendix.condprobs} to $n=1$. Thus, we can define the volume-weighted average rate as:
+\[
+\overline{r}^{f} -r^{m} =   \sum_{n=1}^{N} (r_{n}^{f} - r^{m})\frac{\psi_{n}^{\pm}\prod_{k=1}^{n-1}(1-\psi_{k}^{\pm})}{\Psi^{\pm}},
+\] where the weights in the sum add up to 1. 
+
+Substituting the definition of weighted rates in \eqref{eq:appendix.recursion.expanded}, we obtain:
+\begin{align*}
+\chi_{0}^{+} &= \Psi^{+}(\overline{r}^{f} - r^{m}) + 0 \cdot (1-\Psi^{+}) = \Psi^{+}(\overline{r}^{f} - r^{m}) = \chi^{+}\\
+\chi_{0}^{-} &= \Psi^{-}(\overline{r}^{f} - r^{m}) + (r^{w} - r^{m})(1-\Psi^{-}) = \chi^{-}.
+\end{align*}
+
+\paragraph{Consistency of weights.}
+Probabilities are proportional to traded amounts since $z_n=\psi_n^{\pm}S^{\pm}_{n-1}$ and $S^{\pm}_{n-1}=\prod_{k=1}^{n-1}(1-\psi_{k}^{\pm})S^{\pm}_{0}$ and $\sum_{n=1}^{N}z_n=\Psi^{\pm}S^{\pm}_{0}.$ Thus, the weights $\varkappa_{n}^{\pm} = \frac{\psi_{n}^{\pm}\prod_{k=1}^{n-1}(1-\psi_{k}^{\pm})}{\Psi^{\pm}}$ are identical for surplus and deficit sides due to the homogeneity of the matching function (see Lemma~\ref{lem:C_Continuities}), ensuring a unique $\overline{r}^{f}$. 
+\end{proof}

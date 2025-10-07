@@ -1,0 +1,152 @@
+We derive the convenience yield coefficients for both the Leontief and Cobb-Douglas matching functions, showing that despite different dynamics, they yield identical functional forms.
+
+\subsection{Verification for the Leontief Case ($\theta_0 > 1$)}
+
+\textbf{Step 1: Specialize market dynamics.}
+With the Leontief matching function, from Table \ref{tab:closedforms} we have:
+\[
+\theta_{\tau} = 1 + (\theta_0 - 1)e^{\bar{\lambda}\tau},\quad \psi^+_{\tau} = \bar{\lambda}, \quad \psi^-_{\tau}= \frac{\bar{\lambda}}{\theta_{\tau}} = \frac{\bar{\lambda}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}
+\]
+The terminal tightness is $\bar{\theta} = \theta_1 = 1 + (\theta_0 - 1)e^{\bar{\lambda}}$. Thus, we compute the following integrals:
+\begin{align*}
+\int_t^1 \psi_\tau^+ \, d\tau = \int_t^1 \bar{\lambda} \, d\tau &= \bar{\lambda}(1-t),
+\end{align*}
+and
+\begin{align*}
+ \int_t^1 \psi_\tau^- \, d\tau = \int_t^1 \frac{\bar{\lambda}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}} \, d\tau
+&= \Big[\bar{\lambda}\tau - \ln\big(1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}\big)\Big]_t^1\\
+&= \bar{\lambda}(1-t) - \ln\left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}t}}\right).
+\end{align*}
+
+The convenience yield coefficients (outside options) take the following forms::
+\begin{equation}
+\chi_\tau^+ = (1-\eta)(r^w - r^m)\mathbb{P}_\tau^+ \quad \text{and} \quad \chi_\tau^- = (r^w - r^m)(1 - \eta\mathbb{P}_\tau^-),
+\end{equation}
+where
+\begin{align*}
+\mathbb{P}_t^+ &= \int_t^1 \psi_\tau^+ e^{-[\eta\Psi_\tau^- + (1-\eta)\Psi_\tau^+]} \, d\tau\\
+&= \int_t^1 \bar{\lambda} e^{-\bar{\lambda}(1-\tau) + \eta\ln\left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)} \, d\tau\\
+&= \int_t^1 \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)^{\eta} \bar{\lambda} e^{-\bar{\lambda}(1-\tau)} \, d\tau\\
+&= \left[\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}{(1-\eta)(\theta_0 - 1)e^{\bar{\lambda}}} \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)^{\eta}\right]_t^1\\
+&= \frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{(1-\eta)(\theta_0 - 1)e^{\bar{\lambda}}} - \frac{1 + (\theta_0 - 1)e^{\bar{\lambda}t}}{(1-\eta)(\theta_0 - 1)e^{\bar{\lambda}}} \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}t}}\right)^{\eta}\\
+&= \frac{\theta_1\left(1 - \left(\frac{\theta_t}{\theta_1}\right)^{1-\eta}\right)}{(1-\eta)(\theta_1 - 1)} = \frac{1}{1-\eta} \cdot \frac{\theta_1 - \theta_t^{1-\eta}\theta_1^{\eta}}{\theta_1 - 1}\\
+&= \frac{1}{1-\eta} \left(\frac{\bar{\theta}}{\theta}\right)^{\eta} \left(\frac{\theta^{\eta}\bar{\theta}^{1-\eta} - \theta}{\bar{\theta} - 1}\right).
+\end{align*}
+and where
+\begin{align*}
+\mathbb{P}_t^- &= \int_t^1 \psi_\tau^- e^{-[\eta\Psi_\tau^- + (1-\eta)\Psi_\tau^+]} \, d\tau\\
+&= \int_t^1 \left(\frac{\bar{\lambda}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right) e^{-\bar{\lambda}(1-\tau) + \eta\ln\left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)} \, d\tau\\
+&= \int_t^1 \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)^{\eta} \left(\frac{\bar{\lambda}e^{-\bar{\lambda}(1-\tau)}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right) \, d\tau\\
+&= \left[\left(\frac{-1}{\eta(\theta_0 - 1)e^{\bar{\lambda}}}\right) \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}\right)^{\eta}\right]_t^1\\
+&= \frac{1}{\eta(\theta_0 - 1)e^{\bar{\lambda}}} \left(\frac{1 + (\theta_0 - 1)e^{\bar{\lambda}}}{1 + (\theta_0 - 1)e^{\bar{\lambda}t}}\right)^{\eta} - \frac{1}{\eta(\theta_0 - 1)e^{\bar{\lambda}}}\\
+&= \frac{\left(\frac{\theta_1}{\theta_t}\right)^{\eta} - 1}{\eta(\theta_1 - 1)}.
+\end{align*}
+Thus, we obtain the following formulas:
+\begin{equation*}
+\chi_\tau^+ = (r^w - r^m)\left(\frac{\theta_1}{\theta_\tau}\right)^{\eta} \left(\frac{\theta_\tau^{\eta}\theta_1^{1-\eta} - \theta_\tau}{\theta_1 - 1}\right)\quad
+\chi_\tau^- = (r^w - r^m)\left(\frac{\theta_1}{\theta_\tau}\right)^{\eta} \left(\frac{\theta_\tau^{\eta}\theta_1^{1-\eta} - 1}{\theta_1 - 1}\right).
+\end{equation*}
+From here, substitute for $\tau = 0$ and obtain $\{\chi_0^+, \chi_0^-\}$.
+
+\subsection{Leontief Case ($\theta_0 < 1$) via Symmetry}
+
+For $\theta_0 < 1$, we can apply the symmetry property from Proposition \ref{prop:symmetry} rather than repeat the calculations.
+\[
+\chi^{+}(\theta_0, \eta) = (r^{w}-r^{m}) - \chi^{-}(\theta_0^{-1}, 1-\eta).
+\]
+Since $\theta_0^{-1} > 1$, we can use our formula:
+\[
+\chi^{-}(\theta_0^{-1}, 1-\eta) = (r^{w}-r^{m})\frac{\bar{\theta}^{-1} - (\bar{\theta}^{-1})^{1-\eta}(\theta_0^{-1})^{-(1-\eta)}}{\bar{\theta}^{-1}-1}=(r^{w}-r^{m})\frac{1 - \bar{\theta}^{\eta}\theta_0^{(1-\eta)}}{1-\bar{\theta}}.
+\]
+Thus, we have that:
+\[
+\chi^{+}(\theta_0, \eta) = (r^{w}-r^{m})\left(1-\frac{1 - \bar{\theta}^{\eta}\theta_0^{(1-\eta)}}{1-\bar{\theta}}\right)=(r^{w}-r^{m})\left(\frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{(1-\eta)}}{\bar{\theta}-1}\right).
+\]
+Thus, the same formula is valid for $\chi^{+}(\theta_0, \eta)$ regardless of whether $\theta_0>1$ or $\theta_0<1.$ Since the formula for $\chi^{+}$ holds when $\theta_0<1$, the formula for $\chi^{-}$ must also hold in both cases. 
+
+\subsection{Cobb-Douglas Case}
+{\color{red}
+TBA
+}
+
+\textbf{Step 1: Specialize market dynamics.} With the Cobb-Douglas matching function:
+\[
+\theta_{\tau} = \left(\frac{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} - (1-\sqrt{\theta_0})}{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} + (1-\sqrt{\theta_0})}\right)^2,\quad
+\psi^+_{\tau} = \bar{\lambda}\sqrt{\theta_{\tau}},\quad
+\psi^-_{\tau} = \frac{\bar{\lambda}}{\sqrt{\theta_{\tau}}}.
+\]
+Define $u = e^{-\bar{\lambda}\tau}$. Then:
+\[
+\theta_\tau = \left(\frac{\alpha u - 1}{\alpha u + 1}\right)^2.
+\]
+
+
+\textbf{Step 2: Computing the surplus}
+The surplus at time $\tau$ is:
+\[
+\Sigma_\tau = (r^w - r^m)\exp\left(-\int_\tau^T [\eta\psi_s^- + (1-\eta)\psi_s^+] ds\right)
+\]
+
+From previous calculations:
+\begin{align}
+\int_\tau^T \psi_s^- ds &= \ln\left(\frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}}\right) - \ln\left(\frac{\alpha - e^{\bar{\lambda}\tau}}{\alpha + e^{\bar{\lambda}\tau}}\right)\\
+\int_\tau^T \psi_s^+ ds &= \ln\left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right) - \ln\left(\frac{\alpha + e^{\bar{\lambda}T}}{\alpha - e^{\bar{\lambda}T}}\right)
+\end{align}
+
+For stopping time $T$ (when exhaustion occurs): $\alpha e^{-\bar{\lambda}T} = 1 \implies T = \frac{1}{\bar{\lambda}}\ln(\alpha)$
+
+\textbf{Step 4: Computing $\mathbb{P}_t^+$}
+Starting with:
+\[
+\mathbb{P}_t^+ = \int_t^T \psi_\tau^+ e^{-[\eta\Psi_\tau^- + (1-\eta)\Psi_\tau^+]} d\tau
+\]
+
+Substituting the exponent terms:
+\begin{align}
+\mathbb{P}_t^+ &= \int_t^T \bar{\lambda}\sqrt{\theta_\tau} \exp\left[-\eta\ln\left(\frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}} \cdot \frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right)\right.\\
+&\qquad\qquad\qquad\quad \left.-(1-\eta)\ln\left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}} \cdot \frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}}\right)\right] d\tau
+\end{align}
+
+Simplifying the exponential:
+\[
+\mathbb{P}_t^+ = \int_t^T \bar{\lambda}\left(\frac{\alpha e^{-\bar{\lambda}\tau} - 1}{\alpha e^{-\bar{\lambda}\tau} + 1}\right) \left(\frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}}\right)^{-\eta} \left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right)^{-\eta} \left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right)^{-(1-\eta)} d\tau
+\]
+
+This simplifies to:
+\[
+\mathbb{P}_t^+ = \int_t^T \bar{\lambda}\left(\frac{\alpha e^{-\bar{\lambda}\tau} - 1}{\alpha e^{-\bar{\lambda}\tau} + 1}\right) \left(\frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}}\right)^{-\eta} \left(\frac{\alpha - e^{\bar{\lambda}\tau}}{\alpha + e^{\bar{\lambda}\tau}}\right) d\tau
+\]
+
+Using substitution $u = e^{-\bar{\lambda}\tau}$, $du = -\bar{\lambda}e^{-\bar{\lambda}\tau}d\tau = -\bar{\lambda}u \, d\tau$:
+\[
+\mathbb{P}_t^+ = \int_{e^{-\bar{\lambda}t}}^{1/\alpha} \left(\frac{\alpha u - 1}{\alpha u + 1}\right) \left(\frac{\alpha - 1}{\alpha + 1}\right)^{-\eta} \left(\frac{\alpha - 1/u}{\alpha + 1/u}\right) \left(-\frac{du}{u}\right)
+\]
+
+After integration:
+\[
+\mathbb{P}_t^+ = \frac{1}{2\alpha(1-\eta)} \left[\frac{\alpha e^{-\bar{\lambda}t} + 1}{\alpha e^{-\bar{\lambda}t} - 1} \left(\frac{\alpha - e^{\bar{\lambda}t}}{\alpha + e^{\bar{\lambda}t}}\right)^{\eta} - \frac{2\alpha}{1-\eta}\right]
+\]
+
+\textbf{Step 5: Computing $\mathbb{P}_t^-$}
+Similarly:
+\[
+\mathbb{P}_t^- = \int_t^T \psi_\tau^- e^{-[\eta\Psi_\tau^- + (1-\eta)\Psi_\tau^+]} d\tau
+\]
+
+With full exponent terms:
+\[
+\mathbb{P}_t^- = \int_t^T \frac{\bar{\lambda}}{\sqrt{\theta_\tau}} \left(\frac{\alpha - e^{\bar{\lambda}T}}{\alpha + e^{\bar{\lambda}T}}\right)^{-\eta} \left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right)^{-\eta} \left(\frac{\alpha + e^{\bar{\lambda}\tau}}{\alpha - e^{\bar{\lambda}\tau}}\right)^{-(1-\eta)} d\tau
+\]
+
+After simplification and integration:
+\[
+\mathbb{P}_t^- = \frac{1}{\eta}\left[\left(\frac{\alpha - e^{\bar{\lambda}t}}{\alpha + e^{\bar{\lambda}t}}\right)^{\eta} - \left(\frac{\alpha - 1}{\alpha + 1}\right)^{\eta}\right]
+\]
+
+\textbf{Step 6: Final expressions for $\chi^+$ and $\chi^-$}
+Setting $t = 0$ and using the relationships:
+\[
+\chi^+ = (r^w - r^m)\frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{1-\eta}}{\bar{\theta} - 1}, \quad
+\chi^- = (r^w - r^m)\frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{-\eta}}{\bar{\theta} - 1}
+\]
+

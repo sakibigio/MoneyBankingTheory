@@ -1,0 +1,132 @@
+\subsection{Leontief Case}
+
+For the Leontief matching function $G(a,b) = \min\{a,b\}$, we have $\gamma(\theta) = \min\{1,\theta\}$.
+
+\textbf{Case 1: $\theta_0 > 1$}. By Lemma \ref{P_ContinuousProbabilities}, ODE for market tightness becomes:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\theta_{\tau}^{-1} - 1] = \bar{\lambda}(\theta_{\tau} - 1).
+\]
+
+Solving this linear ODE with initial condition $\theta_0$:
+\[
+\theta_{\tau} = 1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}
+\]
+The matching intensities are:
+\begin{align*}
+\psi^+_{\tau} &= \bar{\lambda}\gamma(\theta_{\tau}) = \bar{\lambda}\\
+\psi^-_{\tau} &= \bar{\lambda}\gamma(\theta_{\tau}^{-1}) = \frac{\bar{\lambda}}{\theta_{\tau}} = \frac{\bar{\lambda}}{1 + (\theta_0 - 1)e^{\bar{\lambda}\tau}}.
+\end{align*}
+
+The matching probability, $\Psi^+$, is thus:
+\[
+\Psi^+ = 1 - \exp\left(-\int_0^1 \bar{\lambda}d\tau\right) = 1 - e^{-\bar{\lambda}}.
+\]
+For $\Psi^-$, we use that $\Psi^-=\Psi^+/\theta_0$ to conclude that:
+\[
+\Psi^-= \frac{1 - e^{-\bar{\lambda}}}{\theta_0}.
+\]
+We can verify that the same conclusion is reached by evaluating the integral: $\Psi^-=1-\exp(-\int^1_0\psi^{-}_\tau d\tau).$ 
+
+\textbf{Case 2: $\theta_0 < 1$.} By symmetry (Proposition \ref{prop:symmetry}), we have that:
+\[
+\theta_{\tau}^{-1} = 1+(\theta_{0}^{-1}-1)e^{\bar{\lambda}\tau} \Leftrightarrow
+\theta_{\tau}= \frac{\theta_0}{\theta_0 + (1-\theta_0)e^{\bar{\lambda}\tau}}.
+\]
+And, also, by symmetry:
+\[
+\Psi^+ = \theta_0(1-e^{-\bar{\lambda}}), \quad \Psi^- = 1-e^{-\bar{\lambda}}.
+\]
+
+\subsection{Cobb-Douglas Case}
+
+For the Cobb-Douglas matching function $G(a,b) = a^{1/2}b^{1/2}$, we have $\gamma(\theta) = \theta^{1/2}$. The ODE for tightness specializes to:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\theta_{\tau}^{-1/2} - \theta_{\tau}^{1/2}] = -\bar{\lambda}\theta_{\tau}^{1/2}(1 - \theta_{\tau}).
+\]
+
+We solve the ODE by change of variables: $u \equiv \theta_{\tau}^{1/2}$. Then $\dot{\theta}_{\tau} = 2u\dot{u}$, giving:
+\[
+2u\dot{u} = -\bar{\lambda}u(1-u^2)
+\Rightarrow
+\dot{u} = -\frac{\bar{\lambda}}{2}(1-u^2)
+\]
+Separating variables:
+\[
+\frac{du}{1-u^2} = -\frac{\bar{\lambda}}{2}d\tau.
+\]
+Using partial fractions, we write:
+\[
+\frac{1}{1-u^2} = \frac{1}{2}\left(\frac{1}{1+u} + \frac{1}{1-u}\right),
+\]
+Thus, integrating both sides of the relationship above:
+\[
+\frac{1}{2}\ln\left(\frac{1+u}{1-u}\right) = -\frac{\bar{\lambda}\tau}{2} + C.
+\]
+Since, the initial condition $u(0) = \sqrt{\theta_0}$, we obtain:
+\[
+\ln\left(\frac{1+u}{1-u}\right) = -\bar{\lambda}\tau + \ln\left(\frac{1+\sqrt{\theta_0}}{1-\sqrt{\theta_0}}\right)
+\]
+We clear out $u$ taking the exponential on both sides:
+\[
+\frac{1+u_\tau}{1-u_\tau} = \frac{1+\sqrt{\theta_0}}{1-\sqrt{\theta_0}}e^{-\bar{\lambda}\tau}.
+\]
+Therefore:
+\[
+u_{\tau} = \frac{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} - (1-\sqrt{\theta_0})}{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} + (1-\sqrt{\theta_0})}
+\Rightarrow
+\theta_{\tau} = u_{\tau}^2 = \left(\frac{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} - (1-\sqrt{\theta_0})}{(1+\sqrt{\theta_0})e^{-\bar{\lambda}\tau} + (1-\sqrt{\theta_0})}\right)^2.
+\]
+We can verify that for $\tau=0$ the initial condition holds. 
+
+\textbf{Stopping time:} For the Cobb-Douglas case, the asymptotic limit $\bar{\gamma}$ is unbounded. Thus, trade can vanish in finite time. The ODE is valid locally as long as trade occurs. Next, we obtain the value of time at which the trade stops. 
+
+ Trade stops when $\theta_{\tau} = 0$ which can be reached if $\theta_0 < 1$. Likewise, trade stops at the time where $\theta_{\tau} = 0$ asymptotes to infinity, (a case only relevant when $\theta_0 > 1$). 
+
+ When $\theta_0<1$, note that the denominator in the formula $\theta_{\tau}$ is always positive. Thus, the numerator reaches zero at:
+ $T = \frac{1}{\bar{\lambda}}\ln\left(\frac{1+\sqrt{\theta_0}}{1-\sqrt{\theta_0}}\right)$. When $\theta_0>1$, the numerator is always positive, but the denominator reaches zero at $T = \frac{1}{\bar{\lambda}}\ln\left(\frac{1+\sqrt{\theta_0}}{\sqrt{\theta_0}-1}\right).$ Thus, the stopping time in either case occurs when:
+\[
+T = \min\left\{ \frac{1}{\bar{\lambda}}\ln\left|\frac{1+\sqrt{\theta_0}}{1-\sqrt{\theta_0}}\right|,1\right\}.
+\]
+The effective stopping time is $\min\{T, 1\}$.
+
+\textbf{Matching probabilities:} Matching probabilities follow from:
+\[
+\Psi^{\pm} = 1 - \exp\left(-\int_0^T \psi^{\pm}_s ds\right).
+\]
+where $\psi^+_{\tau} = \bar{\lambda}\sqrt{\theta_{\tau}}=\bar{\lambda}u_{\tau}$ and $\psi^-_{\tau} = \bar{\lambda}/\sqrt{\theta_{\tau}}=\bar{\lambda}u^{-1}_{\tau}$. We proceed with some calculations:
+\[
+\int_0^T \psi^{\pm}d\tau=\int_0^T \bar{\lambda}u_s ds. 
+\]
+Let $\alpha =\frac{ 1+\sqrt{\theta_0}}{ 1-\sqrt{\theta_0}}.$ Then:
+\[
+u_s = \frac{\alpha e^{-\bar{\lambda}s} - 1}{\alpha e^{-\bar{\lambda}s} + 1}.
+\]
+To integrate, note that:
+$u_s = \frac{1}{\bar{\lambda}}\frac{\partial [-\bar{\lambda}s-2\ln({\alpha e^{-\bar{\lambda}s} + 1)}]}{\partial s}=\frac{1}{\bar{\lambda}}(-\bar{\lambda}+\frac{2\bar{\lambda}e^{-\bar{\lambda}s}}{\alpha e^{-\bar{\lambda}s} + 1}).$
+Therefore:
+\[
+\int_0^T-\bar{\lambda} u_s ds = \int_0^T \frac{\partial [\bar{\lambda}s+2\ln({\alpha e^{-\bar{\lambda}s} + 1)}]}{\partial s} ds=  \bar{\lambda}s+2\ln(\alpha e^{-\bar{\lambda}s}+1)|^{s=T}_{s=0}.
+\]
+Thus, 
+\[
+\exp\left(-\int_0^T \psi^{-}_s ds\right)=\exp\left(\bar{\lambda}\min\{T,1\}+2\ln\left(\frac{\alpha e^{-\bar{\lambda}s}+1}{\alpha+1}\right)\right).
+\]
+Thus, we have that:
+\[
+\Psi^{+}=1-\exp(-\bar{\lambda}T)\left(\frac{\alpha +e^{-\bar{\lambda}T}}{\alpha+1}\right)^2.
+\]
+Substituting $\alpha$, we get the formula in the table. 
+
+The formula for $\Psi^-$ is obtained using $\Psi^-=\Psi^{+}/\theta_0=\Psi^{+}/u^2_0$:
+\[
+\Psi^- = \frac{\Psi^+}{\theta_0} = \left(\frac{\alpha+1}{\alpha-1}\right)^2 \Psi^+
+= \left(\frac{\alpha+1}{\alpha-1}\right)^2 - \exp(-\bar{\lambda}T)\left(\frac{\alpha e^{-\bar{\lambda}T}+1}{\alpha-1}\right)^2.
+\]
+Substituting back $\alpha = \frac{1+\sqrt{\theta_0}}{1-\sqrt{\theta_0}}$:
+\begin{align*}
+\Psi^- &= \left(\frac{2\sqrt{\theta_0}}{2}\right)^2\left(\frac{1}{\theta_0}\right) - \exp(-\bar{\lambda}T)\left(\frac{(1+\sqrt{\theta_0})e^{-\bar{\lambda}T} + (1-\sqrt{\theta_0})}{2\sqrt{\theta_0}}\right)^2\left(\frac{1}{\theta_0}\right)\\
+&= 1 - \exp(-\bar{\lambda}T)\left(\frac{(1+\sqrt{\theta_0})e^{-\bar{\lambda}T} - (1-\sqrt{\theta_0})e^{\bar{\lambda}T}}{2\sqrt{\theta_0}}\right)^2\\
+&= 1 - \exp(-\bar{\lambda}T)\left(\frac{(1+\sqrt{\theta_0}) - (1-\sqrt{\theta_0})e^{\bar{\lambda}T}}{(1+\sqrt{\theta_0}) - (1-\sqrt{\theta_0})}\right)^2.
+\end{align*}
+This completes the derivation of both $\Psi^+$ and $\Psi^-$ for the Cobb-Douglas case.
+

@@ -1,0 +1,47 @@
+\begin{proof}
+For the Leontief matching function, the OTC rate at any time $\tau$ is:
+\[
+r^{f}_{\tau} = r^{m} + (1-\eta)\chi^{-}_{\tau} + \eta\chi^{+}_{\tau}
+\]
+
+where from Proposition \ref{prop:analytic.solution-2}:
+\[
+\chi^{\pm}_{\tau} = (r^{w}-r^{m})\frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_{\tau}^{\mp\eta}}{\bar{\theta}-1}
+\]
+
+\textbf{Step 1: Rate dispersion formula}
+
+Since $\theta_{\tau}$ is monotonic in $\tau$ (increasing if $\theta_0 > 1$, decreasing if $\theta_0 < 1$), the rate dispersion is:
+\[
+Q = |r^{f}_1 - r^{f}_0| = |(r^{w}-r^{m})|\left|\frac{\bar{\theta}^{\eta}(\theta_0^{1-\eta} - \bar{\theta}^{1-\eta}) - \eta(\theta_0 - \bar{\theta})}{\bar{\theta}-1}\right|
+\]
+
+\textbf{Part (i)-(iii): Derivatives with respect to $\theta$}
+
+For $\theta = 1$: We have $\bar{\theta} = 1$ and $\theta_{\tau} = 1$ for all $\tau$, so $r^{f}_{\tau}$ is constant. Thus $Q = 0$ and $\frac{\partial Q}{\partial\theta} = 0$.
+
+For $\theta < 1$: Here $\bar{\theta} = \theta/({\theta + (1-\theta)e^{\bar{\lambda}}}) < \theta$. As $\theta$ increases toward 1:
+- The gap $|\theta - \bar{\theta}|$ shrinks (since $\bar{\theta} \to \theta$ as $\theta \to 1$)
+- The rate spread narrows, so $Q$ decreases
+- Therefore $\frac{\partial Q}{\partial\theta} < 0$
+
+For $\theta > 1$: Here $\bar{\theta} = 1 + (\theta-1)e^{\bar{\lambda}} > \theta$. As $\theta$ increases away from 1:
+- The gap $|\bar{\theta} - \theta|$ widens
+- The rate spread increases, so $Q$ increases
+- Therefore $\frac{\partial Q}{\partial\theta} > 0$
+
+\textbf{Part (iv): Derivative with respect to $\bar{\lambda}$}
+
+For $\theta = 1$: Since $\theta_{\tau} = 1$ for all $\tau$ regardless of $\bar{\lambda}$, we have $Q = 0$ and $\frac{\partial Q}{\partial\bar{\lambda}} = 0$.
+
+For $\theta \neq 1$: Higher efficiency $\bar{\lambda}$ causes:
+- Faster evolution of $\theta_{\tau}$ (the ODE $\dot{\theta}_{\tau}$ scales with $\bar{\lambda}$)
+- Greater divergence between $\theta_0$ and $\bar{\theta}$
+- Wider rate dispersion throughout the trading day
+
+Specifically:
+- If $\theta > 1$: $\frac{\partial\bar{\theta}}{\partial\bar{\lambda}} = (\theta-1)e^{\bar{\lambda}} > 0$, increasing the gap
+- If $\theta < 1$: $\bar{\theta}$ decreases with $\bar{\lambda}$, also increasing $|\theta - \bar{\theta}|$
+
+Therefore $\frac{\partial Q}{\partial\bar{\lambda}} > 0$ for all $\theta \neq 1$.
+\end{proof}

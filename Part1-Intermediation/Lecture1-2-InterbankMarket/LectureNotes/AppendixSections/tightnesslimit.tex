@@ -1,0 +1,49 @@
+% A key property whether $\bar{\gamma} = \lim_{\theta \to 0} \gamma(\theta^{-1})$ is finite or infinite.
+
+\begin{proof}
+We first prove the result for $\theta \to 0$ and then use symmetry to show the opposite limit.
+
+As $\theta \to 0$:
+\[
+\frac{\dot{\theta}}{\theta} = -\bar{\lambda}[\gamma(\theta^{-1}) - \gamma(\theta)] \approx -\bar{\lambda}\gamma(\theta^{-1}) \to -\bar{\lambda}\bar{\gamma},
+\]
+where we used the no-disposal property of the matching function to establish that: $\gamma(\theta)\to 0$ as $\theta \to 0$. 
+
+If $\bar{\gamma} < \infty$, matching intensities are finite, so trade is active throughout all rounds. Moreover, $\theta_{\tau}$ approximately satisfied exponential decay: $\theta_{\tau} \sim \theta_0 e^{-\bar{\lambda}\bar{\gamma}\tau}$. 
+
+For surplus traders:
+\[
+\Psi^{+} = 1 - \exp\left(-\int_0^1 \bar{\lambda}\gamma(\theta_{\tau})d\tau\right) \to 0
+\]
+since $\gamma(\theta) \to 0$ as $\theta \to 0$.
+
+For deficit traders, if $\bar{\gamma} < \infty$:
+\[
+\Psi^{-} = 1 - \exp\left(-\int_0^1 \bar{\lambda}\gamma(\theta_{\tau}^{-1})d\tau\right) \approx 1 - \exp(-\bar{\lambda}\bar{\gamma}).
+\]
+If $\bar{\gamma} = \infty$, then $\Psi^{-} \to 1$ as $\theta \to 0$.
+
+From Proposition~\ref{P_ContinuousRates}, for finite $\bar{\gamma}$:
+\[
+\chi^{+} \to (r^{w} - r^{m})\int_0^1 (1-\eta)\psi_y^{+} \Sigma_y dy \to 0,
+\]
+given that $\psi_y^{+}$ converges uniformly to zero as $\theta \to 0$ and the surplus is always finite.
+For $\chi^{-}$ we have that:
+\[
+\chi^{-} \to (r^{w} - r^{m})\left[1 - \int_0^1 \eta\bar{\lambda}\bar{\gamma} e^{-\eta\bar{\lambda}\bar{\gamma}(1-y)}dy\right] = (r^{w} - r^{m})e^{-\bar{\lambda}\bar{\gamma}\eta}.
+\]
+The first limit passes limits inside the integral and uses the continuity of $\exp(\cdot)$. 
+
+For $\bar{\gamma}$ infinite, we bound $\chi^{-}$ above by $(r^{w} - r^{m})e^{-\bar{\lambda}\gamma(\theta_0)\eta}$, noting that $\gamma(\theta_\tau)$ is increasing in time. Then apply the limit as $\theta_0 \to \infty$ to find that $\chi^{-}=0$. Hence, the solution above remains valid. 
+
+Since $\chi^+\to 0$, the average interbank rate is:
+\[
+\bar{r}^f=r^m+\eta(r^{w} - r^{m})e^{-\bar{\lambda}\bar{\gamma}\eta}. 
+\]
+
+We obtain the corresponding formulas for $\theta \to \infty$. By symmetry. Using  Proposition~\ref{prop:symmetry}, this is case (i) with $\theta \leftrightarrow \theta^{-1}$, $\psi^{+} \leftrightarrow \psi^{-}$, and $\eta \leftrightarrow 1-\eta$. Thus:
+\[
+\Psi^{+} = 1 - e^{-\bar{\lambda}\bar{\gamma}}, \quad \Psi^{-} = 0,\quad
+\chi^{+} = (r^{w} - r^{m})(1 - e^{-(1-\eta)\bar{\lambda}\bar{\gamma}}), \quad \chi^{-} = r^{w} - r^{m}.
+\]
+\end{proof}

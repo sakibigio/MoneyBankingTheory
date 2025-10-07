@@ -1,0 +1,159 @@
+
+\section{Solution of the Portfolio Problem}
+
+\subsection{Pricing Conditions}
+
+\subsubsection{Risk Aversion Case}
+
+{\small We have the following problem:}{\small\par}
+\begin{center}
+{\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[\left(R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\{\bar{a}\}_{i \in\mathbb{I}}, e-\sum_{i \in\mathbb{I}} \bar{a}_{t}^{i}\right)\right)}_{\text{Liquidity Yield }}}}\right)^{1-\gamma}\right]\right)^{\frac{1}{1-\gamma}}$}{\small\par}
+\par\end{center}
+
+\begin{flushleft}
+{\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. So the first order
+condition is:}
+\begin{align*}
+a^{i} & :\mathbb{E}_{X,\omega}\left[\left(1-\gamma\right)\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right)\right]=0\\
+ & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right)\right]=0
+\end{align*}
+\par\end{flushleft}
+
+\begin{flushleft}
+{\small Taking the second term of the expression that is in parentheses,
+to the right hand side:}{\small\par}
+\par\end{flushleft}
+
+\begin{center}
+$\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]=-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]$
+\par\end{center}
+
+\begin{flushleft}
+{\small If we take into account the covariance formula, we have:}{\scriptsize{}
+}
+\begin{align*}
+\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+ & \mathbb{-COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]
+\end{align*}
+\begin{align*}
+\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+ & -\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]
+\end{align*}
+\par\end{flushleft}
+
+{\small Now, we can obtain the asset premium:}
+\begin{align*}
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\frac{-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+ & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}
+\end{align*}
+
+
+\subsubsection{Risk Neutral Case}
+
+{\small We have the same problem as the previous case, but considering
+$\gamma=0$:}{\small\par}
+\begin{center}
+{\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\{\bar{a}\}_{i \in\mathbb{I}}, e-\sum_{i \in\mathbb{I}} \bar{a}_{t}^{i}\right)\right)}_{\text{Liquidity Yield }}}}\right]\right)$}{\small\par}
+\par\end{center}
+
+\begin{flushleft}
+{\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. So the first order
+condition is:}
+\begin{align*}
+a^{i} & :\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]=0\\
+ & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]+\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]=0
+\end{align*}
+\par\end{flushleft}
+
+{\small So, now we have the asset premium:}{\small\par}
+\begin{center}
+\begin{align*}
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\right]\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]
+\end{align*}
+\par\end{center}
+
+\subsection{Efficiency}
+
+\subsubsection{Risk Aversion Case}
+
+{\small We have the same problem as the pricing conditions case, so
+we will follow the same steps to solve it:}{\small\par}
+\begin{center}
+{\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[\left(R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}},e-\sum_{i\in\mathbb{I}}\bar{a}{}_{t}^{i}\right),\theta(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}})\right)}_{\text{Liquidity Yield }}}}}\right)^{1-\gamma}\right]\right)^{\frac{1}{1-\gamma}}$}{\small\par}
+\par\end{center}
+
+\begin{flushleft}
+{\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. The first order condition
+is:}
+\begin{align*}
+a^{i} & :\mathbb{E}_{X,\omega}\left[\left(1-\gamma\right)\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right)\right]=0\\
+ & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\left(\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right)\right]=0
+\end{align*}
+\par\end{flushleft}
+
+\begin{flushleft}
+{\small Reordering the last expression:}{\small\par}
+\par\end{flushleft}
+
+\begin{center}
+$\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]=-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\left(\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right)\right]\right]$
+\par\end{center}
+
+\begin{flushleft}
+{\small And using the covariance formula:}{\scriptsize{} }{\small
+\begin{align*}
+\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+ & \mathbb{-COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]
+\end{align*}
+\begin{align*}
+\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+ & -\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]
+\end{align*}
+}{\small\par}
+\par\end{flushleft}
+
+{\small Finally, we can obtain the asset premium:}
+\begin{align*}
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\frac{-\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+ & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+ & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)-R^{m}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+ & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]-\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+ & -\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\left(\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]+\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},R^{i}\left(X\right)+\chi_{s}\frac{\partial s}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\right)\\
+ & -\left(\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]+\frac{\mathbb{COV}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma},\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]}{\mathbb{E}_{X,\omega}\left[\left(R^{e}\right)^{-\gamma}\right]}\right)
+\end{align*}
+
+
+\subsubsection{Risk Neutral Case}
+
+{\small Now we are going to solve the las problem considering $\gamma=0$:}{\small\par}
+\begin{center}
+{\small$\max_{A}\left(\mathbb{E}_{X,\omega}\left[R^{m}e+\sum_{i\in\mathbb{I}}\underbrace{\left(R^{i}\left(X_{t}\right)-R^{m}\right)}_{\text{Liquidity Premium }}\bar{a}_{t}^{i}+\text{\ensuremath{\underbrace{\chi_{t+1}\left(s\left(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}},e-\sum_{i\in\mathbb{I}}\bar{a}{}_{t}^{i}\right),\theta(\left\{  \bar{a}\right\}  _{i\in\mathbb{I}})\right)}_{\text{Liquidity Yield }}}}\right]\right)$}{\small\par}
+\par\end{center}
+
+\begin{flushleft}
+{\small subject to $\Gamma_{t}\cdot A_{t}\geq0$. The first order condition
+is:}
+\begin{align*}
+a^{i} & :\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]+\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]=0\\
+ & \mathbb{E}_{X,\omega}\left[\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right]\right]+\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]=0
+\end{align*}
+\par\end{flushleft}
+
+{\small And finally we have the asset premium:}{\small\par}
+\begin{center}
+\begin{align*}
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\right]\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)-R^{m}\right] & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}+\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]\\
+\mathbb{E}_{X}\left[R^{i}\left(X_{t}\right)\right]-R^{m} & =-\mathbb{E}_{X,\omega}\left[\chi_{s}\frac{\partial s}{\partial a^{i}}\right]-\mathbb{E}_{X,\omega}\left[\chi_{\theta}\frac{\partial\theta}{\partial a^{i}}\right]
+\end{align*}
+\par\end{center}

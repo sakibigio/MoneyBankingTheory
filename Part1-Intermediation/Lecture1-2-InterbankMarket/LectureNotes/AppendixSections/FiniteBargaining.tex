@@ -1,0 +1,136 @@
+\renewcommand{\theequation}{A.\arabic{equation}}
+\setcounter{equation}{0}
+\renewcommand{\thedefinition}{A.\arabic{definition}}
+\setcounter{definition}{0}
+
+We begin with an auxiliary Lemma showing that market tightness follows a difference equation. With the market tightness, we obtain the matching probabilities at each round:
+
+\begin{lemma}\label{lem:C_Continuities}
+Let $\theta_{0}$ be the initial market tightness. Then,
+the ratio $\left\{ \theta_{n}\right\}$ features the following law
+of motion: 
+\[
+\theta_{n}=\theta_{n-1}\frac{\left(1-\lambda_{N}G\left(1/\theta_{n-1},1\right)\right)}{\left(1-\lambda_{N}G\left(1,\theta_{n-1}\right)\right)}\,\qquad\forall n\in\{1,2,\dots,N\}.
+\]
+and the matching probabilities can be expressed in terms of the ratio
+via:
+\[
+\psi_{n}^{+}=\lambda_{N}G\left(1,\theta_{n-1}\right)\text{ and }\psi_{n}^{-}=\lambda_{N}G\left(1/\theta_{n-1},1\right).
+\]
+\end{lemma}
+
+\begin{proof}
+By definition and homogeneity:
+\[
+\theta_{n}=\frac{S_{n}^{-}}{S_{n}^{+}}=\frac{S_{n-1}^{-}-z_{n}}{S_{n-1}^{+}-z_{n}}=\theta_{n-1}\frac{\left(1-\lambda_{N}G\left(1/\theta_{n-1},1\right)\right)}{\left(1-\lambda_{N}G\left(1,\theta_{n-1}\right)\right)},\qquad\forall n\in\{1,2,\dots,N\}.
+\]
+where the second equality follow from the definition of $z_{n}$ and
+uses its homogeneity property.
+\end{proof}
+
+The lemma shows that we can track matching probabilities
+in terms of the initial market tightness, without reference to the terms of trade. It also shows that the these probabilities are scale invariant. We use these observations in what follows, as the Lemma permits us to treat trading probabilities as exogenous series.
+
+The proof also makes use of the following standard result in probability, which we include for ease of completeness:
+\begin{lemma}[Conditional Probability Decomposition]
+\label{lem:appendix.condprobs}
+For any starting round $n \geq 0$, the conditional probabilities of matching satisfy:
+\[
+\sum_{k=n+1}^{N} \psi_{k}^{\pm}\prod_{m=n+1}^{k-1}(1-\psi_{m}^{\pm}) + \prod_{m=n+1}^{N}(1-\psi_{m}^{\pm}) = 1
+\]
+That is, starting from round $n$, the probability of matching in some future round plus the probability of never matching equals 1.
+\end{lemma}
+
+\begin{proof}
+Let $P_{n,j} = \prod_{m=n+1}^{j}(1-\psi_{m}^{\pm})$ be the probability of not matching from round $n+1$ through round $j$, with the convention that $P_{n,n} = 1$.
+
+Then:
+\begin{align*}
+\sum_{k=n+1}^{N} \psi_{k}^{\pm}\prod_{m=n+1}^{k-1}(1-\psi_{m}^{\pm}) &= \sum_{k=n+1}^{N} \psi_{k}^{\pm} P_{n,k-1}\\
+&= \sum_{k=n+1}^{N} [P_{n,k-1} - P_{n,k}] \quad \text{(since } P_{n,k} = P_{n,k-1}(1-\psi_k^{\pm})\text{)}\\
+&= (P_{n,n} - P_{n,n+1}) + (P_{n,n+1} - P_{n,n+2}) + \cdots + (P_{n,N-1} - P_{n,N})\\
+&= P_{n,n} - P_{n,N}\\
+&= 1 - \prod_{m=n+1}^{N}(1-\psi_{m}^{\pm})
+\end{align*}
+where we used $P_{n,n} = 1$ and the telescoping sum. The result follows by rearranging.
+\end{proof}
+
+Next, we describe the limit of the bargaining problem
+as $\Delta\rightarrow0$. Recall that the trader's estimate of equity, excluding its own trade, is:
+\[
+\mathcal{E}^{j}(\Delta) \equiv \sum_{i\in\mathbb{I}}a_{t+1}^{i}R_{t+1}^{i}+m_{t+1}R_{t+1}^{m}+\chi_{t+1}(s^{j}-\sign\{s^{j}\}\Delta).
+\]
+The proof of Proposition \ref{P_LimitingRates} is as follows:
+\begin{proof}
+The Nash bargaining problem at round $n$ with trade size $\Delta$ has surplus for trader with position $s^j$:
+\[
+\mathcal{S}_n^{\text{sign}\{s^j\}}(\Delta) = V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\}(r_n^f - r^m)\Delta) - J_U^{\text{sign}\{s^j\}}(n;\Delta).
+\]
+
+\textbf{Step 1: Outside option recursion.} The unmatched value satisfies:
+\[
+J_U^{\text{sign}\{s^j\}}(n;\Delta) = \psi_{n+1}^{\text{sign}\{s^j\}} V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\}(r_{n+1}^f - r^m)\Delta) + (1-\psi_{n+1}^{\text{sign}\{s^j\}})J_U^{\text{sign}\{s^j\}}(n+1;\Delta),
+\]
+with terminal round, $N$, values given by:
+\begin{align*}
+J_U^{+}(N;\Delta) &= V(\mathcal{E}^j(\Delta)) \quad \text{(surplus traders hold cash at rate } r^m\text{)}\\
+J_U^{-}(N;\Delta) &= V(\mathcal{E}^j(\Delta) - (r^w - r^m)\Delta) \quad \text{(deficit traders borrow at rate } r^w\text{)}.
+\end{align*}
+
+Expanding the recursion forward from round $n$:
+\begin{align*}
+J_U^{\text{sign}\{s^j\}}(n;\Delta) = &\sum_{k=n+1}^{N} \left[\prod_{m=n+1}^{k-1}(1-\psi_m^{\text{sign}\{s^j\}})\right]\psi_k^{\text{sign}\{s^j\}} V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\}(r_k^f - r^m)\Delta)\\
+&+ \left[\prod_{m=n+1}^{N}(1-\psi_m^{\text{sign}\{s^j\}})\right] V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\}\chi_{N+1}^{\text{sign}\{s^j\}}\Delta).
+\end{align*}
+By Lemma \ref{lem:appendix.condprobs}, this corresponding to the value of $\mathbb{E}\left[ V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\} (r^f_n - r^m)\Delta)|\text{unmatched by n} \right].$ Importantly, notice that the expectation assumes that the negotiated rated in future rounds $r^f_n$ only depends on future rounds, an assumption that we have to verify below.
+
+Now, consider the normalized difference::
+\begin{align*}
+\frac{J_U^{\text{sign}\{s^j\}}(n;\Delta) - V(\mathcal{E}^j(\Delta))}{\Delta} = &\sum_{k=n+1}^{N} \left[\prod_{m=n+1}^{k-1}(1-\psi_m^{\text{sign}\{s^j\}})\right]\psi_k^{\text{sign}\{s^j\}} \frac{V(\mathcal{E}^j + \text{sign}\{s^j\}(r_k^f - r^m)\Delta) - V(\mathcal{E}^j)}{\Delta}\\
+&+ \left[\prod_{m=n+1}^{N}(1-\psi_m^{\text{sign}\{s^j\}})\right] \frac{V(\mathcal{E}^j + \text{sign}\{s^j\}\chi_{N+1}^{\text{sign}\{s^j\}}\Delta) - V(\mathcal{E}^j)}{\Delta}.
+\end{align*}
+
+As $\Delta \to 0$, by the definition of derivative:
+\[
+\lim_{\Delta \to 0} \frac{J_U^{\text{sign}\{s^j\}}(n;\Delta) - V(\mathcal{E}^j(\Delta))}{\Delta} = \text{sign}\{s^j\} \cdot V'(\mathcal{E}^j) \cdot \chi_n^{\text{sign}\{s^j\}}
+\]
+where:
+\begin{equation}
+\label{eq:appendix.recursion}
+\chi_n^{\text{sign}\{s^j\}} = \sum_{k=n+1}^{N} (r_k^f - r^m)\left[\prod_{m=n+1}^{k-1}(1-\psi_m^{\text{sign}\{s^j\}})\right]\psi_k^{\text{sign}\{s^j\}} + \chi_{N+1}^{\text{sign}\{s^j\}}\prod_{m=n+1}^{N}(1-\psi_m^{\text{sign}\{s^j\}}).
+\end{equation}
+The variable $\chi_n^{\text{sign}\{s^j\}}$ represents the expected financing cost/benefit conditional on being unmatched at round $n$, for $+$ and $-$ positions. The variables satisfy the following recursion:
+\begin{equation}
+\chi_n^{\text{sign}\{s^j\}} = \psi_{n+1}^{\text{sign}\{s^j\}}(r_{n+1}^f - r^m) + (1-\psi_{n+1}^{\text{sign}\{s^j\}})\chi_{n+1}^{\text{sign}\{s^j\}}
+\label{eq:chi-recursion}
+\end{equation}
+with terminal conditions $\chi_{N+1}^{+} = 0$ and $\chi_{N+1}^{-} = r^w - r^m$.
+
+\textbf{Step 2: Limiting surplus.} Consider the following term:
+\begin{equation*}
+\frac{S_n^{\text{sign}\{s^j\}}(\Delta)}{\Delta} = \frac{\left(V(\mathcal{E}^j(\Delta) + \text{sign}\{s^j\}(r_n^f - r^m)\Delta) - V(\mathcal{E}^j(\Delta)\right) - \left(J_U^{\text{sign}\{s^j\}}(n;\Delta) - V(\mathcal{E}^j(\Delta))\right)}{\Delta}.
+\end{equation*}
+Taking the $\Delta \to 0$ limit and substituting the result in Step 1:
+\[\lim_{\Delta \to 0} \frac{\mathcal{S}_n^{\text{sign}\{s^j\}}(\Delta)}{\Delta} = \text{sign}\{s^j\}V'(\mathcal{E}^j(0))[(r_n^f - r^m) - \chi_n^{\text{sign}\{s^j\}}].\]
+
+\textbf{Step 3: Nash bargaining.} The bargained rate solves:
+\[r_n^f(\Delta) = \arg\max_{r_n} [S_n^{-}(\Delta)]^{\eta}[S_n^{+}(\Delta)]^{1-\eta}.\]
+Since multiplying the objective by a positive constant $\Delta^{-1}$ doesn't change the maximizer:
+\[r_n^f(\Delta) = \arg\max_{r_n} \frac{[S_n^{-}(\Delta)]^{\eta}[S_n^{+}(\Delta)]^{1-\eta}}{\Delta}= \arg\max_{r_n} \left[\frac{S_n^{-}(\Delta)}{\Delta}\right]^{\eta}\left[\frac{S_n^{+}(\Delta)}{\Delta}\right]^{1-\eta}.\]
+Taking the limit as $\Delta \to 0$:
+\[r_n^f = \lim_{\Delta \to 0} r_n^f(\Delta) = \lim_{\Delta \to 0} \left\{\arg\max_{r_n} \left[\frac{S_n^{-}(\Delta)}{\Delta}\right]^{\eta}\left[\frac{S_n^{+}(\Delta)}{\Delta}\right]^{1-\eta}\right\}.\]
+By the Theorem of the Maximum, since the objective function is continuous in both $r_n$ and $\Delta$, and the constraint set $[r^m, r^w]$ we can pass limits inside the maximum operator:
+\[\lim_{\Delta \to 0}r_n^f = \arg\max_{r_n} \left\{\lim_{\Delta \to 0}\left[\frac{S_n^{-}(\Delta)}{\Delta}\right]^{\eta}\left[\frac{S_n^{+}(\Delta)}{\Delta}\right]^{1-\eta}\right\}.\]
+Substituting the limits from Step 2:
+\[r_n^f = \arg\max_{r_n} \left\{[V'(\mathcal{E}^j(0))]^{\eta}[V'(\mathcal{E}^k(0))]^{1-\eta} \cdot [\chi_n^{-} - (r_n - r^m)]^{\eta}[(r_n - r^m) - \chi_n^{+}]^{1-\eta}\right\}.\]
+Since $V'(\mathcal{E}^j(0))$ and $V'(\mathcal{E}^k(0))$ are positive constants independent of $r_n^f$, this reduces to Problem~\ref{prob:limit}:
+\[r_n^f = \arg\max_{r_n} [\chi_n^{-} - (r_n - r^m)]^{\eta}[(r_n - r^m) - \chi_n^{+}]^{1-\eta}.\]
+where $\chi_n^{+}$ and $\chi_n^{-}$ satisfy \ref{eq:appendix.recursion}. 
+
+\textbf{Step 4: First-order condition.} We now solve the maximization problem. The FOC yields: $\eta[(r_n^f - r^m) - \chi_n^{+}] = (1-\eta)[\chi_n^{-} - (r_n^f - r^m)].$
+Therefore: 
+\[
+r_n^f = r^m + (1-\eta)\chi_n^{-} + \eta\chi_n^{+},
+\] 
+as stated by the proposition. This justifies the assumption that outside options only consider rates that depend on rates without the need to consider counterparties. 
+\end{proof}

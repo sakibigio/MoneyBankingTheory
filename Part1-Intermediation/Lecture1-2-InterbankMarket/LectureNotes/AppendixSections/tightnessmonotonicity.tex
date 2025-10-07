@@ -1,0 +1,139 @@
+\begin{proof}
+\textbf{Step 1: market tightness behavior.} From Lemma~\ref{P_ContinuousProbabilities}, $\theta_{\tau}$ satisfies:
+\[
+\dot{\theta}_{\tau} = \bar{\lambda}\gamma(\theta_{\tau})(\theta_{\tau} - 1) > 0,
+\]
+with initial condition $\theta_0.$ Since, $\dot{\theta}_{\tau}$ is increasing in $\theta_{\tau}$, $\theta_{\tau}$ is increasing in the initial condition $\theta_0$. By symmetry, when $\theta<1$, $\theta_\tau^{-1}$ is also increasing in $\theta_0^{-1}$. Hence, $\theta_{\tau}$ is also increasing in the initial condition $\theta_0$ when $\theta_0<1.$ 
+
+\textbf{Step 2: monotonicity of $r^{f}_0$ if $\bar{r}^{f}$ is monotone.} 
+From Proposition~\ref{P_ContinuousRates}:
+\[
+\chi^{-} = (r^w - r^m)(1-\Psi^{-}) + \Psi^{-}(\bar{r}^f - r^m),\quad
+\chi^{+} = \Psi^{+}(\bar{r}^f - r^m).
+\]
+Taking derivatives, if $\bar{r}^f$ is increasing in $\theta_0$, $\chi^{-}$ and $\chi^{+}$ must also be increasing. 
+
+\textbf{Step 3: verification of the monotonicity of $\bar{r}^{f}$.} 
+
+Suppose by contradiction. 
+
+By the dilation property (Proposition \ref{prop:time-dilation}), the solution at any $\tau$ can be expressed as starting from $\theta_{\tau}$ with rescaled time and efficiency. Thus:
+\[
+r_{\tau}^f(\theta_0) = r_0^f(\theta_{\tau}(\theta_0), \bar{\lambda}(1-\tau)).
+\]
+Taking derivatives with respect to $\theta_0$:
+\[
+\frac{\partial r_{\tau}^f}{\partial \theta_0} = \frac{\partial r_0^f}{\partial \theta}\bigg|_{\theta=\theta_{\tau}} \cdot \frac{\partial \theta_{\tau}}{\partial \theta_0}.
+\]
+Since $\frac{\partial \theta_{\tau}}{\partial \theta_0} > 0$ (from Step 1), the sign of $\frac{\partial r_{\tau}^f}{\partial \theta_0}$ is the same as $\frac{\partial r_0^f}{\partial \theta}$. 
+
+
+
+The property is true for any $\tau$ and $\theta_0$. In particular, the property must hold as $\theta_0$ increases:
+- $(1-\Psi^{-})$ increases (making the first term larger)
+- The coefficient $[(1-\eta)\Psi^{-} + \eta\Psi^{+}]$ changes ambiguously
+- But if $\bar{r}^f$ increases, the entire expression increases. 
+
+Since of $\theta$ large, the probability of matching for the short
+
+Since trades concentrate early when tightness is high, $\bar{r}^f \approx r_0^f$ for large $\theta_0$. The fixed point condition ensures that if $r_0^f$ increases with $\theta_0$, then so does $\bar{r}^f$.
+
+\textbf{Step 4: Boundary verification}
+
+At the boundaries:
+- $\theta_0 \to 1^{+}$: $\bar{r}^f \to r^m + (1-\eta)(r^w - r^m)$
+- $\theta_0 \to \infty$: $\bar{r}^f \to r^w$
+
+Since $\bar{r}^f$ is continuous and increases between these limits, monotonicity is established.
+
+xxxx 1 xxxx
+
+\begin{proof}[Step 2 via contradiction]
+\textbf{Step 2: Monotonicity of $\bar{r}^f$ by contradiction}
+
+Suppose $\bar{r}^f$ is not monotonically increasing in $\theta_0$. Then there exist $\theta_0' > \theta_0$ such that $\bar{r}^f(\theta_0') < \bar{r}^f(\theta_0)$.
+
+From the expressions in Step 1:
+\begin{align}
+\chi^{-}(\theta_0) &= (r^w - r^m)(1-\Psi^{-}(\theta_0)) + \Psi^{-}(\theta_0)(\bar{r}^f(\theta_0) - r^m)\\
+\chi^{+}(\theta_0) &= \Psi^{+}(\theta_0)(\bar{r}^f(\theta_0) - r^m)
+\end{align}
+
+Under our supposition:
+- $\Psi^{-}(\theta_0') < \Psi^{-}(\theta_0)$ (fewer deficit traders match when tightness increases)
+- $\Psi^{+}(\theta_0') > \Psi^{+}(\theta_0)$ (more surplus traders match when tightness increases)
+- $\bar{r}^f(\theta_0') < \bar{r}^f(\theta_0)$ (by assumption)
+
+This would imply:
+\begin{align}
+\chi^{+}(\theta_0') &= \Psi^{+}(\theta_0')(\bar{r}^f(\theta_0') - r^m) \lessgtr \Psi^{+}(\theta_0)(\bar{r}^f(\theta_0) - r^m) = \chi^{+}(\theta_0)
+\end{align}
+
+The comparison is ambiguous for $\chi^{+}$ since $\Psi^{+}$ increases but $\bar{r}^f$ decreases.
+
+However, at the initial round:
+\[
+r_0^f(\theta_0) = r^m + (1-\eta)\chi^{-}(\theta_0) + \eta\chi^{+}(\theta_0)
+\]
+
+Since trades concentrate early when $\theta_0$ is large, we have $\bar{r}^f(\theta_0) \approx \int_0^{\epsilon} r_{\tau}^f w_{\tau} d\tau$ for small $\epsilon$.
+
+By the dilation property, the rate at any time $\tau$ starting from $\theta_0'$ equals the rate at time $\tau'$ starting from $\theta_0$ where $\theta_{\tau'}(\theta_0) = \theta_{\tau}(\theta_0')$. Since $\theta_0' > \theta_0$, we have $\tau' > \tau$.
+
+As $\tau \to 0$, the rates must satisfy:
+\[
+r_{\tau}^f(\theta_0') > r_{\tau}^f(\theta_0)
+\]
+
+because the market is tighter throughout the trading session. This contradicts $\bar{r}^f(\theta_0') < \bar{r}^f(\theta_0)$ when trades concentrate early.
+
+Therefore, $\bar{r}^f$ must be monotonically increasing in $\theta_0$.
+\end{proof}
+
+xxxx
+
+
+\textbf{Step 2: Effect on matching intensities.} Since $\psi_{\tau}^{+} = \bar{\lambda}\gamma(\theta_{\tau})$ and $\psi_{\tau}^{-} = \bar{\lambda}\gamma(\theta_{\tau}^{-1})$:
+\[
+\frac{\partial\psi_{\tau}^{+}}{\partial\theta_0}=\bar{\lambda}\gamma^{\prime}(\theta_{\tau})\frac{\partial\theta_{\tau}}{\partial\theta_0}>0,\quad
+\frac{\partial\psi_{\tau}^{-}}{\partial\theta_0}=\bar{\lambda}\gamma^{\prime}(\theta_{\tau}^{-1})\frac{\partial\theta_{\tau}^{-1}}{\partial\theta_0}<0.
+\]
+We further know that:
+$\psi_{\tau}^{+} = \psi_{\tau}^{-}\theta_{\tau}$. Thus:
+\[
+\frac{\partial\psi_{\tau}^{+}}{\partial\theta_0}=
+\theta_{\tau}\bar{\lambda}\gamma^{\prime}(\theta_{\tau}^{-1})\frac{\partial\theta_{\tau}^{-1}}{\partial\theta_0}+\bar{\lambda}\gamma(\theta_{\tau}^{-1})\frac{\partial\theta_{\tau}}{\partial\theta_0}=\bar{\lambda}\left(\gamma(\theta_{\tau}^{-1})-\frac{\gamma(\theta_{\tau}^{-1})}{\theta_{\tau}}\right)\frac{\partial\theta_{\tau}}{\partial\theta_0}.
+\]
+From \eqref{eq:appendix.surplusintegral} we have that:
+\begin{equation*}
+\Sigma_{\tau} = (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}[\psi_{s}^{+}+\eta(\psi_{s}^{-} -\psi_{s}^{+})]ds\right)=\Sigma_{\tau} = (r^{w} - r^{m})\exp\left(-\int_{\tau}^{1}\psi_{s}^{+}(1-\frac{\eta}{\theta_s})ds\right).
+\end{equation*}
+Thus, the integral term is increasing in $\theta_0.$
+
+\textbf{Step 3: Monotonicity of convenience yields.} From Proposition~\ref{P_ContinuousRates}:
+
+For $\chi^{+}$: As $\theta$ increases, $\psi^{+}$ increases throughout the path. The integral
+\[
+\chi^{+} = (r^{w} - r^{m})\int_{0}^{1}(1-\eta)\psi_{y}^{+}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy
+\]
+increases because:
+- The direct effect through $\psi_{y}^{+}$ is positive
+- The exponential term effect is ambiguous but dominated by the direct effect
+
+For $\chi^{-}$: As $\theta$ increases, $\psi^{-}$ decreases, so the integral
+\[
+\int_{0}^{1}\eta\psi_{y}^{-}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy
+\]
+decreases, which makes $\chi^{-} = (r^{w} - r^{m})[1 - \text{integral}]$ increase.
+
+\textbf{Step 2: Effect on matching intensities.} Since $\psi_{\tau}^{+} = \bar{\lambda}\gamma(\theta_{\tau})$ and $\psi_{\tau}^{-} = \bar{\lambda}\gamma(\theta_{\tau}^{-1})$:
+- As $\theta$ increases, $\psi_{\tau}^{+}$ increases (more matches for surplus side)
+- As $\theta$ increases, $\psi_{\tau}^{-} = \psi_{\tau}^{+}/\theta_{\tau}$ decreases (fewer matches for deficit side)
+
+\textbf{Step 3: Monotonicity of convenience yields.} From Proposition~\ref{P_ContinuousRates}:
+\[
+\chi^{+} = \int_{0}^{1}\frac{\partial}{\partial y}\exp\left(-\int_{y}^{1} (1-\eta)\psi_{x}^{+}dx\right)\exp\left(-\int_{y}^{1}\eta\psi_{x}^{-}dx\right)dy.
+\]
+
+\textbf{Step 4: Monotonicity of the average rate.} Since $\overline{r}^{f} = r^{m} + (1-\eta)\chi^{-} + \eta\chi^{+}$ and both $\chi^{+}$ and $\chi^{-}$ are increasing in $\theta$, the average rate $\overline{r}^{f}$ is increasing in $\theta$.
+\end{proof}

@@ -1,0 +1,32 @@
+\begin{proof}
+\textbf{Step 1: Time rescaling for $\theta$.} From Lemma~\ref{P_ContinuousProbabilities}, market tightness satisfies:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\gamma(\theta_{\tau}^{-1}) - \gamma(\theta_{\tau})].
+\]
+Assume time $\tau$ has elapsed. Consider the solution of market tightness from time $\tau$ to $\tau'$ with initial condition $\theta_{\tau}$. Define the rescaled time $s = \frac{t - \tau}{1 - \tau}$ for $t \in [\tau, 1]$, so that $s \in [0, 1]$. Then $dt = (1-\tau)ds$.
+
+By change of variables, the ODE for tightness becomes:
+\[
+\frac{d\theta}{ds} = (1-\tau)\frac{d\theta}{dt} = -(1-\tau)\bar{\lambda}\theta[\gamma(\theta^{-1}) - \gamma(\theta)]
+\]
+
+This is exactly the same ODE, but with efficiency parameter $\bar{\lambda}(1-\tau)$ and initial condition $\theta(0) = \theta_{\tau}$. At rescaled time $s' = \frac{\tau' - \tau}{1 - \tau}$, we have:
+\[
+\theta(\tau', \theta_0, \bar{\lambda}) = \theta\left(\frac{\tau' - \tau}{1 - \tau}, \theta(\tau, \theta_0, \bar{\lambda}), \bar{\lambda}(1-\tau)\right).
+\]
+
+\textbf{Step 2: Time rescaling for $\chi^{\pm}$.} From Proposition~\ref{P_ContinuousRates}:
+\[
+\chi_{\tau}^{+} = (r^{w} - r^{m})\int_{\tau}^{1}(1-\eta)\psi_{y}^{+}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy.
+\]
+{\color{red}Using the same change of variables $s = \frac{t - \tau}{1 - \tau}$}:
+\begin{align*}
+\chi_{\tau'}^{+} &= (r^{w} - r^{m})\int_{\tau'}^{1}(1-\eta)\psi_{y}^{+}\exp\left(-\int_{y}^{1}[\eta\psi_{x}^{-} + (1-\eta)\psi_{x}^{+}]dx\right)dy\\
+&= (r^{w} - r^{m})\int_{s'}^{1}(1-\eta)\psi_{s}^{+}(\theta_s)(1-\tau)\exp\left(-\int_{s}^{1}[\eta\psi_{u}^{-}(\theta_u) + (1-\eta)\psi_{u}^{+}(\theta_u)](1-\tau)du\right)ds
+\end{align*}
+Since $\psi^{\pm}(\theta) = \bar{\lambda}\gamma^{\pm}(\theta)$, and the matching intensities scale with $\bar{\lambda}(1-\tau)$ in the rescaled problem:
+\[
+\chi_{\tau'}^{+} = \chi^{+}\left(\frac{\tau' - \tau}{1 - \tau}, \theta(\tau, \theta_0, \bar{\lambda}), \bar{\lambda}(1-\tau)\right).
+\]
+The same argument applies to $\chi^{-}$ and thus to $r^{f} = r^{m}$.
+\end{proof}

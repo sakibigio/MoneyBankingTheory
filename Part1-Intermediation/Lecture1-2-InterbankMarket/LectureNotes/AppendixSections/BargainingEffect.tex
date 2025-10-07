@@ -1,0 +1,41 @@
+\begin{proof}
+\textbf{Part 1: Monotonicity in $\eta$.}  
+We establish that $\chi^+$, $\chi^-$, and $\overline{r}^f$ are all decreasing in $\eta$. From the general formulas:
+\begin{equation*}
+\chi^+ = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_\tau^{1-\eta}}{\bar{\theta} - 1}, \quad \chi^- = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_\tau^{-\eta}}{\bar{\theta} - 1},
+\end{equation*}
+we establish the result by taking derivatives with respect to $\eta$ (holding $\theta_\tau$ and $\bar{\theta}$ fixed):
+\begin{align*}
+\frac{\partial \chi^+}{\partial \eta} = -\frac{(r^w - r^m)}{\bar{\theta} - 1} \cdot \bar{\theta}^{\eta}\theta_\tau^{1-\eta}\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right),
+\quad 
+\frac{\partial \chi^-}{\partial \eta} &= -\frac{(r^w - r^m)}{\bar{\theta} - 1} \cdot \bar{\theta}^{\eta}\theta_\tau^{-\eta}\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right).
+\end{align*}
+We establish that $\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right)$ and $(\bar{\theta}-1)$ always have the same sign: If (i) $\theta_0 > 1$: Market tightness increases over time, so $\bar{\theta} > \theta_\tau > 1$. Thus $\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right) > 0$ and $(\bar{\theta}-1) > 0$. Otherwise, if  (ii) $\theta_0 < 1$: Market tightness decreases over time, so $\bar{\theta} < \theta_\tau < 1$. Thus $\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right) < 0$ and $(\bar{\theta}-1) < 0$. At $\theta_0 = 1$: $\bar{\theta} = \theta_\tau = 1$, so both expressions equal zero.\footnote{We can evaluate the derivative at $\theta_0 = 1$ using L'Hospital's rule.} Therefore, $\frac{\ln\left(\frac{\bar{\theta}}{\theta_\tau}\right)}{(\bar{\theta}-1)} > 0$ whenever $\theta_0 \neq 1$, which implies:
+\begin{equation*}
+\frac{\partial \chi^+}{\partial \eta} < 0, \quad \frac{\partial \chi^-}{\partial \eta} < 0
+\end{equation*}
+
+The negotiated rate at time $\tau$ is:
+\begin{equation*}
+r^f_\tau = r^m + (1-\eta)\chi^-_\tau + \eta\chi^+_\tau
+\end{equation*}
+Differentiating with respect to $\eta$ yields a negative value:
+\begin{equation*}
+\frac{\partial r^f_\tau}{\partial \eta} = \underbrace{(\chi^+_\tau - \chi^-_\tau)}_{<0} + \underbrace{(1-\eta)\frac{\partial \chi^-_\tau}{\partial \eta}}_{<0} + \underbrace{\eta\frac{\partial \chi^+_\tau}{\partial \eta}}_{<0} < 0.
+\end{equation*}
+Finally, we note that the average OTC rate $\overline{r}^f$ inherits this property since it is a weighted average of rates across all trading rounds: $\frac{\partial \overline{r}^f}{\partial \eta} < 0.$
+
+\textbf{Part 2: Limits.} When $\eta = 1$:
+\begin{align*}
+\chi_{0}^{+} &= (r^{w} - r^{m})\int_{0}^{1}0 \cdot \psi_{y}^{+}\exp\left(-\int_{y}^{1}\psi_{x}^{-}dx\right)dy = 0\\
+\chi_{0}^{-} &= (r^{w} - r^{m})\left[1 - \int_{0}^{1}\psi_{y}^{-}\exp\left(-\int_{y}^{1}\psi_{x}^{-}dx\right)dy\right] = (r^{w} - r^{m})(1 - \Psi^{-})
+\end{align*}
+Therefore: $\overline{r}^{f} = r^{m} + 0 \cdot \chi^{-} + 1 \cdot \chi^{+} = r^{m}$.
+
+When $\eta = 0$:
+\begin{align*}
+\chi_{0}^{+} &= (r^{w} - r^{m})\int_{0}^{1}\psi_{y}^{+}\exp\left(-\int_{y}^{1}\psi_{x}^{+}dx\right)dy = (r^{w} - r^{m})\Psi^{+}\\
+\chi_{0}^{-} &= (r^{w} - r^{m})\left[1 - \int_{0}^{1}0 \cdot \psi_{y}^{-}\exp\left(-\int_{y}^{1}\psi_{x}^{+}dx\right)dy\right] = r^{w} - r^{m}
+\end{align*}
+Therefore: $\overline{r}^{f} = r^{m} + 1 \cdot \chi^{-} + 0 \cdot \chi^{+} = r^{m} + (r^{w} - r^{m}) = r^{w}$.
+\end{proof}

@@ -1,0 +1,24 @@
+\begin{proof}
+From Lemma~\ref{P_ContinuousProbabilities}, the ODE for market tightness is:
+\begin{equation}
+\label{eq:appendix.ODEnormalized}
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}[\gamma(\theta_{\tau}^{-1}) - \gamma(\theta_{\tau})].
+\end{equation}
+
+\textbf{1. Steady state.} If $\theta_0 = 1$, then $\gamma(\theta_0^{-1}) = \gamma(1) = \gamma(\theta_0)$, so $\dot{\theta}_0 = 0$. Then, by uniqueness of solutions to ODEs, $\theta_{\tau} = 1$ for all $\tau \in [0,1]$.
+
+\textbf{2. Monotonicity.} The sign of $\dot{\theta}_{\tau}$ depends on $\gamma(\theta_{\tau}^{-1}) - \gamma(\theta_{\tau})$. By symmetry of $G$:
+\[
+\gamma(\theta^{-1}) = G(1, \theta^{-1}) = G(\theta^{-1}, 1) = \frac{G(1, \theta)}{\theta} = \frac{\gamma(\theta)}{\theta}.
+\]
+Therefore:
+\[
+\dot{\theta}_{\tau} = -\bar{\lambda}\theta_{\tau}\left[\frac{\gamma(\theta_{\tau})}{\theta_{\tau}} - \gamma(\theta_{\tau})\right] = \bar{\lambda}\gamma(\theta_{\tau})(\theta_{\tau} - 1)
+\]
+Since $\gamma(\theta) > 0$ for all $\theta > 0$:
+(i) If $\theta_0 > 1$, then $\dot{\theta}_0 > 0$, so $\theta_{\tau}$ increases.
+(ii) If $\theta_0 < 1$, then $\dot{\theta}_0 < 0$, so $\theta_{\tau}$ decreases. 
+
+\textbf{3. Effect of matching functions.} Consider two matching functions $\gamma,\tilde{\gamma}$, such that $\gamma(\theta) < \tilde{\gamma}(\theta)$ for all $θ$. From the ODE \eqref{eq:appendix.ODEnormalized}: (i) If $\theta > 1$: $\dot{\theta}$ is larger under $\tilde{\gamma}$, so $\theta$ rises faster.
+(ii) If $\theta < 1$: $\dot{\theta}$ is smaller under $\tilde{\gamma}$, so $\theta$ falls faster. 
+\end{proof}

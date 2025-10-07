@@ -1,0 +1,158 @@
+\subsection{General Proof}
+We prove the following result about the yield coefficients:
+\begin{theorem}
+For any matching function satisfying standard properties, the liquidity yield coefficients are given by:
+\begin{equation}
+\chi^+ = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{1-\eta}}{\bar{\theta} - 1}, \quad \chi^- = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{-\eta}}{\bar{\theta} - 1}
+\end{equation}
+where $\theta_0$ is the initial market tightness and $\bar{\theta} = \theta_1$ is the terminal value.
+\end{theorem}
+
+\begin{proof}
+We begin establishing the result for $\chi^+$. From Proposition \ref{P_ContinuousRates}, we obtained \eqref{eq:chi.surplusdensity}:
+\begin{equation}
+\chi^+_\tau = \int_\tau^1 (1-\eta) \psi^+_t \Sigma_t dt,
+\end{equation}
+where the surplus satisfies:
+\begin{equation}
+\Sigma_\tau = (r^w - r^m) \exp\left(-\int_\tau^1 [\eta\psi^-_x + (1-\eta)\psi^+_x] dx\right).
+\end{equation}
+Recall that overall matching probabilities, given in \eqref{eq:probabilities}, satisfy:
+\begin{equation*}
+e^{-\int_\tau^1 \psi^+_s ds} = 1 - \Psi_\tau^+, \quad  e^{-\int_\tau^1 \psi^-_s ds}= 1 - \Psi_\tau^-.
+\end{equation*}
+Thus, we have that:
+\begin{equation}
+\label{eq:SigmaProbs}
+\Sigma_\tau = (r^w - r^m)(1-\Psi_\tau^+)^{1-\eta}(1-\Psi_\tau^-)^{\eta}.
+\end{equation}
+Consider the following proposed solution $\chi^+_\tau$ as a function of $\theta_\tau$:
+\begin{equation}
+\chi^+(\theta_\tau) = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_\tau^{1-\eta}}{\bar{\theta} - 1}.
+\end{equation}
+If the proposal is correct, its time derivative must coincide with the term inside the integral, and we must verify that it satisfies the terminal condition. Taking the derivative with respect to $\tau$:
+\begin{equation}
+\label{eq:chip.derivative.time}
+\frac{\partial \chi_\tau^+}{\partial \tau} = (r^w - r^m) \frac{-(1-\eta)\bar{\theta}^{\eta}\theta^{-\eta}}{\bar{\theta} - 1} \dot{\theta}.
+\end{equation}
+By market clearing:
+\begin{equation}
+\label{eq:appendix.terminalinitialthetaprobs}
+\bar{\theta}=\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\theta_\tau,
+\end{equation}
+a condition we can use to substitute out $\bar{\theta}$ from \eqref{eq:chip.derivative.time}. We obtain:
+\begin{equation}
+\label{eq:chip.derivative.time2}
+\frac{\partial \chi_\tau^+}{\partial \tau} = -(r^w - r^m)(1-\eta)\frac{\left(\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\right)^{\eta}}{\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\theta - 1} \dot{\theta}.
+\end{equation}
+Using the market clearing condition $\Psi^{-}_\tau\theta_\tau=\Psi^{+}_\tau$, the denominator in the fraction becomes:
+\[
+\frac{\theta-\Psi^{-}_\tau\theta-1+\Psi^{+}_\tau}{1-\Psi^{+}_\tau}=\frac{\theta-1}{1-\Psi^{+}_\tau}.
+\]
+We then have that:
+\begin{equation}
+\label{eq:chip.derivative.time3}
+\frac{\partial \chi_\tau^+}{\partial \tau} = -(r^w - r^m)(1-\eta)\frac{(1-\Psi^{-}_\tau)^{\eta}(1-\Psi^{+}_\tau)^{1-\eta}}{\theta-1}\dot{\theta}.
+\end{equation}
+Next, we substitute out $\dot{\theta}$. Recall from equation \eqref{eq:canonical.ode} that market tightness follows:
+\begin{equation*}
+\dot{\theta} = -\bar{\lambda}\theta(\gamma(\theta^{-1}) - \gamma(\theta)).
+\end{equation*}
+Replacing the matching intensities given in \eqref{eq:intensities}; $\psi^+_\tau = \bar{\lambda}\gamma(\theta_\tau)$ and $ \psi^-_\tau = \bar{\lambda}\gamma(\theta_\tau^{-1})$ combined with the market clearing condition $\psi^-_\tau=\theta_\tau\psi^+_\tau$ we arrive at:
+\begin{equation}
+\label{eq:intensity.ode}
+\dot{\theta} = -(\bar{\lambda}\theta\gamma(\theta^{-1}) - \bar{\lambda}\theta\gamma(\theta))=-\psi^+_\tau(\theta-1).
+\end{equation}
+Substituting this step into \eqref{eq:chip.derivative.time3}, we obtain:
+\begin{equation}
+\label{eq:chip.derivative.final}
+\frac{\partial \chi_\tau^+}{\partial \tau} = (r^w - r^m)(1-\eta)(1-\Psi^{-}_\tau)^{\eta}(1-\Psi^{+}_\tau)^{1-\eta}\psi^+_\tau=(1-\eta)\psi^+_\tau\Sigma_\tau.
+\end{equation}
+This matches the integrand exactly. Since the terminal condition is also satisfied (at $\tau = 1$, $\theta_1 = \bar{\theta}$ giving $\chi^+_1 = 0$), the formula is verified. Applying the integral to this term yields $\chi^{+}$. The result is valid for any matching function.
+
+To verify the formula,
+\[
+\chi^- = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_0^{-\eta}}{\bar{\theta} - 1},
+\]
+we use the property that $\Sigma_\tau=\chi^-_{\tau}-\chi^+_{\tau}.$ Thus, we obtain that if the formula is correct:
+\begin{equation}
+\label{eq:target}
+\Sigma_\tau= (r^w - r^m) \frac{\bar{\theta}^{\eta}\theta_\tau^{1-\eta} - \bar{\theta}^{\eta}\theta_\tau^{-\eta}}{\bar{\theta} - 1}= (r^w - r^m) \bar{\theta}^{\eta}\theta_\tau^{1-\eta}\frac{\theta_\tau-1}{\theta_\tau(\bar{\theta}-1)}.
+\end{equation}
+We now verify this formula using \eqref{eq:SigmaProbs}:
+\[
+\Sigma_\tau = (r^w - r^m)(1-\Psi_\tau^+)\left(\frac{1-\Psi_\tau^-}{1-\Psi_\tau^+}\right)^{\eta}.
+\]
+Equation \eqref{eq:appendix.terminalinitialthetaprobs} implies:
+\[
+\bar{\theta}-1=\frac{1-\Psi^-_\tau}{1-\Psi^+_\tau}\theta-1=\frac{\theta-1}{1-\Psi^+_\tau}\Rightarrow 1-\Psi^+_\tau=\frac{\theta-1}{\bar{\theta}-1}.
+\]
+where the second line uses the clearing condition. Back into the equation above, we obtain:
+\[
+\Sigma_\tau = (r^w - r^m)\left(\frac{\theta-1}{\bar{\theta}-1}\right)\left(\frac{\bar{\theta}}{\theta}\right)^{\eta}.
+\]
+Multiplying and dividing by $\theta$ yields the target \eqref{eq:target}. 
+\end{proof}
+
+
+% \begin{proof}
+% We begin establishing the result for $\chi^+$. From Proposition \ref{P_ContinuousRates}, we obtained \eqref{eq:chi.surplusdensity}:
+% \begin{equation}
+% \chi^+_\tau = \int_\tau^1 (1-\eta) \psi^+_t \Sigma_t dt,
+% \end{equation}
+% where the surplus satisfies:
+% \begin{equation}
+% \Sigma_\tau = (r^w - r^m) \exp\left(-\int_\tau^1 [\eta\psi^-_x + (1-\eta)\psi^+_x] dx\right).
+% \end{equation}
+% Recall that overall matching probabilities, given in \eqref{eq:probabilities}, satisfy:
+% \begin{equation*}
+% e^{-\int_\tau^1 \psi^+_s ds} = 1 - \Psi_\tau^+, \quad  e^{-\int_\tau^1 \psi^-_s ds}= 1 - \Psi_\tau^-.
+% \end{equation*}
+% Thus, we have that:
+% \begin{equation}
+% \Sigma_\tau = (r^w - r^m)=(1-\Psi_\tau^+)^{1-\eta}(1-\Psi_\tau^-)^{\eta}.
+% \end{equation}
+
+% Consider the following proposed solution $\chi^+_\tau$ as a function of $\theta_\tau$:
+% \begin{equation}
+% \chi^+(\theta_\tau) = (r^w - r^m) \frac{\bar{\theta} - \bar{\theta}^{\eta}\theta_\tau^{1-\eta}}{\bar{\theta} - 1}.
+% \end{equation}
+% If the proposal is correct, its time derivative must coincide with the term inside the integral, and we must verify that it satisfies the terminal condition. Taking the derivative with respect to $\tau$:
+% \begin{equation}
+% \label{eq:chip.derivative.time}
+% \frac{\partial \chi_\tau^+}{\partial \tau} = (r^w - r^m) \frac{-(1-\eta)\bar{\theta}^{\eta}\theta^{-\eta}}{\bar{\theta} - 1} \dot{\theta}.
+% \end{equation}
+% By market clearing:
+% \begin{equation}
+% \bar{\theta}=\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\theta,
+% \end{equation}
+% a condition we can use substitute out $\bar{\theta}$ from \eqref{eq:chip.derivative.time}. We obtain:
+% \begin{equation}
+% \label{eq:chip.derivative.time}
+% \frac{\partial \chi_\tau^+}{\partial \tau} = -(r^w - r^m)(1-\eta)\frac{\left(\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\right)^{\eta}}{\frac{1-\Psi^{-}_\tau}{1-\Psi^{+}_\tau}\theta - 1} \dot{\theta}.
+% \end{equation}
+% The market clearing condition $\Psi^{-}_\tau\theta_\tau=\Psi^{+}_\tau$, the denominator in the fraction becomes:
+% \[
+% \frac{\theta-\Psi^{-}_\tau\theta-1+\Psi^{+}_\tau}{1-\Psi^{+}_\tau}=\frac{\theta-1}{1-\Psi^{+}_\tau}.
+% \]
+% We then have that:
+% \begin{equation}
+% \label{eq:chip.derivative.time2}
+% \frac{\partial \chi_\tau^+}{\partial \tau} = (r^w - r^m)(1-\eta)\frac{(1-\Psi^{-}_\tau)^{\eta}(1-\Psi^{+}_\tau)^{1-\eta}}{1-\theta}\dot{\theta}.
+% \end{equation}
+% Next, we substitute out $\dot{\theta}$. Recall from equation \eqref{eq:canonical.ode} that market tightness follows:
+% \begin{equation*}
+% \dot{\theta} = -\bar{\lambda}\theta(\gamma(\theta^{-1}) - \gamma(\theta)).
+% \end{equation*}
+% Replacing the matching intensities given in \eqref{eq:intensities}; $\psi^+_\tau = \bar{\lambda}\gamma(\theta_\tau)$ and $ \psi^-_\tau = \bar{\lambda}\gamma(\theta_\tau^{-1})$ combined with the market clearing condition $\psi^-_\tau=\psi^+_\tau/\theta_\tau$ we arrive at:
+% \begin{equation}
+% \label{eq:intensity.ode}
+% \dot{\theta} = -(\bar{\lambda}\theta\gamma(\theta^{-1}) - \bar{\lambda}\theta\gamma(\theta))=-\psi^+_\tau(1-\theta)=\psi^+_\tau(1-\theta).
+% \end{equation}
+% Substituting this step into \eqref{eq:chip.derivative.time2}, we obtain:
+% \begin{equation}
+% \label{eq:chip.derivative.time2}
+% \frac{\partial \chi_\tau^+}{\partial \tau} = (r^w - r^m)(1-\eta)(1-\Psi^{-}_\tau)^{\eta}(1-\Psi^{+}_\tau)^{1-\eta}\psi^+_\tau=(r^w - r^m)(1-\eta)\psi^+_\tau\Sigma_\tau.
+% \end{equation}
+% Applying the integral to this term yields $\chi^{+}$. The result is valid for any matching function.
+% \end{proof}
