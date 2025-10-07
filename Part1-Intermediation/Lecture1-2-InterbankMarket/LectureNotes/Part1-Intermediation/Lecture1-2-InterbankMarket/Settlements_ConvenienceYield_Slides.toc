@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Environment}{7}{0}{1}
+\beamer@sectionintoc {2}{OTC Market and Its Equilibrium}{14}{0}{2}
+\beamer@subsectionintoc {2}{1}{Sequential Trade}{15}{0}{2}
+\beamer@subsectionintoc {2}{2}{Continuous-Time Limit}{24}{0}{2}
+\beamer@subsectionintoc {2}{3}{Properties}{29}{0}{2}
+\beamer@subsectionintoc {2}{4}{Fully Analytic Cases}{36}{0}{2}
+\beamer@sectionintoc {3}{Applications}{40}{0}{3}
+\beamer@subsectionintoc {3}{1}{Portfolio Choice/Asset Pricing}{41}{0}{3}
+\beamer@subsectionintoc {3}{2}{Identification}{46}{0}{3}
+\beamer@subsectionintoc {3}{3}{Efficiency}{52}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{61}{0}{4}
