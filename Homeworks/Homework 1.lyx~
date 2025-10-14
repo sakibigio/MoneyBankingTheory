@@ -1,0 +1,670 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Money and Banking - 2025 Homework 1
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang english
+Saki Bigio (UCLA)
+\end_layout
+
+\begin_layout Quotation
+
+\lang english
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Question 3 pts (Interbank Market Model Calibration)
+\end_layout
+
+\begin_layout Itemize
+Go over the Afonso-Lagos paper 
+\begin_inset Quotes eld
+\end_inset
+
+An Empirical Study of Trade Dynamics in the Fed Funds Market
+\begin_inset Quotes erd
+\end_inset
+
+ available in our Courses Readings Folder.
+ Use Figure 1 in their paper to backout the parameters of the OTC model studied in class.
+ For that,
+ you may use the tabulated value for the figure that I provide in the attached CSV file—
+you can extract better data using an online tool.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I used WebPlotDigitizer - https://automeris.io/WebPlotDigitizer/
+\end_layout
+
+\begin_layout Itemize
+What parameters can be adequately estimated from this data?
+\end_layout
+
+\begin_layout Itemize
+What are the best fitting parameters that match the evolution of the reserve positions?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Go to the New York Fed website.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Find the corresponding data for the Federal Funds Rate distributions,
+ corresponding to the same year of the plot.
+\end_layout
+
+\begin_layout Itemize
+Find the data for the volume of the Federal Funds and the Discount Window
+\end_layout
+
+\begin_layout Itemize
+Find the best parameters to match this data.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Combining both approaches,
+ calibrate a version of the model to best as possible to jointly match all the data 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+feel free to use an analytic version (e.g.,
+ Leontief,
+ Cobb-Douglas,
+ harmonic distribution) or use a numerical approach
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+you can use the code provided in the course's folder.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\lang english
+What features of the data does the model fail to reproduce for any calibration?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+Provide a paragraph explaining what would you do to address those issues
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Figure 1 in the paper is reproduced here for convenience:
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AfonsoLagos_DispersionPlot.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plot of Interbank Market Positions in Afonso Lagos 2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\lang english
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Question 4 pts (Interbank Market Model - Networks)
+\end_layout
+
+\begin_layout Itemize
+Go over the Bech-Atalay paper ``The Topology of the Federal Funds Market
+\begin_inset Quotes erd
+\end_inset
+
+ available in our Courses Readings Folder.
+ The following Figure taken from their paper is an indication that there exists a core periphery structure in the Federal Funds market.
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename BechAtaly.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plot of Interbank Market trades in Bech and Atalay 2008
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Write a version of the model where there are two types of banks:
+ core and periphery banks with the following properties
+\end_layout
+
+\begin_layout Itemize
+There are three types of trades (markets if you want)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+core banks match according to the matching function 
+\begin_inset Formula $G^{c2c}$
+\end_inset
+
+ corresponding to core-to-core trades
+\end_layout
+
+\begin_layout Itemize
+core banks with surplus lending to periphery banks with deficit that match according matching functions 
+\begin_inset Formula $G^{c2p}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+core banks with deficit borrowing from periphery banks with surplus that match according matching functions 
+\begin_inset Formula $G^{p2c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+periphery trades to not exist
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Write the evolution of aggregate positions in discrete time (you should have 4 of them)
+\end_layout
+
+\begin_layout Itemize
+Write an ODE system for market tightness in each of the three markets discribed above
+\end_layout
+
+\begin_layout Itemize
+Write the infinitesimal bargaining problem for all the types of trade
+\end_layout
+
+\begin_layout Itemize
+Write the evolution of 
+\begin_inset Formula $\chi^{\pm}$
+\end_inset
+
+ for core and non-core banks?
+ 
+\end_layout
+
+\begin_layout Itemize
+Describe an algorithm to compute the corresponding objects.
+ 
+\end_layout
+
+\begin_layout Itemize
+Write a code that computes the solution to to market tightness forward in time and 
+\begin_inset Formula $\chi^{\pm}$
+\end_inset
+
+ backward in time
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+plot the average interbank rate among the different types of trade that emerges
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Write a portfolio problem where banks make loans hold reserves and deposits are volatile sources of funding.
+ Explain if periphery banks have an advantage or disadvantage in funding with deposits
+\end_layout
+
+\begin_layout LyX-Code
+
+\lang english
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Question 3 points (Instability)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The role of this question is to think of the role of central bank operational targets.
+ Have a look at the paper by Bigio,
+ D'Erasmo,
+ and Yepez (2025).
+ You can observe that from 1990 onward the Federal Reserve's supply of reserves became more and more unstable whereas the interbank ratio became more and more stable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename VolatilityInstruments.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plot of Liquidity Ratio and Interbank Rates in Bigio,
+ D'Erasmo and Yepez
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Consider a risk-neutral bank.
+ It maximizes the following problem:
+\begin_inset Formula 
+\[
+\Pi_{t}=\max_{\left\{ b,m,d\right\} }\mathbb{E}\left[R^{b}b+R^{m}m-R^{d}d+\chi\left(s;\theta\right)\right]
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+b+m=d
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+s=m-\rho d+\omega d.
+\]
+
+\end_inset
+
+Also,
+ we have that 
+\begin_inset Formula 
+\[
+\chi\left(s;\theta\right)=\begin{cases}
+\chi^{+}\left(\theta\right)s & s>0\\
+\\\chi^{-}\left(\theta\right)s & s\leq0.
+\end{cases}
+\]
+
+\end_inset
+
+Here,
+ 
+\begin_inset Formula $\left\{ \chi^{+}\left(\theta\right),\chi^{-}\left(\theta\right)\right\} $
+\end_inset
+
+ follow from the OTC model derived in class.
+ You don't have to derive the formula.
+ For the entire question,
+ use 
+\begin_inset Formula $\left\{ \chi^{+}\left(\theta\right),\chi^{-}\left(\theta\right)\right\} $
+\end_inset
+
+ implicitly—
+use these symbols,
+ you DO NOT need to apply the formulas in terms of the primitives 
+\begin_inset Formula $\left\{ \lambda,\eta\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Let the random realization of outflows,
+ 
+\begin_inset Formula $\omega\in\left\{ -\delta_{t},\delta_{t}\right\} $
+\end_inset
+
+—
+note that in expectation,
+ some banks suffer an outflow of deposits whereas others an inflow.
+ Both events happen with equal probability.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+note that 
+\begin_inset Formula $\delta_{t}$
+\end_inset
+
+ is a random variable 
+\end_layout
+
+\begin_layout Itemize
+assume that it follows an AR(1) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Also,
+ for simplicity assume the demand for deposits confronted by the bank,
+ 
+\begin_inset Formula $d$
+\end_inset
+
+,
+ is perfectly inelastic
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+by contrast assume an iso-elastic demand for loans by banks,
+ 
+\begin_inset Formula $b$
+\end_inset
+
+,
+ e.g.:
+\begin_inset Formula 
+\[
+b=\Theta\left(R^{b}\right)^{-\zeta}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\lang english
+a) Please derive the 
+\shape italic
+liquidity premium and a deposit premium,
+ as well as the intebank-market spread.
+
+\shape default
+ That is,
+ derive:
+\begin_inset Formula 
+\[
+R^{b}-R^{m},\quad R^{b}-R^{d},\quad R^{f}-R^{m}
+\]
+
+\end_inset
+
+Feel free to assume:
+ 
+\begin_inset Formula $m-\rho d-\delta d<0$
+\end_inset
+
+ and 
+\begin_inset Formula $m-\rho d+\delta d>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Also,
+ remember 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is given,
+ from the individual bank's perspective of this bank.
+\end_layout
+
+\begin_layout Itemize
+b) Assume that the central bank has a policy to fix 
+\begin_inset Formula $m$
+\end_inset
+
+ at some preditermined value
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+report the volatility of the corresponding spreads
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+c) Suppose now that the central bank has a different target,
+ that of targeting 
+\begin_inset Formula $R^{f}$
+\end_inset
+
+,
+ the interbank market rate
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+assume that the central bank observes 
+\begin_inset Formula $\delta_{t}$
+\end_inset
+
+ contemporaneously
+\end_layout
+
+\begin_layout Itemize
+assume that the central bank observes 
+\begin_inset Formula $\delta_{t}$
+\end_inset
+
+ with one lag
+\end_layout
+
+\begin_layout Standard
+Report the volatility of all three spreads in each case.
+ If the answers become complicated,
+ use a computer to simulate.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Using Chat GPT or any other LLM of your choice,
+ research the debates regarding the move away from aggregate monetary targets to interest targets.
+ Do you find anything in these policy debates regarding 
+\end_layout
+
+\end_body
+\end_document
