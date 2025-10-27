@@ -1,0 +1,1062 @@
+%2multibyte Version: 5.50.0.2960 CodePage: 1252
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{Codepage=1252}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, May 21, 2014 12:50:09}
+%TCIDATA{LastRevised=Wednesday, April 06, 2016 16:13:25}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\doublespace
+\input{tcilatex}
+\begin{document}
+
+
+\begin{center}
+\textbf{Chapter 1: Aggregation under Epstein-Zin Preferences \\[0pt]
+Models with Financial Frictions}
+\end{center}
+
+\section{Overview}
+
+In this notes I derive the optimal portfolio holdings of assets and
+consumption policies in a model in which agents feature Epstein-Zin utility.
+The virtue of this model is that optimal policies are linear in wealth
+despite having a special form of borrowing constraints. We will see that the
+model can be accomodated to allow for \textit{natural borrowing constraints
+or other type of financial constraints coming from Moral Hazard, Adverse
+Selection or dynamic constraints}. This property entails that aggregation is
+immediate thanks to the famous Gorman's aggregation theorem. With this,
+prices may be determined without carrying non-finite state variables such as
+entire distrubitions. Epstein-Zin's preferences nest more standard
+preferences such as CRRA ---and therefore log utility--- which makes this a
+good starting point. It is also a great device to isolate two forces: risk
+aversion and the desire to smooth consumption over time.
+
+This class of models accommodate well for various situations, as I will try
+to make clear along these lectures. I describe two models in this section.
+In the first part, I describe EZ preferences, and then solve for the model
+presented by Angeletos $\left( RED,\text{ }2007\right) $. The tools used in
+this section will be used over and over again throughout these lectures.
+
+\section{Notation}
+
+I denote a variable x at a given point in time t and history of events $%
+s^{t} $ via $x_{t}\left( s^{t}\right) .$ When I simply write $x_{t}$ it is
+clear that the variable is definied for a given history. I append a
+supperscript i to refer to the choice of a particular individual.
+
+Also, I denote by $u_{t}^{i}$ the utility of an indivual by time t and $%
+v_{t}^{i}$ the consumption equivalent.
+
+\section{Epstein Zin-Preferences}
+
+I follow notation used by Angeletos $\left( RED,\text{ }2007\right) $.
+Preferences for agent $i$ are given by:%
+\begin{equation*}
+u_{t}^{i}=U\left( c_{t}^{i}\right) +\beta \cdot U\left( \mathbb{CE}%
+_{t}\left( U^{-1}\left( u_{t+1}^{i}\right) \right) \right)
+\end{equation*}%
+where
+\begin{equation}
+\mathbb{CE}_{t}\mathcal{=}\Upsilon ^{-1}\left( \mathbb{E}_{t}\Upsilon \left(
+\cdot \right) \right)  \label{1}
+\end{equation}%
+where the expectation is taken over time $t$ information. The expectation
+operator $\mathbb{E}_{t}$ contains all relevant information up to time t.
+
+The term $\mathbb{CE}_{t}$ refers to the certainty equivalent utility with
+respect to a CRRA, $\Upsilon ,$ transformation:
+
+\begin{equation*}
+\Upsilon \left( c\right) =\frac{c^{1-\gamma }}{1-\gamma }\text{ and }U\left(
+c\right) =\frac{c^{1-1/\theta }-1}{1-1/\theta }.
+\end{equation*}%
+The transformation $\Upsilon \left( c\right) $ characterizes the relative
+risk aversion through the parameter $\gamma \geq 0$. If $\gamma =0,$ then
+agent is risk-neutral. This specification embeds several polar cases. For
+example:
+
+\textbf{Kinghtian Agents.} Suppose risk aversion approaches infinity. Then:
+
+\begin{equation*}
+\lim_{\gamma \rightarrow \infty }\mathbb{CE}_{t}\left[ W\left( s\right) %
+\right] =\lim_{\gamma \rightarrow \infty }\left( \sum_{s\in \mathcal{S}}\pi
+\left( s\right) \left[ W\left( s\right) \right] ^{1-\gamma }\right) ^{\frac{1%
+}{1-\gamma }}=\min_{s}\left\{ W\left( s\right) \right\}
+\end{equation*}%
+so the agent's preferences become \textquotedblleft
+Knightian\textquotedblright\ ---he cares only about the worst-case scenario,
+regardless of the probability. Recall notes on CES class. These are the
+preferences used in Caballero and Farhi (2014).
+
+\textbf{Log-Utility. }When $\theta \rightarrow 1,$ we have that:
+\begin{equation*}
+\lim_{\theta \rightarrow 1}\frac{c^{1-1/\theta }-1}{1-1/\theta }=\log \left(
+c\right) .
+\end{equation*}%
+Recall that the minus 1 is important. Often, people forget to include that
+term.
+
+\textbf{CRRA. }Set $\gamma =\frac{1}{\theta }$ and insert the condition of
+utility and one obtains:%
+\begin{eqnarray*}
+\Upsilon ^{-1}\left( u\right) &=&\left( \left( 1-\gamma \right) u\right) ^{%
+\frac{1}{1-\gamma }} \\
+U\Upsilon ^{-1}\left( u\right) &=&u\text{ and by analogy,} \\
+\Upsilon U^{-1}\left( u\right) &=&u.
+\end{eqnarray*}%
+Hence, for this particular case we obtain:%
+\begin{eqnarray*}
+u_{t}^{i} &=&U\left( c_{t}^{i}\right) +\beta \cdot U\Upsilon ^{-1}\left(
+E_{t}\Upsilon \left( U^{-1}(u_{t+1}\right) \right) \\
+u_{t}^{i} &=&U\left( c_{t}^{i}\right) +\beta E_{t}\left[ u_{t+1}\right] \\
+&=&\sum_{t=0}^{\infty }\beta ^{t}U\left( c_{t}^{i}\right) .
+\end{eqnarray*}%
+and we are back in standard expected present discounted utility. The nice
+feature of Epstein-Zin preferences is that it allows us to decompose
+risk-aversion with elasticity of substitution, as should be clear very soon.
+Moreover, it may be very convienient to study polar cases that yield closed
+form solutions.
+
+Through $\theta >0,$ $U\left( c\right) $, characterizes intertemporal
+substitution. Let's derive the intertemporal elasticity of substitution to
+gain further insights.
+
+\subsection{A two-period Model}
+
+Assume that the agent's utility $u_{t+1}$ is given by the utility evaluated
+at his wealth at t+1.$~$That is, assume that the agent consume's his wealth
+at t+1. Thus, $u_{t+1}=U\left( c_{t+1}\right) =U\left( W_{t+1}\right) .$
+
+Then, assume that the agent's budget constraint is the following:
+
+\begin{equation*}
+c_{t}+a_{t+1}=W_{t}.
+\end{equation*}%
+Where $a_{t+1}$ are the savings carried out to t+1. Then, let W$%
+_{t+1}=R_{t}a_{t}$ and assume for the time being that there's a constant
+return $R_{t}.$ We are interested in computing how $c_{t}$ varies with $%
+R_{t}.$ Thus, since there is no risk, the problem becomes:
+
+\begin{equation*}
+\max_{c_{t}^{i}}U\left( c_{t}^{i}\right) +\beta \cdot U\left( R_{t}\left(
+W_{t}-c_{t}^{i}\right) \right)
+\end{equation*}%
+---we can do this because the certainty equivalent operator becomes
+constant. The first-order condition of the problem is the Euler equation:
+
+\begin{equation*}
+U^{\prime }\left( c_{t}^{i}\right) =\beta R_{t}U^{\prime }\left( R_{t}\left(
+W_{t}-c_{t}^{i}\right) \right) .
+\end{equation*}
+
+Suppose we can write $c_{t}^{i}=\varsigma _{t}W_{t}.$ Thus, the equation
+above is:
+
+\begin{eqnarray*}
+U^{\prime }\left( \varsigma _{t}W_{t}\right) &=&\beta R_{t}U^{\prime }\left(
+R_{t}\left( W_{t}-\varsigma _{t}W_{t}\right) \right) \\
+&=&\beta R_{t}U^{\prime }\left( R_{t}\left( 1-\varsigma _{t}\right)
+W_{t}\right) .
+\end{eqnarray*}%
+Then, inverting $U^{\prime }$, we obtain:
+
+\begin{equation*}
+\varsigma _{t}W_{t}=\Psi \left( \beta ,R_{t}\right) \left( 1-\varsigma
+_{t}\right) W_{t}
+\end{equation*}%
+for the term $\Psi \left( \beta ,R_{t}\right) $ where%
+\begin{eqnarray*}
+\Psi \left( \beta ,R_{t}\right) &\equiv &\left( \beta R_{t}\right) ^{-\theta
+}R_{t} \\
+&=&\beta ^{-\theta }R_{t}^{1-\theta }.
+\end{eqnarray*}
+
+W can solve for $\varsigma _{t}W_{t}$ to yield:
+
+\begin{equation*}
+c_{t}^{i}=\varsigma _{t}W_{t}=\left[ \frac{\Psi \left( \beta ,R_{t}\right) }{%
+1+\Psi \left( \beta ,R_{t}\right) }\right] W_{t}.
+\end{equation*}%
+Thus, we have the following recursion for the marginal propensity to consume:
+
+\begin{equation*}
+\varsigma _{t}=\frac{R_{t}^{1-\theta }}{\beta ^{\theta }+R_{t}^{1-\theta }}.
+\end{equation*}%
+We arrange this expression to obtain:
+
+\begin{equation*}
+\frac{1}{\varsigma _{t}}=\frac{\beta ^{\theta }+R_{t}^{1-\theta }}{%
+R_{t}^{1-\theta }}.
+\end{equation*}%
+\textbf{Observations.} Some observations emerge.
+
+\textit{Log Case. }When $\theta =1,$ we have that $\beta ^{\theta
+}R_{t}^{1-\gamma }=\beta .$ The result is exactly the same as above, but $%
+\varsigma _{t}=\left( 1-\beta \right) $ is true everywhere, even away from
+the steady state.
+
+\textbf{Intertemporal-Elasticity of Substitution I. }From
+\begin{equation*}
+\varsigma _{t}=\frac{R_{t}^{1-\theta }}{\beta ^{\theta }+R_{t}^{1-\theta }}
+\end{equation*}%
+we will try to compute the IES with respect to $R_{t}.$ Taking derivatives
+w.r.t. $R_{t}$ :
+
+\begin{equation*}
+\frac{\partial \varsigma _{t}}{\partial R_{t}}=\frac{\partial \beta ^{\theta
+}R_{t}^{1-\theta }}{\partial R_{t}}=\left( 1-\theta \right) \frac{\varsigma
+_{t}}{R_{t}}.
+\end{equation*}%
+Thus,
+
+\begin{equation*}
+\epsilon _{R}^{\varsigma }=\frac{\partial \varsigma _{t}}{\partial R_{t}}%
+\frac{R_{t}}{\varsigma _{t}}=\left( 1-\theta \right) .
+\end{equation*}%
+If we measure things in terms of a price of consumption tomorrow $c_{t+1},$
+name it $q_{t}\,\ $the term is equal to $\left( \theta -1\right) $.
+
+\textbf{Intertemporal-Elasticity of Substitution II. }Observe that the
+derevitions we have so far imply:
+
+\begin{equation*}
+\frac{c_{t}^{i}}{c_{t+1}^{i}}=\Psi \left( \beta ,R_{t}\right)
+\end{equation*}%
+\begin{equation*}
+\left( \frac{c_{t+1}^{i}}{c_{t}^{i}}\right) ^{1/\theta }=\beta R_{t}.
+\end{equation*}%
+Taking logarithms on both sides yields:
+
+\begin{eqnarray*}
+\Delta c_{t+1} &=&\theta \log \left( \beta \right) +\theta \log (R_{t}) \\
+&=&\theta \log \left( \beta \right) +\theta r_{t}
+\end{eqnarray*}%
+where $\Delta $ is the operator for log-difference ($\Delta x_{t}=\log
+\left( x_{t+1}\right) -\log \left( x_{t}\right) $).
+
+Then, we have that
+\begin{equation*}
+\frac{\partial \Delta c_{t+1}}{\partial r_{t}}=\theta .
+\end{equation*}%
+but since $\Delta c_{t+1}$ and $r_{t}$ are already log-differences:
+
+\begin{equation*}
+\theta =\frac{\partial \left( c_{t+1}^{i}/c_{t}^{i}\right) }{\partial \left(
+r_{t}\right) }\frac{R_{t}}{\left( c_{t+1}^{i}/c_{t}^{i}\right) }.
+\end{equation*}%
+Thus, $\theta $ measures how much future consumption varies with the
+interest rate. If $\theta <1$, higher rates imply less future consumption.
+If $\theta >1,$ higher rates imply less current consumption. If $\theta =1,$
+consumption doesn't vary.
+
+\textbf{CES representation.} Let's relate this expression now to the CES
+form we studied before. I want to show that the two period model we just
+wrote, can be casted as a CES utility. To see this,
+
+\begin{equation*}
+u_{i}=\max_{c_{t}^{i}}U\left( c_{t}^{i}\right) +\beta \cdot U\left(
+R_{t}\left( W_{t}-c_{t}^{i}\right) \right) .
+\end{equation*}%
+We perform a monotone transformation.
+
+We need three operations.
+
+\begin{enumerate}
+\item Add to both sides $\left( 1+\beta \right) /\left( 1-1/\theta \right) .$%
+\begin{equation*}
+u_{i}+\left( 1+\beta \right) /\left( 1-1/\theta \right) =\max_{c_{t}^{i}}%
+\frac{\left[ c_{t}^{i}\right] ^{1-1/\theta }+\beta \cdot \left( R_{t}\left(
+W_{t}-c_{t}^{i}\right) \right) ^{1-1/\theta }}{1-1/\theta }
+\end{equation*}
+
+\item Multiply by $\left( 1-1/\theta \right) $
+\begin{equation*}
+\left( 1-1/\theta \right) u_{i}+\left( 1+\beta \right) =\max_{c_{t}^{i}}
+\left[ c_{t}^{i}\right] ^{1-1/\theta }+\beta \cdot \left( R_{t}\left(
+W_{t}-c_{t}^{i}\right) \right) ^{1-1/\theta }.
+\end{equation*}
+
+\item and then raise to the $1/\left( 1-1/\theta \right) $ power to obtain:%
+\begin{equation*}
+\left( \left( 1-\frac{1}{\theta }\right) u_{i}+\left( 1+\beta \right)
+\right) ^{\frac{1}{1-\frac{1}{\theta }}}=\max_{c_{t}^{i}}\left( \left(
+c_{t}^{i}\right) ^{1-\frac{1}{\theta }}+\beta \cdot \left( R_{t}\left(
+W_{t}-c_{t}^{i}\right) \right) ^{1-\frac{1}{\theta }}\right) ^{\frac{1}{1-%
+\frac{1}{\theta }}}.
+\end{equation*}
+
+We are not there yet since we need to have write it in terms of two
+commodities:%
+\begin{equation*}
+\max_{c_{t}^{i}}\left( \left( c_{t}^{i}\right) ^{1-\frac{1}{\theta }}+\beta
+\left( c_{t+1}^{i}\right) ^{1-\frac{1}{\theta }}\right) ^{\frac{1}{1-\frac{1%
+}{\theta }}}.
+\end{equation*}%
+However, we need to multiply by some weights that sum up to one. Thus,
+
+\item Multiply both sides by $\omega ^{\frac{1}{\theta }}$ to obtain:
+\end{enumerate}
+
+\begin{equation*}
+\max_{c_{t}^{i}}\left( \left( \omega \right) ^{\frac{1}{\theta }}\left(
+c_{t}^{i}\right) ^{1-\frac{1}{\theta }}+\omega ^{\frac{1}{\theta }}\beta
+\left( c_{t+1}^{i}\right) ^{1-\frac{1}{\theta }}\right) ^{\frac{1}{1-\frac{1%
+}{\theta }}}
+\end{equation*}%
+and now we need:
+
+\begin{equation*}
+\omega ^{\frac{1}{\theta }}\beta =\left( 1-\omega \right) ^{\frac{1}{\theta }%
+}.
+\end{equation*}%
+Thus,
+
+\begin{equation*}
+\omega =\frac{1}{1+\beta ^{\theta }}.
+\end{equation*}%
+Thus, the solution equals:
+
+\begin{equation*}
+v_{i}=\left( \frac{1}{1+\beta ^{\theta }}\right) ^{\frac{1}{\theta }}\left(
+\left( 1-\frac{1}{\theta }\right) u_{i}+\left( 1+\beta \right) \right) ^{%
+\frac{1}{1-\frac{1}{\theta }}}.
+\end{equation*}
+
+\textbf{Risk-Aversion.} Now assume that the interest rate is actually random
+variable $R\left( s\right) $ where s is an underlying state. Let's exploit a
+represenation of two-period model and use $\mathcal{CE}_{t}$ to express the
+random rates as the certainty equivalent of a single rate. We would obtain
+the following utility represenation:
+
+\begin{eqnarray*}
+&&U\left( c_{t}^{i}\right) +\beta U\Upsilon ^{-1}\left( \mathbb{E}%
+_{t}\Upsilon \left( U^{-1}(U\left( R\left( s\right) \left(
+W_{t}-c_{t}^{i}\right) \right) \right) \right) \\
+&=&U\left( c_{t}^{i}\right) +\beta U\Upsilon ^{-1}\left( \mathbb{E}%
+_{t}\Upsilon \left( U^{-1}(U\left( R\left( s\right) \left(
+W_{t}-c_{t}^{i}\right) \right) \right) \right) \\
+&=&U\left( c_{t}^{i}\right) +\beta U\Upsilon ^{-1}\left( \mathbb{E}%
+_{t}\Upsilon \left( U^{-1}(U\left( R\left( s\right) \right) \right) \right)
+\\
+&=&U\left( c_{t}^{i}\right) +\beta U\left( \left( W_{t}-c_{t}^{i}\right)
+\Upsilon ^{-1}\mathbb{E}_{t}\Upsilon \left( R\left( s\right) \right) \right)
+\\
+&=&U\left( c_{t}^{i}\right) +\beta U\left( \left( W_{t}-c_{t}^{i}\right)
+\underbrace{\mathbb{CE}_{t}\left( R\left( s\right) \right) }_{\text{%
+Certainty-equivalent Return}}\right)
+\end{eqnarray*}%
+So in the two period model, the $\gamma $ controls how we penalize risk: how
+we transform random returns into a certainty equivalent interest rate. Note
+that we cannot do this separition with CRRA because the two parameters take
+the same value. A complication emerges when a model features dynamics and
+there is aggregate risk ---if it affects prices at t+1 in consumption at
+t+1, ---here that risk is not present because there are no future periods.
+We will return to that point later.
+
+\section{Gorman's Aggregation Result}
+
+Take a collection if $i\in \mathcal{I}$ households. Then, the economy admits
+a representative household if the conditions of the following theorem hold.
+
+We have the following Theorem:
+
+\textbf{Theorem.} An economy admits a representative agent if the problem of
+the Household if and only if their preferences have an indirect utility
+representation of the form:
+
+\begin{equation*}
+u^{i}\left( W,p\right) =\alpha ^{i}\left( p\right) +v\left( p\right) w.
+\end{equation*}
+
+This condition implies that the household's expenditure rule satifies linear
+Engle curves. In turn, all preference specifications that lead to linear
+Engle curves, admit a representative agent.
+
+Pollack gives a class of utility representations that are the only classes
+that lead to Engle curves. What we do in this notes is alter bliss points
+for endogenous objects and alter the results to admit more complicated, but
+linear, budget sets.
+
+\textbf{References.} See Gorman's Original paper, as well as Pollack 1971.
+Also Acemoglu contains an excellent treatment.
+
+\section{Aggregation with Portfolio Constraints}
+
+Let's consider a generic problem. Preferences of agent $i$ are given by:
+
+\begin{equation*}
+u_{t}^{i}=U\left( c_{t}^{i}\right) +\beta \cdot U\left( \mathbb{CE}%
+_{t}\left( U^{-1}\left( u_{t+1}^{i}\right) \right) \right)
+\end{equation*}%
+The budget constraint of this agent is the following:
+
+\begin{equation}
+c_{t}+\sum_{j\in \mathcal{J}}a_{t+1}^{j}=\underbrace{\sum_{j\in \mathcal{J}%
+}R_{t}^{j}\left( s^{t}\right) a_{t}^{j}}_{\equiv W_{t}}  \label{E_BC}
+\end{equation}%
+where $\mathcal{J}$ is a set of securities with random payoff $%
+R_{t}^{j}\left( s_{t}\right) $. In addition, we assume the following
+non-negativity conditions:
+
+\begin{equation}
+\Gamma _{t}\hat{a}_{t+1}\leq \eta _{t}\left( W_{t}-c_{t}\right)
+\label{E_ConstraintSet}
+\end{equation}%
+where, $\Gamma _{t}$ is a matrix and $\eta _{t}$ a vector. The constraint
+set give by $\left( \ref{E_ConstraintSet}\right) $ imposes constraints on
+the portfolio holdings of the individual. Thus, the agent maximizes his
+utility subject to (\ref{E_BC}) and (\ref{E_ConstraintSet}).
+
+I use $\mathbf{\hat{a}}_{t}$ and $\mathbf{\hat{R}}_{t}\left( s^{t}\right) $
+as the vector notation to express the vector of asset holdigns and returns.
+We want to show that an economy with this preferences and budget constraints
+admits aggregation, that is, that is has a representative agent. The rest of
+the problems we study will be adapted to fit into this form, although they
+will feature different financial frictions. The gist of the solutions is to
+find a parsimonious way to express the in the way I did above. We will prove
+the following proposition:
+
+\begin{proposition}
+Optimal Consumer allocations are given by:%
+\begin{eqnarray*}
+c_{t}^{i}\left( s^{t}\right)  &=&\varsigma _{t}\left( s^{t}\right)
+W_{t}^{i}\left( s^{t}\right)  \\
+a_{t+1}^{j}\left( s^{t}\right)  &=&\left( 1-\varsigma _{t}\left(
+s^{t}\right) \right) \phi _{t}^{j}\left( s^{t}\right) W_{t}^{i}\left(
+s^{t}\right)
+\end{eqnarray*}%
+where $W_{t}^{i}$ is defined above, and the following recursion is obtained:%
+\begin{equation*}
+\varsigma _{t}=\frac{1}{1+\beta ^{\theta }\Omega _{t}^{1-\theta }\left(
+\varsigma _{t+1}\right) }
+\end{equation*}%
+\begin{eqnarray*}
+\Omega _{t} &=&\Omega \left( s^{t}\right) =\max_{\mathbf{\hat{\phi}}}\mathbb{%
+CE}_{t}\left[ \varsigma _{t+1}^{\frac{1}{1-\theta }}\left( s^{t+1}\right)
+<R_{t}^{j}\left( s^{t+1}\right) \cdot \phi ^{j}>|s^{t}\right]  \\
+\mathbf{\hat{\phi}}_{t}\left( s^{t}\right)  &=&\mathbf{\hat{\phi}}\left(
+s^{t}\right) =\arg \max_{\mathbf{\hat{\phi}}}\mathbb{CE}_{t}\left[ \varsigma
+_{t+1}^{\frac{1}{1-\theta }}\left( s^{t+1}\right) <R_{t}^{j}\left(
+s^{t+1}\right) \cdot \phi ^{j}>|s^{t}\right]  \\
+\text{subject to} &\text{:}&\sum_{j}\phi ^{j}=1;\text{ }\Gamma _{t}\phi
+^{j}\leq \eta _{t}.
+\end{eqnarray*}
+\end{proposition}
+
+\textbf{Proof.} Let's now prove this result. Fix a given period t and
+historyt $s^{t}$. The agent solves:
+
+\begin{equation*}
+u_{t}^{i}\left( W_{t},s^{t}\right) =\max_{c_{t}^{i},\hat{\phi}_{t}}U\left(
+c_{t}^{i}\right) +\beta \cdot U\left( \mathbb{CE}_{t}\left( U^{-1}\left(
+u_{t+1}^{i}\right) \right) \right)
+\end{equation*}%
+subject to :
+
+\begin{equation*}
+c_{t}+\sum_{j\in \mathcal{J}}a_{t+1}^{j}=W_{t}\text{ and }\Gamma _{t}\mathbf{%
+\hat{a}}_{t+1}\leq \eta _{t}\left( W_{t}-c_{t}\right) .
+\end{equation*}
+
+Let's perform a change of variables and express every control variable as a
+proportion of wealth:%
+\begin{equation*}
+c_{t}=\varsigma W_{t}
+\end{equation*}%
+\begin{equation*}
+a_{t}^{j}=\left( 1-\varsigma \right) \phi ^{j}W_{t}
+\end{equation*}%
+for any arbitrary $\left( \varsigma ,\left\{ \phi ^{j}\right\} _{j\in
+\mathcal{J}}\right) .$ Then, the problem can be restated as:
+
+\begin{equation*}
+u_{t}^{i}\left( W_{t},s^{t}\right) =\max_{\varsigma ,\phi ^{j}}U\left(
+\varsigma W_{t}\right) +\beta \cdot U\left( \mathbb{CE}_{t}\left(
+U^{-1}\left( u_{t+1}^{i}\right) \right) \right)
+\end{equation*}%
+subject to :
+
+\begin{equation*}
+\varsigma W_{t}+\sum_{j\in \mathcal{J}}\left( 1-\varsigma \right) \phi
+^{j}W_{t}=W_{t}\text{ and }\Gamma _{t}\left( 1-\varsigma \right) \phi
+^{j}W_{t}\leq \eta _{t}W_{t}.
+\end{equation*}
+
+Observe that at $s^{t+1},$ the value of $W_{t+1}$ will be:
+
+\begin{equation*}
+W_{t+1}=\left( 1-\varsigma \right) \left\langle \hat{R}_{t+1}\left(
+s^{t+1}\right) \cdot \phi ^{j}\right\rangle W_{t}.
+\end{equation*}%
+Now, conjecture that $u_{t}^{i}\left( W_{t},s^{t}\right) =U\left(
+v_{t}\left( s^{t}\right) \right) W_{t}^{1-\frac{1}{\theta }}.$ If this guess
+is true, it must hold for every $t,$ $s^{t}$ and in particular:
+
+\begin{eqnarray*}
+u_{t+1}^{i}\left( W_{t+1},s^{t+1}\right) &=&U\left( v_{t+1}\left(
+s^{t+1}\right) \right) W_{t+1}^{1-\frac{1}{\theta }} \\
+&=&U\left( v_{t+1}\left( s^{t+1}\right) \right) \left[ \left( 1-\varsigma
+\right) \left\langle \hat{R}_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}%
+\right\rangle W_{t}\right] ^{1-\frac{1}{\theta }}
+\end{eqnarray*}%
+at arbitrary values $\left( \varsigma ,\hat{\phi}\right) $ chosen at $t$.
+Then this means that the objective in $u_{t}^{i}\left( W_{t},s^{t}\right) $
+must also equal:
+
+\begin{eqnarray*}
+&&\max_{\varsigma ,\hat{\phi}}U\left( \varsigma \right) W_{t}^{1-\frac{1}{%
+\theta }}+\beta U\left( \mathbb{CE}_{t}\left( U^{-1}\left( \left(
+v_{t+1}\left( s^{t+1}\right) \left( 1-\varsigma \right) \left\langle \hat{R}%
+_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}\right\rangle W_{t}\right)
+\right) \right) \right) \\
+&=&\max_{\varsigma ,\hat{\phi}}U\left( \varsigma \right) W_{t}^{1-\frac{1}{%
+\theta }}+\beta W_{t}^{1-\frac{1}{\theta }}U\left( \mathbb{CE}_{t}\left(
+U^{-1}\left( v_{t+1}\left( s^{t+1}\right) \left( \left( 1-\varsigma \right)
+\left\langle \hat{R}_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}%
+\right\rangle \right) \right) \right) \right) \\
+&=&W_{t}^{1-\frac{1}{\theta }}\max_{\varsigma ,\hat{\phi}}U\left( \varsigma
+\right) +\beta U\left( \mathbb{CE}_{t}\left( U^{-1}\left( \left(
+v_{t+1}\left( s^{t+1}\right) \left( 1-\varsigma \right) \left\langle \hat{R}%
+_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}\right\rangle \right) \right)
+\right) \right)
+\end{eqnarray*}%
+which indeed shows that the value function is homogeneous of degree $1-\frac{%
+1}{\theta }.$ Moreover,
+
+\begin{equation*}
+U\left( v_{t+1}\left( s^{t}\right) \right) =\max_{\varsigma ,\hat{\phi}%
+}U\left( \varsigma \right) +\beta U\left( \mathbb{CE}_{t}\left( U^{-1}\left(
+U\left( v_{t+1}\left( s^{t+1}\right) \left( 1-\varsigma \right) \left\langle
+\hat{R}_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}\right\rangle \right)
+\right) \right) \right)
+\end{equation*}%
+subject to:
+
+\begin{equation*}
+\varsigma +\sum_{j\in \mathcal{J}}\left( 1-\varsigma \right) \phi ^{j}=1%
+\text{ and }\Gamma _{t}\left( 1-\varsigma \right) \hat{\phi}\leq \eta
+_{t}\left( 1-\varsigma \right) .
+\end{equation*}%
+Observe that $\varsigma +\sum_{j\in \mathcal{J}}\left( 1-\varsigma \right)
+\phi ^{j}=1$ also impies that $\sum_{j\in \mathcal{J}}\phi ^{j}=1.$ Since
+the Innada conditions imply $\varsigma >0,$ and $\sum_{j\in \mathcal{J}%
+}\left( 1-\varsigma \right) \phi ^{j}>0,$ $\varsigma \in \left( 0,1\right) ,$
+and we can ignore $\varsigma $ from the condition above. To aid our
+calculations, define the operator defined as the composition of utility
+operators $\aleph \equiv U\Upsilon ^{-1}.$ Then,
+\begin{equation*}
+\aleph ^{\prime }\left( \left( 1-\varsigma \right) \omega _{t+1}\right)
+\left( 1-\varsigma \right) ^{-\gamma }\mathbb{E}_{t}\left[ \left( \omega
+_{t+1}\right) ^{-\gamma }\left( 1-\varsigma \right) R_{t+1}^{j}\right]
+=\left( 1-\varsigma \right) \lambda _{t}+\left( 1-\varsigma \right)
+\sum_{i\in 1:DIM\left( \Gamma \right) }\Gamma _{t}^{\left\{ ij\right\} }\mu
+_{t}^{i}
+\end{equation*}%
+where $v_{t+1}\left( s^{t+1}\right) \left\langle \hat{R}_{t+1}\left(
+s^{t+1}\right) \cdot \hat{\phi}\right\rangle =\omega _{t+1}$ and $\lambda
+_{t}$ and $\mu _{t}^{i}$ are correspondingly the Lagrangeans of the budget
+constraint and the KKT multiplier associated with restrcition i in the
+matrix $\Gamma _{t}$.
+
+Thus, fix asset 1. Then, excess returns are defined as:
+
+\begin{equation*}
+\mathbb{E}_{t}\left[ \left( \omega _{t+1}\right) ^{-\gamma }v_{t+1}\left(
+s^{t+1}\right) \left( R_{t+1}^{j}-R_{t+1}^{1}\right) \right] =\sum_{i\in
+1:DIM\left( \Gamma \right) }\left( \Gamma _{t}^{\left\{ ij\right\} }-\Gamma
+_{t}^{\left\{ i1\right\} }\right) \hat{\mu}_{t}^{i}.
+\end{equation*}%
+where $\hat{\mu}_{t}^{i}$ are the rescaled KKT multipliers. Note that this
+are the exact same first order conditions associated with the following
+portfolio problem:
+
+\begin{equation*}
+\Omega _{t}=\max_{\hat{\phi}}\Upsilon ^{-1}\left( \mathbb{E}_{t}\Upsilon
+\left( v_{t+1}\left( s^{t+1}\right) \left\langle \hat{R}_{t+1}\left(
+s^{t+1}\right) \cdot \hat{\phi}\right\rangle \right) \right)
+\end{equation*}%
+subject to:
+
+\begin{equation*}
+\sum_{j\in \mathcal{J}}\phi ^{j}=1\text{ and }\Gamma _{t}\hat{\phi}\leq \eta
+_{t}
+\end{equation*}
+
+Although $\Upsilon ^{-1}$ is monotone, one has to be careful to have that
+term because CRRA utility changes sign $\gamma =1$. In other words, the
+operator has discontinuities is $\gamma $ ---fix a sequence of $\gamma $ at
+a particular value of $x$. Now, observe that the value function is therfore
+equivalent to:
+
+\begin{equation*}
+U\left( v_{t+1}\left( s^{t}\right) \right) =\max_{\varsigma }U\left(
+\varsigma \right) +\beta U\left( \left( 1-\varsigma \right) \Omega
+_{t}\right)
+\end{equation*}
+
+Therefore, taking first order conditions yields:
+
+\begin{equation*}
+\varsigma _{t}^{-\frac{1}{\theta }}=\beta \left( 1-\varsigma _{t}\right) ^{-%
+\frac{1}{\theta }}\Omega _{t}^{1-\frac{1}{\theta }}
+\end{equation*}%
+or otherwise:
+
+\begin{eqnarray*}
+\left( \frac{1-\varsigma _{t}}{\varsigma _{t}}\right) ^{\frac{1}{\theta }}
+&=&\beta \Omega _{t}^{\frac{\theta -1}{\theta }}\rightarrow \\
+\frac{1-\varsigma _{t}}{\varsigma _{t}} &=&\beta ^{\theta }\Omega
+_{t}^{\theta -1}
+\end{eqnarray*}%
+meaning that
+\begin{equation*}
+\frac{1}{\varsigma _{t}}=1+\beta ^{\theta }\Omega _{t}^{\theta -1}.
+\end{equation*}
+
+Now, we must find a relationship between $v_{t}$ and $\varsigma _{t}$. The
+envelope condition implies:%
+\begin{equation*}
+U^{\prime }\left( W_{t},s^{t}\right) =U^{\prime }\left( c_{t}\right) .
+\end{equation*}%
+Substituting our guesses for both policies, yields an equivalence:%
+\begin{equation*}
+v_{t}^{1-\frac{1}{\theta }}\left( W_{t}\right) ^{-\frac{1}{\theta }}=\left[
+\varsigma _{t}W_{t}\right] ^{-\frac{1}{\theta }}
+\end{equation*}%
+Which provides us with the following relationship:%
+\begin{equation*}
+v_{t}^{1-\frac{1}{\theta }}=\varsigma _{t}^{-\frac{1}{\theta }}\rightarrow
+v_{t}=\varsigma _{t}^{\frac{1}{1-\theta }}
+\end{equation*}%
+This relationship must hold for every $t$ which implies that :
+
+\begin{equation*}
+\varsigma _{t}=\frac{1}{1+\beta ^{\theta }\Omega _{t}^{\theta -1}\left(
+\varsigma _{t+1}\right) }
+\end{equation*}
+
+Where $\Omega _{t}^{\theta -1}\left( \varsigma _{t+1}\right) $ makes the
+dependence of $\Omega _{t}^{\theta -1}$ in $\varsigma _{t+1}$ explicit. This
+recursion, however, implies that we can solve the model employing recursive
+methods to solve for $\varsigma _{t+1}$. Some of the algorithms I describe
+next, employ that condition.
+
+Assume $\varsigma _{t}=\varsigma $ as in the case where marginal
+propensities are constant. Then,
+
+\begin{equation*}
+\frac{1}{\varsigma }=1+\beta ^{\theta }\Omega _{t}^{\theta -1}
+\end{equation*}%
+and
+
+\begin{equation*}
+\Omega _{t}=\underbrace{\mathbb{CE}_{t}\left( \left\langle \hat{R}%
+_{t+1}\left( s^{t+1}\right) \cdot \hat{\phi}\right\rangle \right) }_{\rho
+_{t}}\varsigma ^{\frac{1}{1-\theta }}
+\end{equation*}%
+so:
+
+\begin{eqnarray*}
+\frac{1}{\varsigma } &=&1+\beta ^{\theta }\frac{1}{\varsigma }\rho
+_{t}^{1-\theta }\rightarrow \\
+\frac{1}{\varsigma } &=&\frac{1}{1-\beta ^{\theta }\rho _{t}^{1-\theta }}%
+\rightarrow \\
+\varsigma &=&1-\beta ^{\theta }\rho _{t}^{1-\theta }
+\end{eqnarray*}%
+One can guess and verify that for the case where $\theta =1,$ log uitility, $%
+\varsigma =\left( 1-\beta \right) .$
+
+\begin{itemize}
+\item When there aggregate risk, as in the following example, we can again
+obtain a similar recursion.
+\end{itemize}
+
+\section{Application 1: Angeleto's Idiosyncratic-Risk Insurance Model}
+
+The consumer's problem is written recursively with Epstein and Zin's
+preferences. In this economy, there are only two assets: capital that bears
+idiosyncratic risk and a risk-free bond traded among the agents of this
+economy. The household will will face borrowing constraints given by his
+lifetime discounted labor earnings:
+
+\begin{equation*}
+h_{t}=\sum_{j=0}^{\infty }\frac{w_{t+j}}{\prod_{k=0}^{j}R_{t+k}}.
+\end{equation*}
+
+From the perspective of the household, one can think of $h_{t}$ as the
+net-present value of an endowment $w_{t+j}$ but in Angeleto's framework, $%
+w_{t+j}$ is actually an endogenous object, wages. There are no aggregate
+shocks, but only idiosyncratic shocks to the capital stock.
+
+Angeletos (2007) assumes that capital risk is idiosyncratic ---that is, that
+agents do no trade claims against the idiosyncratic return to their capital.
+In particular, each household holds physical capital which it runs on it's
+own. Households face an idiosyncratic TFP shock $A_{i}.$ The shock is
+assumed to be i.i.d accross time. Other than this, there are no aggregate
+shocks. Angeletos is interested in studying the steady state of this
+economy. However, the model can be adapted easily to study transitional
+dynamics or introduce aggregate shocks.
+
+The recursive representation of the household's problem is:
+
+\begin{equation}
+V\left( k,b,A;t\right) =\max_{\left\{ c,k^{\prime },b^{\prime
+},l^{h}\right\} }U\left( c\right) +\beta U\Upsilon ^{-1}\left( \int \Upsilon
+\left( U^{-1}(V\left( k^{\prime },b,A^{\prime };t\right) \right) \psi \left(
+A^{\prime },dA\right) \right)
+\end{equation}%
+where $A$ is a vector process of exogenous shocks that determines
+equilibrium prices. This maximization is subject to:
+
+\begin{equation*}
+c+i+b^{\prime }=\left[ A^{i}F\left( k,l\right) -wl^{h}\right] +Rb+w
+\end{equation*}%
+and in addition:
+
+\begin{equation*}
+k^{\prime }=i+\lambda k
+\end{equation*}
+
+\begin{equation*}
+c\geq 0,k^{\prime }\geq 0,\underbrace{Rb^{\prime }\geq -h^{\prime }}_{
+_{\substack{ \text{Can't owe tomorrow}  \\ \text{more than human wealth }
+\\ \text{from tomorrow onwards}}}}
+\end{equation*}%
+$\pi $ and $w$ depend on $A,$ and $t$ in a matter known for the consumer.
+Hence, $A$ and $t$ are sufficient to determine equilibrium prices. $\lambda $
+here is the net-of-depreciation remaining capital stock. Observe that the
+problem doesn't feature a linear budget constraint as we had in the
+derivation we performed earlier. However, notice that the agent should only
+care about the right-hand side of his budget constraint. Therfore, the
+Cobb-Douglas technology will require that the return to capital will be
+linear function of capital since:
+
+\begin{eqnarray*}
+\max_{l}A\left( k_{i}^{1-\alpha }l^{\alpha }\right) -w_{t}l &=&r\left(
+A_{i},w_{t}\right) k_{i} \\
+&&\text{where,} \\
+r\left( A_{i},w_{t}\right) &=&\max_{l/k}A\left( l/k\right) ^{\alpha
+}-w_{t}\left( l/k\right)
+\end{eqnarray*}%
+Thus, financial wealth is decomposed nicely into the return on capital,
+wages and the return on bonds:
+
+\begin{equation*}
+W_{t}^{i}\left( A_{i},k_{i},b_{t}^{i}\right) =\left( r\left(
+A_{i},w_{t}\right) +\lambda \right) k_{i}+R_{t}b_{t}^{i}+w_{t}.
+\end{equation*}%
+This is a linear representation as we wanted. We are still not ready to cast
+this model into the framework above because of the natural borrowing
+constraint. However, we can do this via a simple change of variables. Recall
+that the natural borrowing limit can be expressed recursively as:
+
+\begin{equation*}
+h=w+\frac{h^{\prime }}{R}
+\end{equation*}%
+Thus, the budget constraint can be exresses as:
+
+\begin{eqnarray*}
+c+k^{^{\prime }}+\left( b^{\prime }+\frac{h^{\prime }}{R}\right) &=&\left[
+r\left( A^{i},w\right) +\lambda \right] k+Rb+h. \\
+&\equiv &W\left( A^{i},k,b\right)
+\end{eqnarray*}%
+Now, one can perform a second change of variables, where $x^{\prime
+}=b^{\prime }+\frac{h^{\prime }}{R}.$ Here, $x^{\prime }$ is the sum of the
+agent's human plus financial wealth, but that doesn't include his physical
+wealth. Note that the return to $x^{\prime }$ is R, because the following
+period, that the RHS of the budget constraint will feature $Rb^{\prime
+}+h^{\prime }=Rx^{\prime }$.
+
+The recursive representation of the household's problem is:
+
+\begin{equation}
+V\left( k,b,A;t\right) =\max_{\left\{ c,k,b\right\} }U\left( c\right) +\beta
+U\Upsilon ^{-1}\left( \int \Upsilon \left( U^{-1}(V\left( k^{\prime
+},b,A^{\prime };t\right) \right) \psi \left( A^{\prime },dA\right) \right)
+\label{2}
+\end{equation}%
+where $A$ is a vector process of exogenous shocks that determines
+equilibrium prices. This maximization is subject to:
+
+\begin{equation*}
+c+k^{^{\prime }}+x^{\prime }=W\left( A^{i},k,b\right)
+\end{equation*}%
+and in addition:
+
+\begin{equation*}
+c\geq 0,k^{\prime }\geq 0,x^{\prime }\geq 0
+\end{equation*}%
+$W\left( A^{i}\right) $ depend on $A,$ and $t$ in a matter known for the
+consumer. This is a property of the model studied by Angeletos (2007), but
+carrying these two states may not be sufficient in general, if in particular
+the history of shocks matter, for example in the case of non i.i.d shocks.
+
+\section{Optimal Portfolio}
+
+The following\ Lemma, which I prove next explains that optimal consumption,
+investment and bond holdings are all linear in wealth. This is a remarkable
+finding in my view, as it simplifies very nicely the General Equilibrium
+conditions.
+
+\begin{proposition}
+Optimal Consumer allocations are given by the following:%
+\begin{eqnarray*}
+c_{t}^{i} &=&\varsigma _{t}W_{t}\left( A^{i},k,b\right) \\
+k_{t+1}^{i} &=&\left( 1-\varsigma _{t}\right) \phi _{t}W_{t}\left(
+A^{i},k,b\right) \\
+b_{t+1}^{i} &=&\varsigma _{t}\left( 1-\phi _{t}\right) W_{t}\left(
+A^{i},k,b\right) -Rh_{t+1}
+\end{eqnarray*}%
+where $w_{t}^{i}$ and $h_{t+1}$ are defined above, and the following
+recursion is obtained:%
+\begin{equation*}
+\varsigma _{t}=\frac{1}{\sum_{s\geq 0}\left( \beta ^{s}\right) ^{\theta
+}\dprod\limits_{\tau =0}^{s}\rho _{t+s}^{\theta -1}}
+\end{equation*}%
+\begin{eqnarray*}
+\rho _{t} &=&\rho \left( \omega _{t+1},R_{t+1}\right) =\max_{\phi _{t}}%
+\mathbb{CE}_{t}\left[ \phi \left( r\left( A_{i},\omega _{t}\right) +\lambda
+\right) +\left( 1-\phi \right) R_{t+1}\right] \\
+\phi _{t} &=&\phi \left( \omega _{t+1},R_{t+1}\right) =\arg \max_{\phi _{t}}%
+\mathbb{CE}_{t}\left[ \phi \left( r\left( A_{i},\omega _{t}\right) +\lambda
+\right) +\left( 1-\phi \right) R_{t+1}\right]
+\end{eqnarray*}
+
+Moreover, if $\theta =1,$ then, $\varsigma _{t}=\left( 1-\beta \right) .$
+\end{proposition}
+
+Then, we have the following Corollary:
+
+\begin{corollary}
+At a Steady State:%
+\begin{eqnarray*}
+\varsigma _{ss} &=&\frac{1}{\sum_{s\geq 0}\left( \beta ^{s}\right) ^{\theta
+}\left( \rho _{ss}^{s}\right) ^{\theta -1}} \\
+&=&\left( 1-\beta ^{\theta }\rho _{ss}^{\theta -1}\right)
+\end{eqnarray*}%
+and
+\begin{eqnarray*}
+\rho _{ss} &=&\rho \left( \omega _{t+1},R_{t+1}\right) =\max_{\phi _{t}}%
+\mathbb{CE}_{t}\left[ \phi \left( r\left( A_{i},\omega _{t}\right) +\lambda
+\right) +\left( 1-\phi \right) R_{ss}\right] \\
+\phi _{ss} &=&\phi \left( \omega _{t+1},R_{t+1}\right) =\arg \max_{\phi _{t}}%
+\mathbb{CE}_{t}\left[ \phi \left( r\left( A_{i},\omega _{t}\right) +\lambda
+\right) +\left( 1-\phi \right) R_{ss}\right]
+\end{eqnarray*}
+\end{corollary}
+
+Recall that (\ref{E_BudgetConstraintAng}) takes a very similar form as the
+budget constraints we studied so far. Then, in terms of our main proposition:
+
+\begin{eqnarray*}
+c_{t}^{i} &=&\varsigma _{t}W_{t}\left( A^{i}\right) \\
+k_{t+1}^{i} &=&\left( 1-\varsigma _{t}\right) \phi _{t}W_{t}\left(
+A^{i}\right) \\
+x_{t} &=&\varsigma _{t}\left( 1-\phi _{t}\right) W_{t}\left( A^{i}\right)
+\end{eqnarray*}%
+with
+\begin{equation*}
+\varsigma _{t}=\frac{1}{1+\beta _{t}^{\theta }\Omega _{t}^{\theta -1}\left(
+\varsigma _{t+1}\right) }
+\end{equation*}%
+\begin{eqnarray*}
+\Omega _{t}^{\theta -1} &=&\Omega \left( \omega _{t+1},R_{t+1}\right)
+=\max_{\phi }\mathbb{CE}_{t}\left[ \left( \varsigma _{t+1}\left(
+s_{t+1}\right) \right) ^{\frac{1}{1-\theta }}\left[ \phi \left( r\left(
+A_{i},\omega _{t}\right) +\lambda \right) +\left( 1-\phi \right) R_{t+1}%
+\right] \right] \\
+\phi _{t} &=&\phi \left( \omega _{t+1},R_{t+1}\right) =\arg \max_{\phi }%
+\mathbb{CE}_{t}\left[ \left( \varsigma _{t+1}\left( s_{t+1}\right) \right) ^{%
+\frac{1}{1-\theta }}\left[ \phi \left( r\left( A_{i},\omega _{t}\right)
++\lambda \right) +\left( 1-\phi \right) R_{t+1}\right] \right]
+\end{eqnarray*}%
+Now, observe that for the case without aggrgate risk, $\varsigma _{t+1}$ is
+independent of the shocks. Therfore,
+
+\begin{equation*}
+\Omega _{t}^{\theta -1}=\frac{1}{\varsigma _{t+1}}\rho _{t+1}^{\theta -1}
+\end{equation*}%
+where
+\begin{equation*}
+\rho _{t+1}=\max_{\phi }\mathbb{CE}_{t}\left[ \phi \left( r\left(
+A_{i},\omega _{t}\right) +\lambda \right) +\left( 1-\phi \right) R_{t+1}%
+\right] .
+\end{equation*}%
+Thus,
+
+\begin{eqnarray*}
+\frac{1}{\varsigma _{t}} &=&1+\beta ^{\theta }\rho _{t+1}^{\theta -1}\left(
+\frac{1}{\varsigma _{t}}\right) \\
+&=&1+\beta _{t}^{\theta }\rho _{t+1}^{\theta -1}+\beta ^{2\theta }\rho
+_{t+1}^{\theta -1}\rho _{t+2}^{\theta -1}\left( \frac{1}{\varsigma _{t+2}}%
+\right)
+\end{eqnarray*}%
+and continuing forward:
+
+\begin{eqnarray*}
+\frac{1}{\varsigma _{t}} &=&1+\sum_{s\geq 1}\left( \beta ^{s}\right)
+^{\theta }\dprod\limits_{\tau =0}^{s}\rho _{t+s}^{\theta -1}\rightarrow \\
+\varsigma _{t} &=&\frac{1}{1+\sum_{s\geq 1}\left( \beta ^{s}\right) ^{\theta
+}\dprod\limits_{\tau =0}^{s}\rho _{t+s}^{\theta -1}}.
+\end{eqnarray*}
+
+\section{Aggregation}
+
+We now use the fact that policies are linear and invariant for all agents to
+compute the General Equilibrium allocations. The optimal portfolio will
+specify a sort of rigidity: capital is fixed when once uncertainty is
+revealed. This is a key feature of the model as it allows to obtain the
+allocations only as a function of the aggregate capital state. In the next
+section, a variant will be used to solve for the optimal allocations of the
+Kiyotaki-Moore model.
+
+Entrepreneurs inherit capital. By homogeneity of the production function,
+they will hire labor according to:
+
+\begin{equation*}
+n_{t}^{i}\left( A_{t}^{i},w_{t}\right) =\arg \max_{l}\left[ F\left(
+1,L,A_{i}\right) -w_{t}L\right]
+\end{equation*}%
+and the rate of return capital units will be given by:
+
+\begin{equation*}
+r_{t}^{i}\left( A_{t}^{i},w_{t}\right) =\max_{l}\left[ F\left(
+1,L,A_{i}\right) -w_{t}L\right]
+\end{equation*}
+
+Recall that the shocks are i.i.d and therefore, we can aggregate the labor
+demand by the following
+
+\begin{equation*}
+\bar{n}_{t}\left( w\right) =\int n_{t}^{i}\left( A_{t}^{i},w\right) \psi
+(A)dA
+\end{equation*}%
+and
+\begin{equation*}
+\underbrace{\bar{r}}_{\text{Average Portfolio Return}}=\int r_{t}^{i}\left(
+A_{t}^{i},w_{t}\right) \psi (A)dA
+\end{equation*}%
+By independence, note that:
+
+\begin{equation*}
+N^{d}=\bar{n}_{t}K_{t}
+\end{equation*}%
+and that total profits:
+
+\begin{equation*}
+\Pi _{t}=\bar{r}K_{t}
+\end{equation*}%
+Labor markets must clear so we have:
+
+\begin{equation*}
+1=N^{d}\rightarrow 1=\bar{n}_{t}^{-1}\left( \frac{1}{K_{t}}\right)
+\end{equation*}
+
+Then,
+\begin{eqnarray*}
+K_{t+1}+C_{t} &=&Y_{t}=f\left( K_{t}\right) =\left[ \bar{w}n^{-1}\left(
+\frac{1}{K_{t}}\right) +\bar{r}\right] K_{t} \\
+B_{t+1} &=&0 \\
+C_{t} &=&\varsigma _{t}\left[ f\left( K_{t}\right) +H_{t}\right] \\
+\varsigma _{t}^{-1} &=&1+\beta ^{\theta }\rho _{t}^{\theta -1}\varsigma
+_{t+1}^{-1} \\
+1 &=&n^{-1}\left( \frac{1}{K_{t}}\right) K_{t} \\
+H_{t} &=&\frac{H_{t+1}+w_{t+1}}{R_{t+1}}
+\end{eqnarray*}%
+where $\phi $ and $\rho $ solve the above equations. At Steady State:
+
+\begin{equation*}
+\varsigma _{ss}^{-1}=\frac{1}{1-\beta ^{\theta }\rho _{ss}^{\theta -1}},
+\end{equation*}%
+and
+
+\begin{equation*}
+\rho _{ss}=\max_{\phi }\mathbb{CE}_{t}\left[ \phi \left( r\left(
+A_{i},\omega _{t}\right) +\lambda \right) +\left( 1-\phi \right) R_{ss}%
+\right] .
+\end{equation*}
+
+\section{Solving for the Steady State}
+
+\begin{itemize}
+\item For any possible steady-state value of $K^{ss},$ find equilibrium wage
+by solving:%
+\begin{equation*}
+n_{t}^{i}\left( A_{t}^{i},w_{t}\right) =\arg \max_{l}\left[ F\left(
+1,L,A_{i}\right) -w_{t}L\right]
+\end{equation*}%
+for each possible $A_{t}$. Then, $w_{t}$ must solve:%
+\begin{equation*}
+1=\left[ \sum_{A\in \mathbf{A}}\pi \left( A\right) n_{t}^{i}\left(
+A_{t}^{i},w_{t}\right) \right] K_{t}^{ss}.
+\end{equation*}%
+For this, note that $F_{l}\left( 1,L,A_{i}\right) -w_{t}=0\rightarrow \left(
+1-\alpha \right) F_{l}\left( 1,L,A_{i}\right) =w.$
+
+\item Then, compute:%
+\begin{equation*}
+r_{t}^{i}\left( A_{t}^{i},w_{t}\right) =\max_{l}\left[ F\left(
+1,L,A_{i}\right) -w_{t}L\right]
+\end{equation*}
+
+\begin{itemize}
+\item for each possible $A_{t}^{i}.$
+\end{itemize}
+
+\item Solve for $R$: Find the value of $R$ that makes $\phi _{t}=1.$
+\begin{equation*}
+\phi _{t}=\phi \left( \omega _{t+1},R_{t+1}\right) =\arg \max_{\phi _{t}}%
+\mathbb{CE}_{t}\left[ \phi r\left( A_{i},\omega _{t}\right) +\left( 1-\phi
+\right) R_{t+1}\right]
+\end{equation*}
+
+\item Compute $H$ given solution to $R$.
+
+\item Compute $H\left( K_{ss}\right) $ and $W_{t}\left( K_{ss}\right) $.
+Compute $\varsigma \left( K_{ss}\right) $
+
+\item Find:%
+\begin{equation*}
+K_{ss}=\left( 1-\varsigma _{t}\right) W_{t}\left( K_{ss}\right) .
+\end{equation*}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,1837 @@
+\documentclass[10pt]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{amsmath,amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{psfrag}
+\usepackage{epstopdf}
+\usepackage[disable]{todonotes}
+\usepackage[disable]{todonotes}
+\usepackage{setspace}
+\setcounter{MaxMatrixCols}{10}
+\geometry{left=0.65cm,right=0.8cm}
+\renewcommand{\sfdefault}{cmss}
+\usefonttheme{serif}
+\def\widehrulefill{\leaders\hrule height 0.35pt\hfill}
+\def\drawhline{\hrule height 0.6pt width 333pt}
+\def\no{\noindent}
+\def\bul{\color{black}{$\bullet$}}
+\def\cir{\color{black}{$\circ$}}
+\def\br{\color{black}{-}}
+\def\wbul{\color{white}{$\bullet$}}
+\def\wcir{\color{red}{$\circ$}}
+\def\wx{\color{white}{x}}
+\def\bx{\color{blue}}
+\def\rx{\color{red} }
+\def\nor{\normalsize}
+\def\bsk{\bigskip}
+\def\msk{\medskip}
+\def\ssk{\smallskip}
+\setbeamertemplate{frametitle}
+{
+\bigskip
+\definecolor{ltblack}{gray}{0.1}
+\color{ltblack}{\large\textbf{{\insertframetitle} }}
+}
+\definecolor{defblue}{rgb}{.2,.2,.7}
+\definecolor{purple}{rgb}{0.9,0.0,0.0}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{
+  \hbox{
+  \begin{beamercolorbox}[wd=.49999\paperwidth,ht=2.25ex,dp=1ex,center]{}
+  \insertshortauthor
+  \quad
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=.49999\paperwidth,ht=2.25ex,dp=1ex,left]{}
+    \quad
+    \insertshorttitle
+    \hfill \quad\quad\quad\quad\quad
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}
+  \vskip0pt
+  }
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}{\color{black} $\circ$}
+\setbeamertemplate{itemize subsubitem}{\color{black} -}
+\setbeamerfont{itemize item}{size=\small}
+\setbeamerfont{itemize subitem}{size=\small}
+\setbeamerfont{itemize subsubitem}{size=\small}
+\setbeamerfont{itemize subsubitem}{size=\small}
+\newcommand{\fs}{\mathcal{S}}
+\newcommand{\RR}{\mathcal{R}}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{proposition}[theorem]{Proposition}
+\fontsize{1pt}{7.2}\selectfont
+\setbeamertemplate{footline}{\raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
+\setbeamertemplate{itemize items}[ball]
+\graphicspath{{../New_javi_aug/Images_javi/}{../empirical/}}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{30pt}}{\enditemize}
+\newcommand\unnumbered{\setbeamertemplate{footline}}
+\setbeamercolor{page number in head/foot}{fg=white}
+\setbeamertemplate{footline}[page number]{}
+%\input{tcilatex}
+\begin{document}
+
+\title[Banks and Liquidity]{
+\textcolor[rgb]{0.50,0.00,0.25}{\bf Banks,
+Liquidity Management \\  and Monetary Policy}}
+\author[Bianchi and Bigio]{Javier Bianchi \and \quad \quad \quad Saki Bigio}
+\institute[UMP]{Minneapolis Fed \& NBER \qquad \qquad \hspace{10pt} UCLA \&NBER }
+\date{}
+
+
+\vspace{2cm}
+
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+
+\frame{\titlepage}
+
+\section{Motivation}
+
+  \linespread{1.5}
+\section{Introduction \leaders\hrule height 0.35pt}
+
+% 20 min
+\graphicspath{{../Images/}}
+\begin{frame}
+\frametitle{Motivation \widehrulefill}
+
+\begin{itemize}
+  \setlength{\itemsep}{15pt}
+
+\item Financial crisis raised unprecedented challenges for central banks: \medskip
+
+\begin{itemize}
+  \setlength{\itemsep}{3.5pt}
+\item Worst recession since Great Depression
+\item Persistently low inflation
+\end{itemize}
+
+%\pause
+
+\item Despite aggressive monetary policy
+
+\begin{itemize}
+\item Weak economic recovery
+\item Depressed bank lending
+%hyperlink{F_OMO}{\beamergotobutton{Data}} %, close to zero int. rates, etc
+\end{itemize}
+
+\pause
+
+\item Center of debate: banks' reaction to monetary stimulus
+
+\begin{itemize}
+\item Why are banks \alert{not lending}? % \hyperlink{F_reserves}{
+%\beamergotobutton{Data}} \bigskip
+% \hypertarget{DataSlide}{}
+\end{itemize}
+%\pause
+\item Unfortunate divorce between Money and Banking
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bank Lending   \widehrulefill}
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=11cm,height=8cm]{Plot_loans}
+%\caption{Loans and Leases in Bank Credit}
+%\label{fig:figure1}
+\end{centering}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bank Lending and Deposits   \widehrulefill}
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=11cm,height=8cm]{plot}
+%\label{fig:figure1}
+\end{centering}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Excess Reserves\widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=180pt, angle=270,scale=1.20]{dataimages/F_LMMP_excessreserves}
+%\caption{Commercial and Industrial Loans}
+\end{figure}
+
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{This Paper \widehrulefill}
+\begin{itemize}
+ % \renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
+\item[$\bigstar$] A micro-founded dynamic quantitative model of banks' liquidity management and monetary policy
+\end{itemize}
+    \medskip
+    \pause
+\begin{itemize}
+\item \alert<2>{Classic Liquidity Management }
+\begin{itemize}
+\item  (+) Profit on Loans
+\begin{itemize}
+\item Spread between loans and deposits
+\end{itemize}
+\item  (-) Illiquidity Risk
+\begin{itemize}
+\item After deposits transfers, bank may be short of reserves/liquid assets
+\end{itemize}
+\end{itemize}
+\pause
+\item [$\bigstar$] GE model with endogenous liquidity premium $\&$ money multiplier
+\pause
+\medskip
+\item[$\bigstar$] Credit channel of monetary policy
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Model Overview  \widehrulefill}
+
+\begin{enumerate}
+\setlength{\itemsep}{8pt}
+\item \alert<1>{Bank individual decision problem:}
+
+\begin{itemize}
+\item Loan issuances, liquid assets, deposit creation, retain earnings
+
+\item Subject to capital requirements, liquidity requirements
+
+\item [$\bigstar$] Demand for excess reserves
+\end{itemize}
+
+\pause
+\bigskip
+
+\item \alert<2>{Bank industry dynamics:}
+
+\begin{itemize}
+\item Return on loans, interbank-market rate, price level determined in
+equilibrium
+
+\item Stochastic steady state and transitional dynamics
+\end{itemize}
+\pause
+\item \alert<3>{Laboratory for policy analysis:} changes in reserve
+requirements, IOER, capital requirements, discount window rates,
+conventional/unconventional policies
+\pause
+\item [$\bigstar$]  \alert<4>{Tractability}
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Application \widehrulefill}
+
+\begin{itemize}
+\item Why are banks \alert{not lending} and \alert{``stockpiling"} liquid
+assets?
+
+\bigskip \pause
+
+\item Five Hypothesis
+
+\begin{enumerate}
+ \setlength{\itemsep}{7pt}
+
+\item Equity Losses (Stiglitz) \pause
+
+\item Capital Requirements (Krishnamurthy, Suarez) \pause
+
+\item \alert<3>{Precautionary Holdings} (Lucas, Gorton) \pause
+
+\item \alert<3>{Weak Loan Demand} (Cochrane, Sims) \pause
+
+\item \alert<4>{Interest on Excess Reserves} (Feldstein, Hall)
+
+% \item Open Market Operations (Keister) \pause
+\end{enumerate}
+
+\end{itemize}
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linespread{1.5}
+\begin{frame}
+\frametitle{Literature Review  \widehrulefill}
+
+\begin{itemize}
+%\item Call for studying banks in transmission of MP in Macro:
+%\begin{itemize}
+%\item Woodford (2010, JEP), Mishkin (2012, JEP), Greenwood \& Stiglitz (2003)
+%\end{itemize}
+\item \textbf{Reserve Management:} \alert<2>{Poole (JF,1968)},Bolton et al. (2012),
+Saunders et al. (2011), Afonso \& Lagos (2015)
+\item \textbf{Classic models of Banking:} Diamond \& Dybvig (1983), Allen \& Gale (1998), Holmstrom \&
+Tirole (1997,1998)
+\item \textbf{Banking in Macro:}  Gertler \& Karadi(2009), Gertler \& Kiyotaki (2011,2012), Curdia \&
+Woodford(2009), Corbae \& D'erasmo (2013,2014) %, Kiyotaki \& Moore (2008)
+\item \textbf{Payments:} Freeman(AER,1996), Cavalcanti et al. (1998), Piazzesi and
+Schneider (2015)
+\item \textbf{Money \& credit:} , Wright et al. (2014),  Brunnermeier \& Sannikov (2013), Williamson (2012,2016), Kiyotaki \& Moore (2012)
+\item \textbf{Excess Reserves:}  Armenter \& Lester (2015), Ennis (2014)
+%\end{itemize}
+
+%\item {\tiny Empirical Work }
+%
+%\begin{itemize}
+%\item {\tiny Kashyap \& Stein(1998), Krishnamurthy \& Vissing-Jorgenson (JPE
+%2012a,2012b), }
+%\end{itemize}
+
+
+%\item \alert<1>{Contribution:} Classic banks' liquidity management in a
+%micro-founded dynamic quantitative model
+\end{itemize}
+\end{frame}
+\linespread{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Agenda  \widehrulefill}
+%\begin{enumerate}
+%\item Banks' Liquitidy Management Problem
+%\pause
+%\bigskip
+%\item Stationary Stochastic Steady State
+%\begin{itemize}
+%\item Static Demand for Loans
+%
+%\item We won't talk about microfoundation
+%\end{itemize}
+%\pause
+%\bigskip
+%\item Transitional Dynamics Experiments
+%\begin{itemize}
+%\item Understand effects of shocks
+%
+%\item Explore MP
+%\end{itemize}
+%
+%\pause
+%\bigskip
+%\item Estimation of model shocks to evaluate four hypotheses (in progress)
+%\end{enumerate}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Model}
+
+\begin{frame}
+\frametitle{Model - Environment \widehrulefill}
+
+\begin{itemize}
+\item \textbf{Time:} t=1,2,3,....
+
+\pause
+
+\begin{itemize}
+\item \textbf{Two stages:} s=l,b
+
+\item Lending stage (l) and balancing stage (b)
+\end{itemize}
+
+\pause\bigskip
+
+\item Continuum of banks with idiosyncratic liquidity shocks %$z\in \left[ 0,1\right] $
+
+\pause\bigskip
+
+\item \textbf{Utility function: }Concave utility $U$ over dividends $c_{t}$,  $u(c)=%
+\frac{c^{1-\sigma }}{{1-\sigma }}$
+\end{itemize}
+\end{frame}
+
+\subsection{Bank Liabilities}
+
+\begin{frame}
+\frametitle{Banks' Balance Sheet  \widehrulefill}
+
+\begin{itemize}
+\item Liabilities:
+\begin{itemize}
+\item $d_{t}$ demand deposits %(\emph{numeraire})
+\end{itemize}
+\item Assets:
+\begin{itemize}
+\item $m_{t}$ liquid assets (central bank reserves, T-bills) %\begin{itemize}
+%\item $p_{t}$ price of reserves in terms of goods
+%\end{itemize}
+\item $b_{t}$ loans
+\end{itemize}
+\item Interbank market loans $f_t$ and discount-window loans $w_t$ %\item Let equity by $E\equiv
+\item All assets/liabilities denominated in nominal terms
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Banks' Problem (Lending Stage)\widehrulefill}
+\begin{itemize}
+\item Budget constraint
+%\begingroup\makeat `letter\def\f@size{10.47}\check@mathfonts
+\begin{align*}
+P_{t}c_{t}^{j}+\tilde{b}_{t+1}^{j}+\tilde{m}_{t+1}^{j}-\tilde{d}^{j}
+_{t+1}&=b^{j}_{t}(1+i_{t}^{b})+m_{t}^{j}(1+i_{t}^{ior})-d_{t}^{j}(1+i_{t}^{d})-\\
+& \left( 1+\bar{\imath}_{t}^{f}\right) f_{t}^{^{j}}-\left( 1+i_{t}^{dw}\right)
+w_{t}^{j}-P_{t}T_{t}
+\end{align*}
+
+
+%\begin{align*}
+%q_t B_{t+1} + P_t {C}_t + \tilde{m}_{t+1} + \frac{\tilde{d}_{t+1}}{1+i_t^D} &=
+%B_t + M_t(1+i_{t}^{ior}) - D_t \\
+% & + F_t - W_t +T_t % ADD DISCOUNT WINDOW LOANS HERE AND T
+% % ADD R^FF HERE AND TAKE IT OUT FROM THERE
+%\end{align*}  %$R_{t} determined at t-1$
+%\normalsize
+\item $P_t$ price of goods in terms of reserves
+\pause
+\item Capital requirement constraint
+\begin{align}
+\tilde{d}^{j}& \leq \kappa \left( \tilde{b}^{j}+\tilde{m}^{j}-\ \tilde{d}^{j}\right)
+\end{align}
+%\pause
+%\item Liquidity coverage ratio (not today)
+%\begin{equation*}
+%\tilde{m}_{t+1} \ge \rho^{LCR} \tilde{b}_{t+1}
+%\end{equation*}
+\end{itemize}
+\end{frame}
+
+\linespread{0.8}
+\begin{frame}
+\frametitle{Banks' Problem (Balancing Stage)\widehrulefill}
+\begin{itemize}
+\item Idiosyncratic withdrawal shock $\omega \in (-1, \infty], \omega \sim  F_{t}\left(\omega
+\right), \quad \mathbb{E}\left( \omega \right) =0 $  %to deposits
+%(payments/confidence)
+\smallskip
+
+\item Borrow in interbank market $f$ to satisfy res. req. (or $m_{t+1}\geq 0$)
+\medskip
+
+%\begin{align*}
+%d_{t+1}^{j}& =\tilde{d}_{t+1}^{j}+\omega _{t}^{j}\tilde{d}_{t+1}^{j}, \\
+%m_{t+1}^{j}& =\tilde{m}_{t+1}^{j}+\omega _{t}^{j}\tilde{d}_{t+1}^{j}\left(
+%\frac{1+i_{t+1}^{d}}{1+i_{t+1}^{ior}}\right) \ +f_{t+1}^{j}\ +w_{t+1}^{j},
+%\end{align*}%
+
+\begin{align*}
+d_{t+1}^{j} &=\tilde{d}^{j}_{t+1} + \alert<2>{\omega _{t}}\tilde{d}_{t+1} ^{j}\\
+m_{t+1}^{j}& =\tilde{m}_{t+1}^{j}+\alert<2>{\omega _{t}^{j}}\tilde{d}_{t+1}^{j}\left(
+\frac{1+i_{t+1}^{d}}{1+i_{t+1}^{ior}}\right) \ +f_{t+1}^{j}\ +w_{t+1}^{j},\\
+%\end{align*}%
+m_{t+1}^{j} &\geq \alert<2>\rho d_{t+1}^{j} \\
+\\
+s^{j} &\equiv  \underbrace{\tilde{m}^{j}_{t+1}-\alert<2>{\omega} \tilde{d}^{j}_{t+1}}_{\text{Reserves left}}- \underbrace{\rho \tilde{d}^{j}_{t+1}(1-\alert<2>{\omega} )}_{\text{Deposits left}}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Interbank Market}
+\begin{itemize}
+  \setlength{\itemsep}{14pt}
+\item ``Dollar to dollar"  matching (OTC markets of Atkeson et al. 2014)
+\item N rounds of matching
+\item Matching function for dollars in surplus ($S^+$) and deficit ($S^-$)
+%\begin{equation*}
+% \gamma_{n}^{-}= \gamma_0 \min \left( 1,\frac{S_{n}^{+}}{S_{n}^{-}}\right) \text{ and } %
+% \gamma_{n} ^{+}= \gamma_0 \min \left( 1,\frac{S_{n}^{-}}{S_{n}^{+}}\right) .
+%\end{equation*}
+%\item Value for unmatched FED funds:%
+%\[V_{n}^{+}=\gamma _{n+1}^{+}r_{n+1}^{I}+\left( 1-\gamma _{n+1}^{+}\right)
+% V_{n+1}^{+}\]
+%and
+%\[
+%V_{n}^{-}=\gamma _{n+1}^{-}r_{n+1}^{I}+\left( 1-\gamma _{n+1}^{-}\right)
+%   V_{n+1}^{-} .
+%\]
+\item Terminal outside options are discount window rates and interest on reserves %$V_{N+1}^{+}=i^{ior};V_{N+1}^{-}=i^{dw}$.
+\item Nash Bargaining
+\item See paper for analytical results for Fed funds rate and matching probabilities
+%\[
+%r_{n}^{I}=\arg \max \left( V_{n}^{-}-r_{n}^{I}\right) ^{\eta }\left(
+%r_{n}^{I}-V_{n}^{+}\right) ^{1-\eta }.
+%\]
+
+%\item Let  $M^{-}(M^{+})$ be the measures of dollars in deficit  (surplus)
+%\item Endogenous Probability of ``per-dollar'' match:
+%
+%\item Bargaining Problem of dollar match:%
+%\begin{equation*}
+%  \max_{\alert<2>{r^{I}}}\left( r_{t}^{dw}-\alert<2>{%
+%r^{I}}\right) ^{\xi }\left( \alert<2>{r^{I}}\right)^{1-\xi }
+%\end{equation*}
+%\pause
+%\item Isomorphic to exogenous wedge in interbank market
+\end{itemize}
+\end{frame}
+
+
+%\item Frictions in interbank market
+%\begin{equation*}
+%\chi ^{L}=\left\{
+%\begin{array}{lll}
+% 0 \text{ } \hspace{0.2cm} \text{if \ }L \le 0 \quad \\%\chi_{b}>1
+%\chi_{b}\text{ }\text{if \ }L>0 \quad \chi_{b}>0
+%\end{array}%
+%\right.
+%\end{equation*}
+%\pause
+%\item Optimal interbank market loan %accommodates deficit/lends surplus. Fed absorbs the average surplus/deficit
+%\begin{equation*}
+%L_{t+1}^{I,\ast }=\left\{
+%\begin{array}{ll}
+%-s(1+\chi _{t}^{L})\text{ }  \text{if \ }s<0 \\
+%%\lbrack 0,s]\text{ } \quad \qquad \text{if \ }0 \geq 0, R^{FF}<I^{ior} \\  THIS CANNOT HAPPEN IN EQUILIBRIUM
+%\lbrack 0,s]\text{ } \quad \qquad \text{if \ }s\geq 0, R^{FF}=I^{ior} \\ % if excess reserves
+% s\text{ } \quad  \qquad  \qquad\qquad \text{if \ }s\geq 0, R^{FF}>I^{ior} \\  % if deficit on reserves
+%\end{array}%
+%\right.
+%\end{equation*}
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}
+%Tightness by end of the trading round:
+%\begin{equation*}
+%\bar{\theta}_{t}=\left( \theta _{t}-1\right) \exp \left( \lambda \right) +1
+%\end{equation*}
+%
+%\begin{proposition}[Interbank Market Trades]
+%\label{Prop:InterbankMarketTrades} Define $\bar{\theta}_{t}$ as the market
+%tightness at the end of a trading session.
+%
+%\textbf{Case 1:} If $\mu _{t}=1$. Then, $\psi _{t}^{+}=\psi _{t}^{-}=1-\exp
+%\left( -\lambda \right) $. The average interbank-market rate is:
+%\begin{equation*}
+%\bar{\imath}_{t}^{f}=\frac{1+\left( 1-\exp \left( -\lambda \right) \right)
+%\eta }{\left( 1-\exp \left( -\lambda \right) \right) }i^{ior}+i^{dw}\left(
+%1-\eta \right) .
+%\end{equation*}
+%
+%\textbf{Case 2:} If $\mu _{t}>1$. Then, $\psi _{t}^{+}=?,$ $\psi
+%_{t}^{-}=1-\exp \left( -\lambda \right) $. \ The average interbank market is
+%$\bar{\imath}_{t}^{f}=?$.
+%
+%\textbf{Case 3:}\textit{\ }If $\mu _{t}<1$. Then, $\psi _{t}^{+}=1-\exp
+%\left( -\lambda \right) ,$ $\psi _{t}^{-}=?$. \ The average interbank market
+%is $\bar{\imath}_{t}^{f}=?$.
+%\end{proposition}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Liquidity Cost Function $\chi_{t}$ \widehrulefill}
+\begin{itemize}
+\item Wedge in return to excess reserves and reserves deficits:
+\item Marginal Benefit of excess reserves:
+\begin{equation*}
+  \chi^{+}_{t}=\gamma ^{+}\bar{\imath}_{t}^{f} +(1-\gamma^{+})i^{ior}
+%+\left( 1-\gamma
+%^{+}\right) r_{t}^{ER}
+\end{equation*}%
+\item  Marginal cost of reserve deficits:
+\begin{equation*}
+\chi^{-}_{t}=\gamma ^{-}\bar{\imath}_{t}^{f}+\left( 1-\gamma^{-}\right)i_{t}^{dw}.
+\end{equation*}
+\item Liquidity Cost Function:
+\begin{equation*}
+\chi (s)=\left\{
+\begin{array}{lll}
+\chi_{t}^{+}s \text{ }\text{if \ }s>0\quad  &  & \\
+\chi_{t}^{-}s \text{ }\hspace{0.2cm}\text{if \ }s\leq 0\quad  &  &
+\end{array}%
+\right.
+\end{equation*}
+
+
+%\begin{equation*}
+%\chi_{t}(s)=\chi_{t}^{+}s^{+}+\chi_{t}^{-}s^{-}
+%\end{equation*}
+\end{itemize}
+\end{frame}
+
+\linespread{1.5}%
+%\begin{frame}
+%\frametitle{Banks' Balance Sheet \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0]{LMMP_BS}
+%%\caption{Bank Balance Sheet}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Banks' Balance Sheet \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=3]{LMMP_BS}
+%%\caption{Bank Balance Sheet}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Expansion of Balance Sheet \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=5]{LMMP_BS}
+%%\caption{Bank Balance Sheet}
+%\end{figure}
+%
+%\vspace{-2cm}
+%
+%\hyperlink{Rest}{\beamergotobutton{Rest of the Economy}}
+%
+%\hypertarget{RestBack}{}
+%\end{frame}
+%
+
+%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Cost function $\chi_{t}$ \widehrulefill}
+%
+%\begin{itemize}
+%\item Wedge in return to excess reserves and reserves deficits:
+%\msk
+%
+%\item Marginal Benefit of excess reserves:
+%\begin{equation*}
+%\alert<1> \chi^{H}_{t}=\gamma ^{+}r^{FedFunds}+\left( 1-\gamma
+%^{+}\right) r_{t}^{ER}
+%\end{equation*}%
+%\msk
+%
+%\item  Marginal cost of reserve deficits:
+%
+%\begin{equation*}
+%\alert<1> \chi^{+}_{t}=\gamma ^{-}r^{FedFunds}+\left( 1-\gamma
+%^{-}\right)r_{t}^{dw}.
+%\end{equation*}
+%\msk
+%
+%\item Liquidity Cost Function:
+%\begin{equation*}
+%\alert{\chi_{t}(x)=\chi_{t}^{+}x^{-}+\chi_{t}^{-}x^{+}}
+%\end{equation*}
+%\end{itemize}
+%\end{frame}
+
+%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Reserves $M_{t}$ \widehrulefill}
+%
+%\begin{itemize}
+%\item Fixed Aggregate Supply determined by FED: $M0_{t}$
+%
+%\bigskip \pause
+%
+%%\item Transferred across banks
+%%
+%%\begin{itemize}
+%%\item Loan withdrawal
+%%
+%%\item Interbank purchases $\varphi _{t}$
+%%\end{itemize}
+%
+%\bigskip \pause
+%
+%\item Held as precautionary savings
+%
+%\begin{itemize}
+%\item Avoid liquidity cost: $\chi_{t}(x)$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Balance Sheet \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb1}
+%caption
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Expansion of Lending \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb2}
+%caption
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb3}
+%caption
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb4}
+%caption
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb5}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb6}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb7}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb8}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb9}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb10}
+%caption
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Withdrawal Risk \widehrulefill}
+\begin{figure}[tbp]
+\includegraphics[width=300pt, trim=0 100 0 0]{GraphsLMMPjb11}
+%caption
+\end{figure}
+\end{frame}
+
+%\end{document}
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=2]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=3]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=4]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+
+
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=5]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=6]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=7]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=8]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=9]{F_LMMP_BS_WITHDRAWAL}
+%\caption{Bank Balance Sheet - Liquid Assets}
+%\end{figure}
+%\end{frame}
+
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{Liquidity Cost \widehrulefill} %
+%\includegraphics[scale=0.59]{ distribution_penalty_slide0}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{Liquidity Management \widehrulefill} %
+%\includegraphics[scale=0.59]{ distribution_penalty_slide1}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{$\uparrow$ Deposits \widehrulefill} \centering
+%\includegraphics[scale=0.59]{ distribution_penalty_slide2}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{$\uparrow$ Reserves \widehrulefill} \centering
+%\includegraphics[scale=0.59]{ distribution_penalty_slide3}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{Liquidity Management \widehrulefill} %
+%\includegraphics[scale=0.59]{ distribution_penalty_slide1}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{figure}[ht]
+%\frametitle{$\uparrow$ Withdrawal Risk \widehrulefill} %
+%\includegraphics[scale=0.59]{ distribution_penalty_slide4}
+%\end{figure}
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Bank Equity}
+
+%
+%\begin{frame}
+%\frametitle{Equity $N_{t}$ \widehrulefill}
+%
+%\begin{itemize}
+%\item Dividends constrained by equity
+%
+%\begin{itemize}
+%\item No need to impose non-Ponzi scheme $N_{t}\rightarrow 0.$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Timing of Bank Actions \widehrulefill}
+%
+%\begin{enumerate}
+%\item Bank enters period with state ($M_{t}$,$b_{t}$,$d_{t}$)
+%
+%- Aggregate state $X_{t}$ and prices ($q_{t}$,$r_{t}$) known
+%
+%\bigskip
+%
+%\item \textbf{Lending stage:}
+%
+%- Bank chooses $\left( I_{t},C_{t},\varphi _{t}\right) $
+%
+%- Coupon payments accrue
+%
+%\bigskip
+%
+%\item \textbf{Balancing stage: }$\omega -$ withdrawals
+%
+%- Banks pay penalty if illiquid - finish with ($M_{t+1}$,$b_{t+1}$,$d_{t+1}$)
+%\end{enumerate}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{The FED}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{FED Balance Sheet \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0]{F_LMMP_FEDBALANCE}
+%\caption{The FED's Balance Sheet}
+%\end{figure}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{List of FED Tools \widehrulefill}
+%
+%\begin{itemize}
+%\item Fed-Funds rate and Reserve Requirements:
+%
+%\begin{itemize}
+%\item $\chi ,\rho $ alters FED fund market directly
+%\end{itemize}
+%
+%\medskip
+%
+%\item OMO: purchase of Loans or Deposits for Reserves \medskip
+%
+%\item $\kappa $ capital requirements \medskip
+%
+%\item Laws of Motion for FED's Balance Sheet:%
+%\begin{eqnarray*}
+%M0_{t+1} &=&M0_{t}+\varphi _{t} \\
+%D_{t+1}^{FED} &=&D_{t}^{FED}+\left( 1+r_{t}\right) \varphi _{t}-q_{t}I_{t}+\chi_{t}-trans_{t} \\
+%B_{t+1}^{FED} &=&\delta B_{t}^{FED}+I_{t}.
+%\end{eqnarray*}
+%\end{itemize}
+%\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Market Clearing Conditions \widehrulefill}
+%
+%\begin{itemize}
+%\item Loan Market Clearing:%
+%\begin{equation*}
+%q_{t}=\Theta _{t}\left( B_{t+1}-\delta B_{t}+B_{t+1}^{FED}-\delta
+%^{T}B_{t}^{FED}\right) ^{\varepsilon }
+%\end{equation*}
+%
+%\item Money Market:%
+%\begin{equation*}
+%M0_{t+1}-M0_{t}=M_{t+1}-M_{t},
+%\end{equation*}
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[shrink=20]
+\frametitle{Value Function - Lending Stage \widehrulefill}
+\label{Prob_Lending}
+
+
+\label{Prob_Lending}
+\begin{align*}
+V_{t}^{l}\left( b,m,d,f,w\right) & =\max_{\left\{ c,\tilde{b},\tilde{d},%
+\tilde{m}\right\} \geq 0}u\left( c\right) +\mathbb{E}\left[ V_{t}^{b}(\tilde{%
+b},\tilde{m},\tilde{d},\omega )\right]  & & & & & &  \notag \\
+\\
+& P_{t}c+\ \tilde{b}+\tilde{m}-\tilde{d} & & & & & &  \notag \\
+& =b(1+i_{t}^{b})-d(1+i_{t}^{d})+m(1+i_{t}^{IOR})-(1+\bar{\imath}_{t}^{f})f\
+-\left( 1+i_{t}^{dw}\right) w\ -P_{t}T_{t} & & & & & &  \tag{Budget
+Constraint} \\
+\tilde{d}& \leq \kappa \left( \tilde{b}+\tilde{m}-\ \tilde{d}\right) . & & &
+& & &  \tag{Capital Requirement}
+\end{align*}
+
+
+%\begin{eqnarray*}
+%V_t^l(b,m,d,f,w ) &=&\max_{\tilde{c},\tilde{m},\tilde{d}}u\left(
+%c\right) +\mathbb{E}_{\omega}\left[ V_{t+1}^b(\tilde{c},\tilde{b},\tilde{d} )%
+%\right] \\
+% \frac{\tilde{d}}{1+i^{D}_t}+M+B &=&D+\tilde{b}+P_t C+\frac{\tilde{m}}{%
+%1+i^{ior}_t}+P_tT+F-W  \\
+%\tilde{d} &\leq &\kappa \left( \tilde{b}+\tilde{m}-\frac{%
+%\tilde{d}}{1+i^{D}_t }\right) ;\tilde{b},\tilde{m},\tilde{d}\geq 0.
+%\end{eqnarray*}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{frame}
+\frametitle{Value Function - Balancing Stage \widehrulefill}
+\begin{align}
+V_{t}^{b}(\tilde{b},\tilde{m},\tilde{d},\omega )& =\beta V_{t}^{l}(b^{\prime
+},\tilde{m}^{\prime },d^{\prime },f,w) & & & & & &  \notag \\
+\text{ }b^{\prime }& =\tilde{b} & & & & & &  \tag{Evolution of Loans} \\%
+[0.14in]
+d^{\prime }& =\tilde{d}+\omega \tilde{d} & & & & & &
+\tag{Evolution
+of
+Deposits} \\
+m^{\prime }& =\tilde{m}-\omega \tilde{d}\left( \frac{1+i_{t+1}^{d}}{%
+1+i_{t+1}^{ior}}\right) +f+w & & & & & &  \tag{Evolution of Reserves} \\
+s& =\ \tilde{m}+\frac{\omega _{t}\tilde{d}_{t+1}\left( 1+i_{t+1}^{d}\right)
+}{1+i_{t+1}^{IOR}}-\rho \tilde{d}_{t+1}\left( 1+\omega \right) \  & & & & & &
+\tag{Reserve Balance} \\
+m^{\prime }& \geq \rho d^{\prime } & & & & & &  \tag{Reserve Requirement} \\%
+[0.14in]
+f& =\psi _{t}^{-}s\text{ and }w_{t+1}=\left( 1-\psi _{t}^{-}\right) s\text{
+for }s<0 & & & & & &  \\ %\tag{Interbank-Market Transactions} \\[0.14in]
+f& =\psi _{t}^{+}s\text{ and }w_{t+1}=0\text{ for }s>0. & & & & & &  \notag
+\end{align}
+%and in the balancing stage banks solve the following:%
+%\begin{eqnarray*}
+%V^{b}(\tilde{b},\tilde{m},\tilde{d},\omega;\tilde{X})
+%&=&\max_{F,W,m^{\prime }}\beta \left[ V^l(b^{\prime },%
+%\tilde{m}^{\prime },d^{\prime },F,W ^{\prime })|\tilde{X}\right] \\
+%b^{\prime } &=&\tilde{b} \\
+%d^{\prime } &=&\tilde{d}^{\prime }-\omega \tilde{d}^{\prime } \\
+%m^{\prime } &=&\tilde{m}-\omega \tilde{d}+ f  +w \\
+%m^{\prime } &\geq &\rho d^{\prime }
+%\end{eqnarray*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{One Value Function \widehrulefill}
+Define
+\begin{equation*}
+e_{t}\equiv \frac{b_{t}(1+i_{t}^{b})+m_{t}(1+i_{t}^{ior})-d_{t}\
+(1+i_{t}^{d})-\left( 1+i_{t}^{f}\right) f_{t}-\left( 1+i_{t}^{f}\right)
+w_{t}-T_{t}}{P_{t}}.
+\end{equation*}%
+%\begin{proposition}[Single-State Representation]
+%\label{Pp_SingleState}
+\begin{align}
+V_{t}(e)& =\max_{\left\{ c,\tilde{m},\tilde{b},\tilde{d}\right\} \geq
+0}u(c)+\beta \mathbb{E}_{t}\left[ V_{t+1}(e^{\prime })\right] ,
+\label{belmman-single}  \notag \\
+e& =\ \frac{\ \tilde{b}+\tilde{m}-\tilde{d}}{P_{t}}+c,
+\tag{Budget
+Constraint} \\
+e^{\prime }& =\left( (1+i_{t+1}^{ior})\tilde{m}+\ \left(
+1+i_{t+1}^{b}\right) \tilde{b}-\left( 1+i_{t+1}^{d}\right) \tilde{d}+\chi
+_{t+1}\left( s\right) \right) \frac{(1-\tau _{t+1})}{P_{t+1}},
+\tag{Evolution of Equity} \\
+s& =\ \tilde{m}+\frac{\omega _{t}\tilde{d}^{\prime } \left( 1+i_{t+1}^{d}\right)
+}{1+i_{t+1}^{IOR}}-\rho \tilde{d}^{\prime }\left( 1+\omega \right) \  & & & & & &
+\tag{Reserve Balance} \\
+\tilde{d}& \leq \kappa \left( \tilde{b}+\tilde{m}-\tilde{d}\right) .
+\tag{Capital Requirement}
+\end{align}
+%\end{proposition}
+\end{frame}
+
+
+
+\section{ Bank Value Functions}
+
+%\begin{frame}
+%\frametitle{The Aggregate State \widehrulefill}
+%
+%\begin{itemize}
+%\item Governments Policy Path $\left\{ \rho
+%_{t},M0_{t},D_{t}^{FED},B_{t}^{FED},\kappa _{t},r^{l}_{t},r^{b}_{t},\bar{L}\right\}
+%_{t\geq 0}$ \medskip
+%
+%\item $\Theta _{t}$ is the slope of demand curve. \medskip
+%
+%\item $F_{t}$ process for withdrawal risk \medskip
+%
+%\item Endogenous state variable: \alert{$E_{t}$}
+%
+%\medskip
+%
+%\item Aggregate State: \alert{$X_{t}$}
+%
+%\begin{itemize}
+%\item Model recursive in $X_{t}$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Central-Bank Balance Sheet \widehrulefill}
+%\begin{itemize}
+%\setlength{\itemsep}{8pt}
+%\item Fed Budget Constraint:
+%\begin{eqnarray*}
+%\underbrace{p_{t}\left( M_{t+1}^{0}-M_{t}^{0}\right)}_{\text{Change in Money Supply}}= \\
+%\underbrace{D_{t+1}^{FED}-D_{t}^{FED}}_{\text{Liquidity Facility}}+\underbrace{q_{t}\left( B_{t+1}^{FED} \right)}_{\text{OMO}}... \\ + \underbrace{T_{t}}_{\text{Transfers}} + \underbrace{B +(r_{t}^{dw}(1-\gamma^{-}) - r_{t}^{ER}(1-\gamma^{+}))M^{0}_{t}}_{\text{Operating Revenues}}
+%\label{eq:balance-sheet-fed}
+%\end{eqnarray*}
+%\pause
+%
+%\item Fed chooses feasible policy: $\left\{M^{0}_{t+1},B_{t+1}^{FED},D^{FED}_{t+1},i^{dw}_t,r^{ER}_t,T_t\right\}_{t \geq 0}$
+%
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Closing the Model \widehrulefill}
+\begin{itemize}
+\item Loan Market Clears
+\begin{equation*}
+\frac{B_{t+1}^{d}}{P_{t}}=\Theta _{t}^{b}\left( \frac{1}{(1+i_{t+1}^{b})}%
+\frac{P_{t+1}}{P_{t}}\right) ^{\epsilon },\epsilon >0,\Theta _{t}>0,
+\label{eq:loan-demand}
+\end{equation*}%
+\item Deposit Market Clears (today perfectly elastic supply)
+\begin{equation*}
+\frac{D_{t+1}^{S}}{P_{t}}=\Theta _{t}^{d}\left( \frac{1}{(1+i_{t+1}^{d})}%
+\frac{P_{t}}{P_{t+1}}\right) ^{\zeta },\varsigma >0,\Theta _{t}^{d}>0,
+\label{eq:Deposit}
+\end{equation*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Central Bank Policies: The Fed \widehrulefill}
+\begin{itemize}
+\item Sets quantity of reserves $M^{Fed}_t$ %and
+\item Buys loans $B_{t+1}^{FED}$, place deposits   $D_{t+1}^{FED}$
+\item Discount window and interest on reserve rates  $i^{dw},i^{ior}$   % to have agents borrow at this rate need interest chib> bigger.. This would be a shut down interbank market..shock could be idiosyncratic
+%\pause
+% can add for example maximum amount of discount window loans...needs another market clearing
+\item Fed budget constraint:
+\begin{eqnarray}
+&&M_{t}^{Fed}(1+i_{t}^{ior})+D_{t+1}^{Fed}+\ B_{t+1}^{Fed}+W_{t+1}^{Fed}...
+\notag \\
+=
+&&M_{t+1}^{Fed}+D_{t}^{Fed}(1+i_{t}^{d})+B_{t}^{Fed}(1+i_{t}^{b})+W_{t}^{Fed}(1+i_{t}^{dw})+P_{t}T_{t}.
+\notag
+\end{eqnarray}%
+%\begin{equation*}
+%M^{s}_{t}- D^{FED}_t + q_t B^{FED}  =   \frac{M^s_{t+1}}{1+i_{t}^{ior} } +  \frac{D^{FED}_{t+1}}{1+i^D} +T_t  +  B_t^{FED} + \underbrace{r_{t}^{dw}\left( 1-\gamma ^{-}\right) S^{-}}
+%_{\substack{ \text{Earnings from }  \\ \text{Discount Loans}}}
+%\end{equation*}
+\item Stationary equilibrium: constant nominal growth of balance sheet
+\item Impulse responses: focus on fixed nominal balance sheet or keep constant inflation \alert<2>{(today)}
+%\item At steady state with zero growth in $M^s$ and $i^{ior}=0$,   $P_{t}T_{t}=\chi^{Fed}.$
+%\item Constraints on balance sheet (not today)
+%\underbrace{p_{t}\left( M_{t+1}^{0}-M_{t}^{0}\right)}_{\text{Change in Money Supply}}= \\
+%\underbrace{D_{t+1}^{FED}-D_{t}^{FED}}_{\text{Liquidity Facility}}+\underbrace{q_{t}\left( B_{t+1}^{FED}-\delta
+%B_{t}^{FED}\right)}_{\text{OMO}}... \\ + \underbrace{T_{t}}_{\text{Transfers}} + \underbrace{B(1-\delta)+(r_{t}^{dw}(1-\gamma^{-}) - r_{t}^{ior} M^{0}_{t}}_{\text{Operating Revenues}}
+%\label{eq:balance-sheet-fed}
+%\end{eqnarray*}
+
+
+%\begin{eqnarray*}
+%\underbrace{p_{t}\left( M_{t+1}^{0}-M_{t}^{0}\right)}_{\text{Change in Money Supply}}= \\
+%\underbrace{D_{t+1}^{FED}-D_{t}^{FED}}_{\text{Liquidity Facility}}+\underbrace{q_{t}\left( B_{t+1}^{FED}-\delta
+%B_{t}^{FED}\right)}_{\text{OMO}}... \\ + \underbrace{T_{t}}_{\text{Transfers}} + \underbrace{B(1-\delta)+(r_{t}^{dw}(1-\gamma^{-}) - r_{t}^{ior} M^{0}_{t}}_{\text{Operating Revenues}}
+%\label{eq:balance-sheet-fed}
+%\end{eqnarray*}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Market Clearing\widehrulefill}
+%\begin{itemize}
+%\item[(iv)] Markets clear
+\begin{align}
+\int_{j}b_{t+1}^{j}+B_{t+1}^{Fed}& =B_{t+1}^{d}  \tag{Loans markets clearing}
+\\
+\int_{j}d_{t}^{j}-D_{t+1}^{Fed}& =D_{t+1}^{S}  \tag{Deposits market clearing}
+\\
+\int_{j}m_{t+1}^{j}& =M_{t+1}^{Fed}  \tag{Reserves market clearing} \\
+\int_{j}f_{t}^{j}& =0  \tag{Interbank markets clearing} \\
+\int_{j}w_{t}^{j}& =W_{t+1}^{Fed}  \tag{Discount window market clearing}
+\end{align}
+%% Fed funds rate is either equal to ior or DW
+%\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%\begin{frame}
+%%\frametitle{Characterization \widehrulefill}
+%%
+%%\begin{enumerate}
+%%\item Single endogenous state
+%%
+%%\begin{itemize}
+%%\item $E \equiv qB+pc-D$
+%%\end{itemize}
+%%
+%%\bigskip \pause
+%%
+%%\item Portfolio Separation Theorem
+%%
+%%\begin{itemize}
+%%\item Dividend-Savings independent of Portfolio Problem
+%%
+%%\item Portfolio \alert{Non-Linear Liquidity-Adjusted Returns}
+%%\end{itemize}
+%%
+%%\bigskip \pause
+%%
+%%\item Portfolio Problem %\begin{itemize}
+%%%\item Lessons
+%%%\end{itemize}
+%%\end{enumerate}
+%%\end{frame}
+%
+%%\begin{frame}
+%%\frametitle{Solution \widehrulefill}
+%%
+%%\begin{itemize}
+%%\item Law of motion for deposits
+%%\begin{equation*}
+%%\tilde{d}=D+q \underbrace{\alert{I}}_{\tilde{b}-\delta B}+C+p\underbrace{\alert{\varphi}}_{\tilde{m}-C}-B(1-\delta ).
+%%\end{equation*}
+%%\pause
+%%
+%%\item and substitute for $I$ and $\varphi$...%
+%%\begin{equation*}
+%%\tilde{d}=D+q(\tilde{b}-\delta B)+C+p(\tilde{m}-C)-B(1-\delta )
+%%\end{equation*}
+%%\pause
+%%
+%%\item and rearrange terms to obtain...\qquad \qquad
+%%\begin{equation*}
+%%C+p\tilde{m}+\tilde{b}-\tilde{d}=\underbrace{pC+\left( q\delta +(1-\delta
+%%)\right) B-D}_{\alert<4>{E}}.
+%%\end{equation*}
+%%\pause
+%%
+%%\item We can collapse all state-variables into one: \alert<4>{E!}
+%%\end{itemize}
+%%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Characterization \widehrulefill}
+%
+%\begin{proposition}[Single-State ]
+%We have
+%\begin{equation*}
+%V^{l}(C,B,D )=V^{l}(E )
+%\end{equation*}
+%\begin{equation*}
+%E\equiv pC+q\delta B+B(1-\delta )-D.
+%\end{equation*}
+%\end{proposition}
+%
+%\pause
+%\bigskip
+%
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Bank Portfolio Problem \widehrulefill}
+%
+%\begin{itemize}
+%\item Four Returns:
+%\msk
+%
+%\pause
+%
+%\begin{itemize}
+%\item Return on Loans:
+%\begin{equation*}
+%R_{t}^{B} \equiv \frac{\delta q_{t+1}+(1-\delta )}{q_{t}},
+%\end{equation*}
+%\pause
+%
+%\item Return on Reserves:%
+%\begin{equation*}
+%R_{t}^{C}\equiv \left( \frac{p_{t+1}}{p_{t}}\right)
+%\end{equation*}
+%\pause
+%
+%\item Return on Deposits:
+%\begin{equation*}
+%R^{D}_{t} \equiv 1
+%\end{equation*}
+%\pause
+%
+%\item Liquidity Cost:
+%\begin{equation*}
+%R^{\chi}\left(\alert{w_{d},w_{c}},\omega^{\prime}\right)  \equiv \chi \left( \left(\rho +(1-\rho) \alert{\omega^{\prime}} \right) w_{d}-w_{c}\right)
+%\end{equation*}
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\frametitle{Bank Portfolio Problem \widehrulefill}
+%
+%\begin{itemize}
+%\item Effects of MP captured by $\Omega \left( X \right)$
+%
+%\item $\Omega \left(X\right)$ certainty equivalent portfolio:
+%
+%\begin{equation*}
+%\max_{\{\bar{b},w_{d},w_{c}\} \in \mathbb{R}_{+}^{3}} \left( \mathbb{E}_{\omega^{\prime}} [\left( R^{B} \bar{b}+R^{C} w_{c} - R^{D} w_{d} - R^{\chi}(w_{d},w_{c},\omega^{\prime}) \right)^{1-\gamma}] \right)^{\frac{1}{1-\gamma}}
+%\end{equation*}
+%subject to,
+%\begin{eqnarray*}
+%1 &=& \bar{b}+w_{c}-w_{d} \\
+%w_{d} &\leq &\kappa \left(\bar{b}+w_{c}-w_{d}\right) \\
+%\end{eqnarray*}
+%
+%\item Original Policies: $[\tilde{d},\tilde{b},\tilde{m}]=[w_{d},\bar{b},w_{c}]\cdot E \cdot (1-c)$
+%
+%\end{itemize}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Bank Portfolio Problem \widehrulefill}
+%
+%\begin{itemize}
+%\item { $\Omega _t $ also }
+%
+%{\footnotesize \hspace{-1cm}%
+%\begin{equation*}
+%\max_{\left\{ w_{d},w_{c}  \in \mathbb{R}_{+}^{2} \right\}}\mathbb{CE}_{\mathbb{\omega }^{\prime
+%}} [ \underset{\text{Loan Return}}{\underbrace{R^{B}}}\underset{%
+%\text{Opportunity Cost}}{\underbrace{- \left( R^{B}-R^{C}\right)w_{c} }}%
+%+\underset{\text{Arbitrage}}{\underbrace{\left( R^{B}-R^{D}\right) }}w_{d}-%
+%\underset{\text{Liquidity Cost}}{\underbrace{R^{\chi }\left(
+%w_{d},w_{c}\right) }} ]
+%\end{equation*}
+%subject to,%
+%\begin{eqnarray*}
+%w_{d} &\leq &\kappa \\
+%\end{eqnarray*}
+%}
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Premium \widehrulefill}
+%\begin{itemize}
+%\item Banks require a higher return on loans:
+%\bigskip
+%\begin{equation*}
+%\underset{\text{Liquidity Premium}} {\underbrace{R_{t+1}^{B}-R_{t+1}^{C}}} = \underset{\text{First-order effect}} {\underbrace{E_{t}\chi ^{\prime }}}+
+%\underset{\text{Liquidity Risk Premium}} {\underbrace{  \frac{Cov(m_{t+1},\chi_{t+1})}{E_{t}m_{t+1}}}}
+%\end{equation*}
+%\item $ m_{t+1}$ is the SDF \bigskip
+%\item Monetary policy can affect lending by altering the liquidity premium
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0]{LMMP_Portfolio2}
+%\caption{Portfolio Problem}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management and Monetary Policy \widehrulefill}
+%
+%\begin{itemize}
+%\item Monetary Policy Instruments
+%
+%\begin{itemize}
+%\item Discount window and borrowing rates: $(r^{l}_{t},r^{b}_{t})$
+%
+%\item Reserve requirements $\rho_{t}$
+%
+%\item Long-Term Loans: $M0_{t}$
+%
+%\item Open-market operations: $(b_{t},M_{t})$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0]{LMMP_Portfolio2}
+%\caption{Portfolio Problem}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=2]{LMMP_Portfolio2}
+%\caption{Portfolio Problem}
+%\end{figure}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Liquidity Management \widehrulefill}
+%
+%\begin{figure}[tbp]
+%\includegraphics[width=300pt, trim=0 100 0 0, page=3]{LMMP_Portfolio2}
+%\caption{Portfolio Problem}
+%\end{figure}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{Liquidity Cost \widehrulefill}
+\includegraphics[scale=0.59]{distribution_penalty_slide0}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{Liquidity Management \widehrulefill}
+\includegraphics[scale=0.59]{distribution_penalty_slide1}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{$\uparrow$ Deposits \widehrulefill}
+\centering
+\includegraphics[scale=0.59]{distribution_penalty_slide2}
+\end{figure}
+\end{frame}
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{$\uparrow$ Reserves \widehrulefill}
+\centering
+\includegraphics[scale=0.59]{distribution_penalty_slide3}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{Liquidity Management \widehrulefill}
+\includegraphics[scale=0.59]{distribution_penalty_slide1}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{$\uparrow$ Withdrawal Risk \widehrulefill}
+\includegraphics[scale=0.59]{distribution_penalty_slide4}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}[ht]
+\frametitle{Equity Growth \widehrulefill}
+\includegraphics[scale=0.55]{eq_growth_slide}
+\end{figure}
+\end{frame}
+
+
+ \linespread{1.}
+\begin{frame}[shrink=0.04]
+%\frametitle{Characterization \widehrulefill}
+
+\begin{proposition}[Homogeneity and Portfolio Separation]
+\end{proposition}
+\begin{enumerate}[(i)]
+\item The value function $V_t(b,m,d)$ satisfies \label{Pp_Homogeneity}%
+\begin{equation*}
+V_{t}(e)=v_{t}\left( e\right) ^{1-\gamma },  \label{V}
+\end{equation*}
+
+\item where $v\left( \cdot \right) $ satisfies
+\begin{align*}
+& \Omega _{t}\equiv \max_{\left\{ \bar{b},\bar{m},\bar{d}\right\} \geq
+0}\left\{ \mathbb{E}_{\omega }\left[ R_{t}^{b}\bar{b}+\ R_{t}^{m}\bar{m}-\ \
+R_{t}^{d}\bar{d}+\chi (\bar{m},\bar{d},\omega )\right] ^{1-\gamma }\right\}
+^{\frac{1}{^{1-\gamma }}}, \notag \\
+& \bar{b}+\bar{m}-\bar{d}=1,  \notag \\
+& \bar{d}\leq \kappa \left( \bar{b}+\bar{m}-\bar{d}\right) .  \notag
+\end{align*}
+
+%\item policy functions for $\{ \tilde{b},\  \tilde{m},\  \tilde{d}\}$  can be recovered as
+ \item
+ \begin{eqnarray*}
+\tilde{b}_{t+1}^{\prime }(e_{t}) &=&P_{t}\bar{b}_{t}(1-\bar{c}\ )e_{t}, \\
+\tilde{m}_{t+1}(e_{t}) &=&P_{t}\bar{m}_{t}(1-\bar{c}\ )e_{t}, \\
+\tilde{d}_{t+1}(e_{t}) &=&P_{t}\bar{d}_{t}\ (1-\bar{c})e_{t}.
+\end{eqnarray*}
+%\begin{equation*}
+%\tilde{b}^{\prime }=\frac{\left( 1-P_t )(\tau +\tilde{c}\right) }{q_{b}_t }%
+%w_bE,\  \tilde{m}=(1+i^{ior}_t )\left( 1-P_t )(\tau +\tilde{c}\right) w_mE,\
+%\tilde{d}=(1+i^{D}_t )\left( 1-P_t )(\tau +\tilde{c}\right) w_dE
+%\end{equation*}
+
+\item $\bar{c}_{t},v_t$ are given by
+\begin{equation*}
+v_{t}=\frac{1}{1-\gamma }\left[ 1+\left( \beta (1-\gamma )\Omega
+_{t}^{1-\gamma }v_{t+1}\right) ^{\frac{1}{\gamma }}\right] ^{\gamma }.
+\end{equation*}
+
+\begin{equation*}
+\bar{c}_{t}\ =\frac{1}{1+\left[ \beta (1-\gamma )v_{t+1}\Omega
+_{t}{}^{1-\gamma }\right] ^{1/\gamma }}.  \label{eq:c1}
+\end{equation*}
+%\item and the value of the bank
+%\begin{equation*}
+%\upsilon _t =\frac{1}{1-\gamma }\left[ 1+\left( \beta (1-\gamma
+%)\Omega ^{\ast }_t ^{1-\gamma }\mathbb{E}\left[ v\left(
+%X^{\prime }\right) |X\right] \right) ^{\frac{1}{\gamma }}\right] ^{\gamma }.
+%\end{equation*}
+\end{enumerate}
+%\end{proposition}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Liquidity Premium\widehrulefill}
+
+%\item Banks require a higher return on loans relative to reserves: \bigskip
+\begin{eqnarray}
+\ \underset{\text{ Liquidity Premium}}{\underbrace{R^{b}-R^{m}}} &=&\underset{\text{First-order liquidity premium}}{\underbrace{\mathbb{E}%
+_{\omega }\left[ \frac{\partial \chi \left( \bar{d},\bar{m},\omega \right) }{%
+\partial \bar{m}}\right] }}+\underset{\text{Liquidity risk premium}}{%
+\underbrace{\mathbb{E}_{\omega }\frac{\mathbb{COV}_{\omega }\left[ \left(
+R^{e}\right) ^{-\gamma },\frac{\partial \chi \left( \bar{d},\bar{m},\omega
+\right) }{\partial \bar{m}}\right] }{\mathbb{E}_{\omega }\left[ \left(
+R^{e}\right) ^{-\gamma }\right] }}}\ .  \notag
+\end{eqnarray}
+
+\bigskip
+\begin{equation}
+\underset{\text{External finance premium}}{\underbrace{R^{b}-R^{d}}=}%
+\underset{\text{Deposit Liquidity Cost}}{\underbrace{\frac{\mathbb{E}%
+_{\omega }\left[ \left( R_{\omega }^{e}\right) ^{-\gamma }\cdot \frac{%
+\partial \chi \left( \bar{d},\bar{m},\omega \right) }{\partial \bar{d}}%
+\right] }{\mathbb{E}_{\omega }\left[ \left( R^{e}\right) ^{-\gamma }\right] }%
+}}+\underset{\text{Collateral term}}{\underbrace{\frac{\mu }{\mathbb{E}%
+_{\omega }\left[ \left( R_{\omega }^{e}\right) ^{-\gamma }\right] }}}
+\notag
+\end{equation}
+
+%\item $m_{t+1}$ is the SDF \bigskip
+\pause
+%\begin{proposition}[Full Satiation]
+Banks are\ satiated with reserves if
+\begin{enumerate}[ (i)]
+\item The Fed pays interest on reserves such that $%
+i_{t}^{ior}=i_{t}^{b}$
+\item The Fed pays interest on reserves such that $%
+i_{t}^{ior}=i_{t}^{D}$, and $\kappa =\infty $
+\item The Fed sets the discount window rate to $i_{t}^{dw}=0$
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\frametitle{Role of Uncertainty \widehrulefill}
+%
+%\begin{itemize}
+%
+%%\item \textbf{Case I:} With Risk-Neutral Banks
+%%
+%%\begin{itemize}
+%%\item $L^{\ast }$ reserves over deposit ratio
+%%
+%%\item Optimality:
+%%
+%%\begin{equation*}
+%%\underset{\text{Arbitrage on Loans}}{\underbrace{\left( R^{B}-R^{D}\right) }}%
+%%=\underset{\text{Optimal Liquidity Ratio Cost}}{\underbrace{%
+%%\left(R^{B}-R^{C}\right) L^{\ast }+\alert<1>{\mathbb{E}_{\omega }\left[R_{c}^{\chi} \right] }}}.
+%%\end{equation*}
+%%
+%%\item \textbf{Lesson 2:} Role of kink
+%%
+%%\end{itemize}
+%%
+%%\medskip \pause
+%
+%\item No uncertainty:
+%
+%\begin{equation*}
+%\left( R_{t}^{B}-R_{t}^{D}\right) =\left( R_{t}^{B}-R_{t}^{C}\right) \underbrace{\rho}_{\text{Reserve Req.}} .
+%\end{equation*}
+%\bigskip
+%\item \textbf{Lesson 3:} No effect from corridor rates
+%
+%\end{itemize}
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}
+%\frametitle{Polar Case III \widehrulefill}
+%
+%\begin{itemize}
+%
+%\item Zero-Lower Bound: $\chi =0$
+%
+%\begin{itemize}
+%\item $R_{t}^{B}=R_{t}^{C}>R^{D}$ if $\kappa_{t}>0$
+%
+%\item $R_{t}^{B}=R_{t}^{C}=R^{D}$ if $\kappa_{t}=0$
+%
+%\end{itemize}
+%\bigskip
+%\item \textbf{Lesson 4:} Monetary Policy is ``maxed'' out
+%
+%\bigskip
+%\item \textbf{Lesson  5:} Individual Portfolio Indeterminacy
+%
+%\medskip
+%
+%\pause
+%
+%\item \alert{Rates are not zero though!}
+%
+%\end{itemize}
+%
+%\end{frame}
+
+
+\begin{frame}
+{\huge {Quantitative Exercise} }
+\end{frame}
+
+\begin{frame}
+\frametitle{Calibration Strategy \widehrulefill}
+\begin{itemize}
+ \setlength{\itemsep}{7pt}
+\msk
+\item $F_{t}$ approximated with a logistic distribution
+\begin{itemize}
+\item Cross-sectional distribution of deposits growth rates (Call Reports)  \hyperlink{distribution}{\beamergotobutton{distribution}}
+\end{itemize}
+\msk
+%\item Maturity $\delta=0$
+\msk
+\item Loan-demand elasticity $=1.8$
+\begin{itemize}
+\item Bassett,  Chosak, Driscoll,  and Zakrajsek (2013)
+\end{itemize}
+\msk
+%\item Period is quarter
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Calibration \widehrulefill}
+\renewcommand{\arraystretch}{1.1}
+\begin{table}
+%\caption{Calibration}
+%\medskip{}
+\footnotesize{
+\begin{tabular}{lll}
+\toprule
+%\footnotesize{
+ & Value  & Source/Target\tabularnewline
+\midrule
+%\midrule
+Capital requirement  & $\kappa\hspace{0.54cm}=10$  & Regulatory parameter\tabularnewline
+Discount factor  & $\beta\hspace{0.52cm}=0.993$  & Dividend ratio = 8 \%\tabularnewline
+Risk aversion  & $\gamma\hspace{0.52cm}=1$  & Constant dividend-equity ratio\tabularnewline
+Reserve requirement  & $\rho\hspace{0.53cm}=0.1$  & Regulatory parameter\tabularnewline
+Deposit supply intercept  & $\Theta^{d}\hspace{0.27cm}=9.6$  & Annual deposit rate = 1\%\tabularnewline
+Loan demand intercept  & $\Theta^{b}\hspace{0.275cm}=10.4$  & Unit steady state equity \tabularnewline
+Discount window rate (annual)  & $i^{dw}\hspace{0.275cm}=6\%$  & 2006 value\tabularnewline
+Interest on reserves (annual)  & $i^{ior}\hspace{0.15cm}=0\%$  & 2006 value\tabularnewline
+Bargaining parameter  & $\eta\hspace{0.475cm}=0.5$  & Baseline value\tabularnewline
+Inflation  & $g\hspace{0.475cm}=2\%$  & Long-run inflation target\tabularnewline
+\midrule
+Matching friction  & $\lambda\hspace{0.45cm}=2.1$  & DW loans to reserves $W/M=2%\ensuremath{\%}
+$\tabularnewline
+Volatility  & $\sigma\hspace{0.45cm}=0.04$  & Reserve-balance distribution\tabularnewline
+Loan demand deposit supply elasticities  & $\zeta=-\epsilon=25$  & Bank credit response to policy rate \tabularnewline
+\bottomrule
+\end{tabular}\label{tab:calibration}}
+\end{table}
+\end{frame}
+
+
+%\end{frame}
+
+\begin{frame}
+\frametitle{Quantitative Application \widehrulefill}
+
+\begin{itemize}
+\item Why are banks not lending when holding so many reserves?
+\bigskip
+\pause
+\item Five Hypotheses:
+\begin{enumerate}
+\item Equity Losses
+\item Tighter Capital Requirements
+\item Precautionary Motive (Interbank Market Shutdown)
+\item Weaker Loan Demand
+\item Interest on Reserves
+\end{enumerate}
+\bigskip \pause
+
+\item \textit{Approach}
+
+\begin{itemize}
+
+\item First: Transitional Dynamics after individual shocks
+
+\item Second: Fit calibrated sequences of shocks
+
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
+\include{slides_IRF}
+
+%\include{quantitative_slides} %
+%
+%
+
+\begin{frame}
+\label{lastslide} \frametitle{Conclusions \widehrulefill}
+
+\begin{itemize}
+  \setlength{\itemsep}{14pt}
+
+\item We developed a new dynamic macroeconomic model of banks liquidity management and monetary policy
+% \item Liquidity management problem leads to endogenous liquidity premium
+
+\item Transmission of monetary policy through banking system
+
+\item Uncover shocks affecting banks and the economy during crisis
+
+\begin{itemize}
+\item Precautionary motive played important early role
+
+\item ``Demand'' shock is the key force to explain persistence
+\end{itemize}
+\item Other possible applications: shadow banking, Great Depression, currency pegs, macroprudential
+%\item Current project: international liquidity crises %open-economy version
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+EXTRAS
+
+\end{frame}
+
+\begin{frame}[label=hist0]
+\begin{figure}[t!]
+\begin{center}
+%\includegraphics[width=500pt,scale=0.1]{../Empirical Tests/F_HistGrowth} %\newline
+\vspace{-2cm}
+\caption{Histogram of Deviations from Cross-Sectional Mean Growth Rates for
+Total Deposits. For every bank-quarter observation, the histogram reports
+frequencies for deviations of the growth rate of total deposits relative to
+the cross-sectional average growth of total deposits in a given quarter.}
+\label{F_HistGrowth}
+\end{center}
+  \hyperlink{distribution}{\beamergotobutton{distribution}}
+\end{figure}
+\end{frame}
+
+
+\end{document}

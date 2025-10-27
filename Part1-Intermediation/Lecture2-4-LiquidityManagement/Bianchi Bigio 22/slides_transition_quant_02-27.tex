@@ -1,0 +1,572 @@
+% 4 min until applications
+% 6 min all intro
+% 25 traders
+% why
+%\usepackage[disable]{todonotes}
+% comment this to not show notes
+%\setbeamertemplate{note page}[plain]
+%\setbeameroption{show notes on second screen=right}
+%\setbeamerfont{note page}{size=\small}
+%16 until balancing stage
+%\graphicspath{{../New_javi_aug/Images_javi/}{../empirical/}}
+%\input{tcilatex}
+
+
+\documentclass[10pt]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{amsmath,amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{psfrag}
+\usepackage{epstopdf}
+\usepackage{todonotes}
+\usepackage{pgfpages}
+\usepackage[makeroom]{cancel}
+\usepackage{setspace}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{LastRevised=Wednesday, February 22, 2017 11:12:12}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+
+\geometry{left=0.65cm,right=0.8cm}
+\renewcommand{\sfdefault}{cmss}
+\usefonttheme{serif}
+\def\widehrulefill{\leaders\hrule height 0.35pt\hfill}
+\def\drawhline{\hrule height 0.6pt width 333pt}
+\def\no{\noindent}
+\def\bul{\color{black}{$\bullet$}}
+\def\cir{\color{black}{$\circ$}}
+\def\br{\color{black}{-}}
+\def\wbul{\color{white}{$\bullet$}}
+\def\wcir{\color{red}{$\circ$}}
+\def\wx{\color{white}{x}}
+\def\bx{\color{blue}}
+\def\rx{\color{red} }
+\def\nor{\normalsize}
+\def\bsk{\bigskip}
+\def\msk{\medskip}
+\def\ssk{\smallskip}
+\setbeamertemplate{frametitle}
+{
+\bigskip
+\definecolor{ltblack}{gray}{0.1}
+\color{ltblack}{\large\textbf{{\insertframetitle} }}
+}
+\definecolor{defblue}{rgb}{.2,.2,.7}
+\definecolor{purple}{rgb}{0.9,0.0,0.0}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{
+  \hbox{
+  \begin{beamercolorbox}[wd=.49999\paperwidth,ht=2.25ex,dp=1ex,center]{}
+  \insertshortauthor
+  \quad
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=.49999\paperwidth,ht=2.25ex,dp=1ex,left]{}
+    \quad
+    \insertshorttitle
+    \hfill \quad\quad\quad\quad\quad
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}
+  \vskip0pt
+  }
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}{\color{black} $\circ$}
+\setbeamertemplate{itemize subsubitem}{\color{black} -}
+\setbeamerfont{itemize item}{size=\small}
+\setbeamerfont{itemize subitem}{size=\small}
+\setbeamerfont{itemize subsubitem}{size=\small}
+\setbeamerfont{itemize subsubitem}{size=\small}
+\newcommand{\fs}{\mathcal{S}}
+\newcommand{\RR}{\mathcal{R}}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{proposition}[theorem]{Proposition}
+\fontsize{1pt}{7.2}\selectfont
+\setbeamertemplate{footline}{\raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
+\setbeamertemplate{itemize items}[ball]
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{30pt}}{\enditemize}
+\newcommand\unnumbered{\setbeamertemplate{footline}}
+\setbeamercolor{page number in head/foot}{fg=white}
+\setbeamertemplate{footline}[page number]{}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+ \graphicspath{{images/},{images/AR_1/}}
+
+%\input{tcilatex}
+
+\begin{document}
+
+
+% add tikpicture
+
+\begin{frame}
+\frametitle{Distribution of Excess Reserves\widehrulefill}
+\begin{figure}[tbp]
+%\begin{minipage}[b]{0.23\linewidth}
+\centering
+%\scriptsize{Equity}
+ \includegraphics[scale=0.85]{cumAL} %\end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Equity Loss\widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{EQUITY_LOSSeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{EQUITY_LOSSliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{EQUITY_LOSSliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{EQUITY_LOSSloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{EQUITY_LOSSpi.eps}
+\end{minipage}
+%\caption{Transition after Equity Losses}
+\label{Fig:eqdrop}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item What we show here is how the economy converges to the steady state when the level of equity is initially below steady state.
+\item For given returns, there is an  excess demand for loans. For market clearing to be restored, it has to be that there is an increase in the return for loans.
+\item There is also an excess supply of reserves. Remember here we're keeping the nominal amount of reserves constant throughout the transition, so a decline in equity means that the holdings of reserves would be below the supply issued by the Fed given prices. For equilibrium to be restored, the price level needs to go up so that the real amount of reserves issued by the Fed equals the demand.
+    \item Notice also that in this example, the liquidity ratio increases, i.e. loans are reduced by more than reserves. Also, the Fed funds rate decreases. This occurs endogenously in the model because a large level of liquidity makes more likely that banks in deficit are able to find a counterpart.
+\end{itemize}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Capital Requirements \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\kappa$)}
+\includegraphics[width=\textwidth]{LEVERAGE_CONSTRAINTshock.eps}
+\end{minipage}
+%\caption{Transition after Equity Losses}
+\label{Fig:kappa}
+%\caption{Impulse Response to Equity Losses}
+\end{figure}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Matching Efficiency NEED TO CHECK THIS ALTERNATIVE \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{MATCHING_EFFICIENCYeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{MATCHING_EFFICIENCYliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{MATCHING_EFFICIENCYliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{MATCHING_EFFICIENCYloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{MATCHING_EFFICIENCYpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\lambda$)}
+\includegraphics[width=\textwidth]{MATCHING_EFFICIENCYshock.eps}
+\end{minipage}
+%\caption{Impulse Response to Equity Losses}
+\label{Fig:lambda}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item blabla
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Volatility \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{VOLATILITYeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{VOLATILITYliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{VOLATILITYliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{VOLATILITYloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{VOLATILITYpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\sigma$)}
+\includegraphics[width=\textwidth]{VOLATILITYshock.eps}
+\end{minipage}
+%\caption{Impulse Response to Equity Losses}
+\label{Fig:vol}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item blabla
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Loan Demand \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{LOANS_DEMANDeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{LOANS_DEMANDliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{LOANS_DEMANDliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{LOANS_DEMANDloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{LOANS_DEMANDpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\Theta^b$)}
+\includegraphics[width=\textwidth]{LOANS_DEMANDshock.eps}
+\end{minipage}
+%\caption{Impulse Response to Equity Losses}
+\label{Fig:default}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item blabla
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Interest on Reserves \widehrulefill}
+\begin{figure}[tbp]
+
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{I_IOReq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{I_IORliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{I_IORliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{I_IORloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{I_IORpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($i^{ior}$)}
+\includegraphics[width=\textwidth]{I_IORshock.eps}
+\end{minipage}
+%\caption{Impulse Response to Equity Losses}
+\label{Fig:ior}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item The experiment we conduct next is an increase in the interest on reserves. Given that the return  on reserves go up, banks allocate a larger fraction of their assets to reserves and the volume of loans fall. To restore market clearing in loans market, the return on loans must go up. Notice that the Fed funds market goes up, as essentially the increase in the interest on reserves puts a floor on the interbank markets' rate
+\item There are also persistent effects on the interest on reserves even if it is only one period. Given that total loans fall, banks experience a fall in equity.
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Discount Window Rate \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{R_DWeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{R_DWliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{R_DWliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{R_DWloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{R_DWpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($r^{dw}$)}
+\includegraphics[width=\textwidth]{R_DWshock.eps}
+\end{minipage}
+\label{Fig:rdw}
+\end{figure}
+\note{\begin{itemize}
+\item The experiment we conduct next is an increase in the interest on discount window loans. Given that the cost of being short of reserves go up, banks allocate a larger fraction of their assets to reserves and the volume of loans fall. To restore market clearing in loans market, the return on loans must go up. Notice that the Fed funds market goes up, as essentially the increase in the discount window rate raises the ceiling on the interbank markets' rate
+\item There are also persistent effects on the interest on reserves even if it is only one period. Given that total loans fall, banks experience a fall in equity.
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{CB's Loan Purchases \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{OMAeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{OMAliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{OMAliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{OMAloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{OMApi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\Delta B^{fed}, \Delta \hat{M}^{fed}$)}
+\includegraphics[width=\textwidth]{OMAshock.eps}
+\end{minipage}
+\label{Fig:oma}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item The experiment we conduct next is an open market operation where the Fed exchanges reserves for loans with banks. We assume that starting the next period, the Fed gradually sells the loans and exchanges them for reserves, and rebates the profits to the banks.
+\item What the Fed is doing effectively is exchanging illiquid assets for liquid assets. The result of this operation is that the liquidity premium is going to fall.
+    \item Banks will hold less loans themselves because of a crowding  out effect, but overall the total volume of loans go up, as the decline in the return for loans indicate. This also leads to an increase in equity of the banks because of there is overall in the economy a larger investment in high return assets.
+\item Because of the increase in the supply of reserves, restoring market clearing requires an increase in the price level on impact.
+\end{itemize}}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Default Risk \widehrulefill}
+
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKeq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock (Std Return Loans) }
+\includegraphics[width=\textwidth]{LOANS_RETURN_SHOCKshock.eps}
+\end{minipage}
+\label{Fig:defalt}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item blabla
+\end{itemize}}
+\end{frame}
+
+
+%
+ \begin{frame}
+\frametitle{Liquidity Coverage Ratio \widehrulefill}
+\begin{figure}[tbp]
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Equity}
+\includegraphics[width=\textwidth]{LCReq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Ratio}
+ \includegraphics[width=\textwidth]{LCRliq.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Liquidity Premium}
+ \includegraphics[width=\textwidth]{LCRliqpr.eps}
+\end{minipage}
+\newline
+\newline
+\vspace{0.2cm}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Loans}
+\includegraphics[width=\textwidth]{LCRloans.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Inflation}
+\includegraphics[width=\textwidth]{LCRpi.eps}
+\end{minipage}
+\begin{minipage}[b]{0.32\linewidth}
+\centering
+\scriptsize{Shock ($\rho^{LCR}$)}
+\includegraphics[width=\textwidth]{LCRshock.eps}
+\end{minipage}
+\label{Fig:lcr}
+\end{figure}
+\note{\footnotesize
+\begin{itemize}
+\item blabla
+\end{itemize}}
+\end{frame}
+\end{document}
